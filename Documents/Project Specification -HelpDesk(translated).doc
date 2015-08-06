@@ -1,0 +1,124 @@
+
+Index
+
+
+
+1.	Introduction
+2.	Objectives of the project
+3.	Problem Statement
+4.	Hardware/ Software Requirements
+
+
+
+
+
+	
+ 
+
+
+Introduction
+
+
+The thirst for learning, upgrading technical skills and applying the concepts in real life environment at a fast pace is what the industry demands from IT professionals today. However busy work schedules, far-flung locations, unavailability of convenient time-slots pose as major barriers when it comes to applying the concepts into realism.  And hence the need to look out for alternative means of implementation in the form of laddered approach. 
+(Những khao khát học tập, nâng cao kỹ thuật và áp dụng các khái niệm trong môi trường thực tế với một tốc độc nhanh chóng là những nhu cầu ngành công nghiệp cần từ các chuyên gia IT ngày nay. Tuy nhiên do lịch làm việc bận rộn, địa điểm xa xôi, không tuận tiện về thời gian … đặt ra các rào cản lớn khi áp dụng các khái niệm vào hiện thực. Và vì vậy cần phải tìm ra phương tiện thay thế theo hình thức….    )
+
+The above truly pose as constraints especially for our students too! With their busy schedules, it is indeed difficult for our students to keep up with the genuine and constant need for integrated application which can be seen live especially so in the field of IT education where technology can change on the spur of a moment. Well, technology does come to our rescue at such times!!
+(Trên đây thực sự đặt ra những hạn chế đặc biệt cho sinh viên của chúng tôi. Với lịch trình bận rộn của họ, nó thực sự khó khăn cho sinh viên để theo kịp với nhu cầu thực sự và liên tục cho các ứng dụng tích hợp có thể được nhìn thấy … đặc biệt như vậy trong lĩnh vực đào tạo CNTT nơi công nghệ có thể thay đổi … thời điểm. )
+
+Keeping the above in mind and in tune with our constant endeavour to use Technology in our training model, we at Aptech have thought of revolutionizing the way our students learn and implement the concepts using tools themselves by providing a live and synchronous eProject   learning environment!
+(Giữ trong tâm trí và điều chỉnh với nỗ lực không ngừng của chúng tôi để sử dụng công nghệ trong 	mô hình đào tạo…….)
+
+So what is this eProject?
+
+eProject is a step by step learning environment that closely simulates the classroom and Lab based learning environment into actual implementation. It is a project implementation at your fingertips!! An electronic, live juncture on the machine that allows you to 
+(ePr từng bước một của môi trường học tập mô phỏng sát ………….)
+o	Practice step by step i.e. laddered approach.
+o	Build a larger more robust application.
+o	Usage of certain utilities in applications designed by user.
+o	Single program to unified code leading to a complete application.
+o	Learn implementation of concepts in a phased manner.
+o	Enhance skills and add value.
+o	Work on real life projects. 
+o	Give a real life scenario and help to create applications more complicated and useful.
+o	Mentoring through email support.
+
+
+The students at the centre are expected to complete this eProject and send complete project report along with documentation and source code to eprojects@aptech.ac.in 
+
+Looking forward to a positive response from your end!!
+ 
+
+
+Objectives of the project
+
+
+The Objective of this program is to give a sample project to work on real life projects. These applications help you build a larger more robust application.
+
+
+The objective is not to teach you Java but to provide you with a real life scenario and help you create basic applications using the tools.
+
+You can revise these chapters before you start with the project. 
+
+This project is meant for students who have completed or are half way through the module of .net/java. These programs should be done in the Lab sessions with assistance of the faculty if required.
+
+It is very essential that a student has a clear understanding of the subject. 
+
+Kindly get back @ eprojects@aptech.ac.in in case of any doubts regarding the application or its objectives.
+
+
+ 
+
+
+Problem Statement
+
+The problem statement is attached separately in a file “Mantech helpdesk.doc”
+(Các vấn đề được đính kèm trong một tệp riêng có tên “Mantech helpdesk.doc”)
+
+Standards plan: (Kế hoạch tiêu chuẩn)
+
+Every code block must have comments. (Mỗi khối code đều phải có chú thích)
+The logic of the program needs to be explained. Proper documentation should be maintained. (Logic của chương trình cần được giải thích. Tài liệu thích hợp cần được duy trì) 
+Complete Project Report along with synopsis, code and documentation should be prepared. (Hoàn thành báo cáo dự án cùng với tóm tắt, code và tài liệu cần được chuẩn bị)
+
+Documentation: (Tài liệu)
+
+No project is complete without documentation. In fact, it is one of the most important activities during the development of a project. The documentation of an ideal project will be in the form of a project report comprising of the following documents:
+(Không có dự án nào hoàn thành mà không có tài liệu hướng dẫn. Trong thực tế, nó là một hoạt động quan trọng nhất trong suốt quá trình phát triển một dự án. Những tài liệu của một dự án lý tưởng sẽ có hình thức như sau)
+	Certificate of Completion. (Chứng nhận hoàn tất) 
+	Table of Contents. (Mục lục)
+	Problem Definition. (Xác định vấn đề)
+	Customer Requirement Specification. (Khách hàng yêu cầu)
+	Project Plan. (Kế hoạch đồ án)
+	E-R Diagrams. (Biểu đồ E-R)
+	Algorithms.  (Các thuật toán)
+	GUI Standards Document. (Tài liệu GUI chuẩn)
+	Interface Design Document. (Tài liệu thế kế giao diện)
+	Task Sheet. (Bảng nhiệm vụ)
+	Project Review and Monitoring Report. (Đánh giá dự án và báo cáo giám sát)
+	Unit Testing Check List. (Danh sách đơn vị kiểm tra)
+	Final Check List. (Danh sách kiểm tra cuối cùng)
+
+
+
+ 
+ 
+Hardware/ Software Requirements
+
+
+Hardware 
+•	A minimum computer system that will help you access all the tools in the courses is a Pentium 166 or better
+•	64 Megabytes of RAM or better
+•	Windows 2000 (or higher if possible)
+•	Java Virtual Machine/.Net
+
+
+Software 
+•	Notepad/Java editor/visual studio
+•	j2sdk1.4.1_02 (or later)./visual studio .net
+•	EJB Dev Kit/asp.net
+•	Java enabled web server/iis
+•	JSP / Servlets Dev. Kit/asp.net
+
+
+
+
