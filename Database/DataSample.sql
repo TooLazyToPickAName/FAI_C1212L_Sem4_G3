@@ -12,3 +12,7 @@ insert into category(title, description) values ("Hardware Failure", "Hardware f
 												("Software crashh", "software's problem"),
 												("Other", "something else");
 
+/*Complaint*/
+insert into Complaint(category_id, date_close, department_id, technical_id, time_taken, employee_id, status_complaint, priority)
+	values (1, null, 2, 2, 3, 3, default, default)
+
