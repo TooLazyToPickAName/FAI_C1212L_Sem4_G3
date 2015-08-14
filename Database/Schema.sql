@@ -1,5 +1,7 @@
+drop database if exists MantechHelpdesk;
 create database MantechHelpdesk;
 use MantechHelpdesk;
+
 create table Complaint(
 	id integer auto_increment primary key not null,
 	category_id integer not null,
@@ -37,7 +39,7 @@ create table User(
 	username varchar(50) not null,
 	password varchar(100) not null,
 	fullname varchar(50) not null,
-	department_id integer not null,
+	department_id integer,
 	date_of_birth date,
 	phone_number varchar(20),
 	email varchar(200),
@@ -54,4 +56,14 @@ create table ComplaintsTechnicals(
 	complaint_id integer not null,
 	technical_id integer not null,
 	date_created datetime default current_timestamp
-)
+);
+
+alter table Complaint add constraint fk_ComplaintUser foreign key (employee_id) references User(id);
+alter table Complaint add constraint fk_ComplaintCategory foreign key (category_id) references Category(id);
+alter table Complaint add constraint fk_ComplaintDepartment foreign key (department_id) references Department(id);
+
+alter table ComplaintsTechnicals add constraint fk_CTComplaints foreign key (complaint_id) references Complaint(id);
+alter table ComplaintsTechnicals add constraint fk_CTTechnicals foreign key (technical_id) references Technical(id);
+
+alter table User add constraint fk_UserRole foreign key (role_id) references Role(id);
+alter table User add constraint fk_UserDepartment foreign key (department_id) references Department(id);
