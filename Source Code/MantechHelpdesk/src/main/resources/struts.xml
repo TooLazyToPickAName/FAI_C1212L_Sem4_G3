@@ -11,9 +11,9 @@
             method="execute">
             <result name="success">/HelloWorld.jsp</result>
       </action>-->
-      <-- more actions can be listed here -->
+      <!-- more actions can be listed here -->
 
    </package>
-   <-- more packages can be listed here -->
+   <!-- more packages can be listed here -->
 
 </struts>

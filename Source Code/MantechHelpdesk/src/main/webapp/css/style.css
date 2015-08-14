@@ -16,3 +16,13 @@ body {
     height: 50px;
     margin: auto;
 }
+
+.nav-separator {
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background: transparent url("../img/link-footer.png") no-repeat scroll 0% 0%;
+    top: 12px;
+    right: -1px;
+    padding: 0 !important;
+}
