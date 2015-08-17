@@ -4,6 +4,7 @@ use MantechHelpdesk;
 
 create table Complaint(
 	id integer auto_increment primary key not null,
+	title varchar(200),
 	category_id integer not null,
 	date_register datetime not null default current_timestamp,
 	date_close datetime,

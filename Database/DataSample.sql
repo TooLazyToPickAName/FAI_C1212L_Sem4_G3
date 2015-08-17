@@ -29,18 +29,18 @@ insert into User(username, password, fullname, department_id, date_of_birth, pho
 													 ("employee2", "employee2", "I'm Employee 2", 1, "1992-08-11", "+841904842392", "employee2@helpdesk.com", 2), 
 													 ("employee3", "employee3", "I'm Employee 3", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 2);
 /*Complaint*/
-insert into Complaint(category_id, date_close, department_id, time_taken, employee_id, status_complaint, priority)
-	values (1, null, 1, 3, 2, default, default),
-		   (2, null, 1, 3, 2, default, default),
-		   (2, null, 1, 3, 3, default, default),
-		   (3, null, 2, 3, 3, default, default),
-		   (3, null, 2, 3, 4, default, default),
-		   (4, null, 3, 3, 4, default, default),
-		   (4, null, 3, 3, 4, default, default),
-		   (4, null, 4, 3, 4, default, default),
-		   (4, null, 5, 3, 4, default, default),
-		   (5, null, 5, 3, 4, default, default),
-		   (5, null, 5, 3, 4, default, default);
+insert into Complaint(category_id, title, date_close, department_id, time_taken, employee_id, status_complaint, priority)
+	values (1, "I have a problem with my computer",  null, 1, 3, 2, default, default),
+		   (2, "I have a problem with my computer", null, 1, 3, 2, default, default),
+		   (2, "I have a problem with my computer",null, 1, 3, 3, default, default),
+		   (3, "I have a problem with my computer",null, 2, 3, 3, default, default),
+		   (3, "I have a problem with my computer",null, 2, 3, 4, default, default),
+		   (4, "I have a problem with my computer",null, 3, 3, 4, default, default),
+		   (4, "I have a problem with my computer",null, 3, 3, 4, default, default),
+		   (4, "I have a problem with my computer",null, 4, 3, 4, default, default),
+		   (4, "I have a problem with my computer",null, 5, 3, 4, default, default),
+		   (5, "I have a problem with my computer",null, 5, 3, 4, default, default),
+		   (5, "I have a problem with my computer",null, 5, 3, 4, default, default);
 
 insert into ComplaintsTechnicals(complaint_id, technical_id, date_created) 
 values (1, 1, default), 		    
