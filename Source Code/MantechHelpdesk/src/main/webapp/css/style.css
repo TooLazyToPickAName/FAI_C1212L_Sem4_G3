@@ -230,5 +230,23 @@ ul.menu ul li a{
     margin-bottom: 0px;
 }
 
+.mGrid{
+    background-color: White;
+    border-color: #E7E7FF;
+    border-width: 1px;
+    border-style: None;
+    font-size: Small;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+}
+
+.mGrid th{
+      padding: 4px 2px;
+      color: #FFFFFF;
+      background: #424242;
+      font-size: 0.9em;
+}
 
 
