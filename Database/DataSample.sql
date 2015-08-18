@@ -15,21 +15,17 @@ insert into category(title, description) values ("Hardware Failure", "Hardware f
 												("Software crashh 3", "software's problem"),
 												("Other", "something else");
 
-/*Technical*/
-insert into Technical(fullname, date_created) values ("Wind Luffy", default),
-													 ("Lelouch Lamperoge", default),
-													 ("Ken Kaneki", default);
-
-insert into Role(title) values ("Administrator"),
-							   ("Employee");
 
 insert into User(username, password, fullname, department_id, date_of_birth, phone_number, email, role_id) values
-													 ("admin", "admin", "I'm Administrator", null, "1992-08-11", "+841904842392", "admin@helpdesk.com", 1),
-													 ("employee1", "employee1", "I'm Employee 1", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 2), 
-													 ("employee2", "employee2", "I'm Employee 2", 1, "1992-08-11", "+841904842392", "employee2@helpdesk.com", 2), 
-													 ("employee3", "employee3", "I'm Employee 3", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 2);
+													 ("admin", "admin", "I'm Administrator", null, "1992-08-11", "+841904842392", "admin@helpdesk.com", 0),
+													 ("employee1", "employee1", "I'm Employee 1", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 1), 
+													 ("employee2", "employee2", "I'm Employee 2", 1, "1992-08-11", "+841904842392", "employee2@helpdesk.com", 1), 
+													 ("employee3", "employee3", "I'm Employee 3", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 1),
+													 ("technical1", "technical1", "I'm Technical 1", null, "1992-08-11", "+841904842392", "technical1@helpdesk.com", 2),
+													 ("technical2", "technical2", "I'm Technical 2", null, "1992-08-11", "+841904842392", "technical2@helpdesk.com", 2),
+													 ("technical3", "technical3", "I'm Technical 3", null, "1992-08-11", "+841904842392", "technical3@helpdesk.com", 2);
 /*Complaint*/
-insert into Complaint(category_id, title, date_close, department_id, time_taken, employee_id, status_complaint, priority)
+insert into Complaint(category_id, title, date_close, department_id, time_taken, employee_id, status, priority)
 	values (1, "I have a problem with my computer",  null, 1, 3, 2, default, default),
 		   (2, "I have a problem with my computer", null, 1, 3, 2, default, default),
 		   (2, "I have a problem with my computer",null, 1, 3, 3, default, default),

@@ -11,8 +11,8 @@ create table Complaint(
 	department_id integer not null,
 	time_taken integer,
 	employee_id integer not null,
-	status_complaint varchar(20) default "pending",
-	priority varchar(20) default "normal"
+	status int default 0 not null, -- 0 :pending, 1: assigned, 2: progressing, 3: rejected, 4: closed
+	priority int default 1 not null -- 0 :High, 1: Normal, 2: Low
 );
 
 create table Category(
@@ -29,12 +29,6 @@ create table Department(
 	date_created datetime default current_timestamp
 );
 
-create table Technical(
-	id integer auto_increment not null primary key,
-	fullname varchar(50) not null,
-	date_created datetime default current_timestamp
-);
-
 create table User(
 	id integer auto_increment not null primary key,
 	username varchar(50) not null,
@@ -47,16 +41,11 @@ create table User(
 	role_id integer not null
 );
 
-create table Role(
-	id integer auto_increment primary key not null,
-	title varchar(20)
-);
-
 create table ComplaintsTechnicals(
-	id integer auto_increment not null primary key,
 	complaint_id integer not null,
 	technical_id integer not null,
-	date_created datetime default current_timestamp
+	date_created datetime default current_timestamp,
+	primary key (complaint_id, technical_id)
 );
 
 alter table Complaint add constraint fk_ComplaintUser foreign key (employee_id) references User(id);
@@ -64,7 +53,6 @@ alter table Complaint add constraint fk_ComplaintCategory foreign key (category_
 alter table Complaint add constraint fk_ComplaintDepartment foreign key (department_id) references Department(id);
 
 alter table ComplaintsTechnicals add constraint fk_CTComplaints foreign key (complaint_id) references Complaint(id);
-alter table ComplaintsTechnicals add constraint fk_CTTechnicals foreign key (technical_id) references Technical(id);
+alter table ComplaintsTechnicals add constraint fk_CTTechnicals foreign key (technical_id) references User(id);
 
-alter table User add constraint fk_UserRole foreign key (role_id) references Role(id);
 alter table User add constraint fk_UserDepartment foreign key (department_id) references Department(id);
