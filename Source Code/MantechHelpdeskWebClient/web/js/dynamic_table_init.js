@@ -2,9 +2,10 @@ function fnFormatDetails ( oTable, nTr )
 {
     var aData = oTable.fnGetData( nTr );
     var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-    sOut += '<tr><td>Rendering engine:</td><td>'+aData[1]+' '+aData[4]+'</td></tr>';
-    sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-    sOut += '<tr><td>Extra info:</td><td>And any further details here (img etc)</td></tr>';
+    sOut += '<tr><td>Date Register:</td><td>'+aData[1]+' '+aData[4]+'</td></tr>';
+    sOut += '<tr><td>Date Close:</td><td>Could provide a link here</td></tr>';
+    sOut += '<tr><td>Department:</td><td>And any further details here </td></tr>';
+    sOut += '<tr><td>Time Taken:</td><td>details here </td></tr>';
     sOut += '</table>';
 
     return sOut;
