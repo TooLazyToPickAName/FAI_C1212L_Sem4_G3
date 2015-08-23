@@ -12,5 +12,10 @@
         <action name="index" class="com.mantechhelpdesk.action.ShowComplaints">
             <result name="success">show_complaints.jsp</result>
         </action>
+        
+        <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint">
+            <result name="success">create_complaint.jsp</result>
+        </action>
+        
     </package>
 </struts>

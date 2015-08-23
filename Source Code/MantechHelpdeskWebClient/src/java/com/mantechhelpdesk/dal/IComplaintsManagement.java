@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface IComplaintsManagement {
     List<Complaint> getAllComplaints();
+    boolean createComplaint(Complaint c);
 }
