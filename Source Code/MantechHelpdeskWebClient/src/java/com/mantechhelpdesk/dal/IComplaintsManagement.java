@@ -15,4 +15,5 @@ import java.util.List;
 public interface IComplaintsManagement {
     List<Complaint> getAllComplaints();
     Complaint getComplaintById(int id);
+    boolean createComplaint(Complaint c);
 }

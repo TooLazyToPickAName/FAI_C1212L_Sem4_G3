@@ -24,5 +24,8 @@
                 <param name="noCache">true</param>
             </result>
         </action>
+        <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint">
+            <result name="success">create_complaint.jsp</result>
+        </action>
     </package>
 </struts>
