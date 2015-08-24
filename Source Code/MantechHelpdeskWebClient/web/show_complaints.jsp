@@ -374,9 +374,9 @@
                                                     <tr class="gradeX">
                                                         <td>${c.id}</td>
                                                         <td>${c.title}</td>
-                                                        <td class="hidden-phone">Win 95+</td>
-                                                        <td class="center hidden-phone">4</td>
-                                                        <td class="center hidden-phone">X</td>
+                                                        <td class="hidden-phone">${c.categoryId}</td>
+                                                        <td class="center hidden-phone">${c.status}</td>
+                                                        <td class="center hidden-phone">${c.priority}</td>
                                                     </tr>
                                                 </c:forEach>    
 
