@@ -48,3 +48,5 @@ Source Code/MantechHelpdeskWebClient/src/java/example/package_es.properties
 Source Code/MantechHelpdeskWebClient/src/java/example/package.properties
 
 Source Code/MantechHelpdeskWebClient/nbproject/project.properties
+/Source Code/MantechHelpdeskMaven/target/
+Source Code/MantechHelpdeskMaven/nb-configuration.xml

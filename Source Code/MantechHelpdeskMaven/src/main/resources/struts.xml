@@ -1,0 +1,31 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+        </result-types>
+        <interceptors>
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"></interceptor>
+        </interceptors>
+        <action name="showComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
+            <result name="success">show_complaints.jsp</result>
+        </action>
+        <action name="index" class="com.mantechhelpdesk.action.ShowComplaints">
+            <result name="success">show_complaints.jsp</result>
+        </action>
+        <action name="ajaxComplaintDetails" class="com.mantechhelpdesk.action.AjaxComplaintDetails">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint">
+            <result name="success">create_complaint.jsp</result>
+        </action>
+    </package>
+</struts>
