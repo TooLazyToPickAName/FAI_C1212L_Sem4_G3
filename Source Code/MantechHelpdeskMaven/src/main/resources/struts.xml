@@ -12,6 +12,7 @@
         <interceptors>
             <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"></interceptor>
         </interceptors>
+        <default-action-ref name="showComplaints" />
         <action name="showComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
             <result name="success">show_complaints.jsp</result>
         </action>
