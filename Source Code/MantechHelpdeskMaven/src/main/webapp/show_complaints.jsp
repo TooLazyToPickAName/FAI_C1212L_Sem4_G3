@@ -369,9 +369,9 @@
                                                     <tr class="gradeX">
                                                         <td>${c.id}</td>
                                                         <td>${c.title}</td>
-                                                        <td class="hidden-phone">${c.categoryId}</td>
-                                                        <td class="center hidden-phone">${c.status}</td>
-                                                        <td class="center hidden-phone">${c.priority}</td>
+                                                        <td class="hidden-phone">${c.categoryName}</td>
+                                                        <td class="center hidden-phone">${c.statusName}</td>
+                                                        <td class="center hidden-phone">${c.priorityName}</td>
                                                     </tr>
                                                 </c:forEach>    
 

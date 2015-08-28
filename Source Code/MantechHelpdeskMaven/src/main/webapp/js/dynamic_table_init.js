@@ -16,7 +16,7 @@ function fnFormatDetails(oTable, nTr)
             strDateClosed = "Not yet done";
         }
         sOut += '<tr><td>Date Close:</td><td>' + strDateClosed + '</td></tr>';
-        sOut += '<tr><td>Department:</td><td>' + obj.departmentId + '</td></tr>';
+        sOut += '<tr><td>Department:</td><td>' + obj.departmentName + '</td></tr>';
         sOut += '<tr><td>Time Taken:</td><td>' + obj.timeTaken + 'h</td></tr>';
         sOut += '</table>';
         
