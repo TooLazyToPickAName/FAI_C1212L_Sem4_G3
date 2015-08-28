@@ -370,12 +370,12 @@
                                                         <td>${c.id}</td>
                                                         <td>${c.title}</td>
                                                         <td class="hidden-phone">${c.categoryName}</td>
-                                                        <td class="center hidden-phone">${c.statusName}</td>
-                                                        <td class="center hidden-phone">${c.priorityName}</td>
+                                                        <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
+                                                        <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
                                                     </tr>
                                                 </c:forEach>    
 
-                                                
+
                                             </tbody>
                                         </table>
 
@@ -423,6 +423,9 @@
 
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
+
+        <!--My Script -->
+        <script src="js/myscript.js"></script>
 
     </body>
 
