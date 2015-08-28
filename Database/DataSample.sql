@@ -25,18 +25,18 @@ insert into User(username, password, fullname, department_id, date_of_birth, pho
 													 ("technical2", "technical2", "I'm Technical 2", null, "1992-08-11", "+841904842392", "technical2@helpdesk.com", 2),
 													 ("technical3", "technical3", "I'm Technical 3", null, "1992-08-11", "+841904842392", "technical3@helpdesk.com", 2);
 /*Complaint*/
-insert into Complaint(category_id, title, date_close, department_id, time_taken, employee_id, status, priority)
-	values (1, "I have a problem with my computer",  null, 1, 3, 2, default, default),
-		   (2, "I have a problem with my computer", null, 1, 3, 2, default, default),
-		   (2, "I have a problem with my computer",null, 1, 3, 3, default, default),
-		   (3, "I have a problem with my computer",null, 2, 3, 3, default, default),
-		   (3, "I have a problem with my computer",null, 2, 3, 4, default, default),
-		   (4, "I have a problem with my computer",null, 3, 3, 4, default, default),
-		   (4, "I have a problem with my computer",null, 3, 3, 4, default, default),
-		   (4, "I have a problem with my computer",null, 4, 3, 4, default, default),
-		   (4, "I have a problem with my computer",null, 5, 3, 4, default, default),
-		   (5, "I have a problem with my computer",null, 5, 3, 4, default, default),
-		   (5, "I have a problem with my computer",null, 5, 3, 4, default, default);
+insert into Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority)
+	values (1, "I have a problem with my computer", "this is description",  null, 1, 3, 2, default, default),
+		   (2, "I have a problem with my computer","this is description", null, 1, 3, 2, default, default),
+		   (2, "I have a problem with my computer","this is description",null, 1, 3, 3, default, default),
+		   (3, "I have a problem with my computer","this is description",null, 2, 3, 3, default, default),
+		   (3, "I have a problem with my computer","this is description",null, 2, 3, 4, default, default),
+		   (4, "I have a problem with my computer","this is description",null, 3, 3, 4, default, default),
+		   (4, "I have a problem with my computer","this is description",null, 3, 3, 4, default, default),
+		   (4, "I have a problem with my computer","this is description",null, 4, 3, 4, default, default),
+		   (4, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
+		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
+		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default);
 
 insert into ComplaintsTechnicals(complaint_id, technical_id, date_created) 
 values (1, 1, default), 		    
