@@ -1,13 +1,11 @@
 <%-- 
-    Document   : create_complaint
-    Created on : Aug 21, 2015, 7:14:09 PM
+    Document   : admin_temp
+    Created on : Aug 29, 2015, 12:01:09 AM
     Author     : tinblanc
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +17,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="img/favicon.html">
 
-        <title>Create Complaint</title>
+        <title>Administrator</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,10 +25,12 @@
         <!--external css-->
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker.css" />
-
+        <!--dynamic table-->
+        <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+        <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+        <!--right slidebar-->
+        <link href="css/slidebars.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
     </head>
 
     <body>
-        <s:form action="createComplaint">           
+
         <section id="container" class="">
             <!--header start-->
             <header class="header white-bg">
@@ -54,9 +54,9 @@
                 <a href="index.html" class="logo" >Help<span>Desk</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
-                      <!--notification start--> 
+                    <!--  notification start -->
                     <ul class="nav top-menu">
-                         <!--settings start--> 
+                        <!-- settings start -->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-tasks"></i>
@@ -138,8 +138,8 @@
                                 </li>
                             </ul>
                         </li>
-                         <!--settings end--> 
-                         <!--inbox dropdown start-->
+                        <!-- settings end -->
+                        <!-- inbox dropdown start-->
                         <li id="header_inbox_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-envelope-o"></i>
@@ -203,8 +203,8 @@
                                 </li>
                             </ul>
                         </li>
-                         <!--inbox dropdown end--> 
-                         <!--notification dropdown start-->
+                        <!-- inbox dropdown end -->
+                        <!-- notification dropdown start-->
                         <li id="header_notification_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
@@ -256,7 +256,7 @@
                                 </li>
                             </ul>
                         </li>
-                         <!--notification dropdown end--> 
+                        <!-- notification dropdown end -->
                     </ul>
                 </div>
                 <div class="top-nav ">
@@ -264,7 +264,7 @@
                         <li>
                             <input type="text" class="form-control search" placeholder="Search">
                         </li>
-                         <!--user login dropdown start-->
+                        <!-- user login dropdown start-->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
@@ -279,7 +279,7 @@
                                 <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
-                         <!--user login dropdown end--> 
+                        <!-- user login dropdown end -->
                         <li class="sb-toggle-right">
                             <i class="fa  fa-align-right"></i>
                         </li>
@@ -290,7 +290,7 @@
             <!--sidebar start-->
             <aside>
                 <div id="sidebar"  class="nav-collapse ">
-                     <!--sidebar menu start-->
+                    <!-- sidebar menu start-->
                     <ul class="sidebar-menu" id="nav-accordion">
 
 
@@ -311,116 +311,50 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
+                                <li><a  href="#">Manager Complaints</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-cogs"></i>
+                                <span>Manager Accounts</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Create Account</a></li>
+                                <li><a  href="#">Show Accounts</a></li>
                             </ul>
                         </li>
 
-                        
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Reports by date</a></li>
+                                <li><a  href="#">Monthly Report</a></li>
+                                <li><a  href="#">Yearly Report</a></li>
+                            </ul>
+                        </li>
 
 
 
                         <!--multi level menu end-->
 
                     </ul>
-                     <!--sidebar menu end-->
+                    <!-- sidebar menu end-->
                 </div>
             </aside>
             <!--sidebar end-->
             <!--main content start-->
             <section id="main-content">
                 <section class="wrapper">
-                     <!--page start-->
+                    <!-- page start-->
+
                     
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <section class="panel">
-                                <header class="panel-heading">
-                                    Create Complaint
-                                </header>
-                                <div class="panel-body">
-                                    <div class=" form">
-                                        <form class="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
-                                            
-                                            
-                                            
-                                            
-                                            <div class="form-group ">
-                                                <label for="cname" class="control-label col-lg-2">Title</label>
-                                                <div class="col-lg-10">
-                                                    <input class=" form-control" id="cname" name="complaint.title" minlength="2" type="text" required />
-                                                    
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div class="form-group ">
-                                                <label for="ccategory" class="control-label col-lg-2">Category</label>
-                                                <div class="col-lg-10">
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                                            Hardware Failure
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                                            Software crashh
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                                            Software crashh 1
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                                                            Software crashh 2
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
-                                                            Software crashh 3
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios6" value="option6">
-                                                            Other
-                                                        </label>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group ">
-                                                <label for="ccomment" class="control-label col-lg-2">Description</label>
-                                                <div class="col-lg-10">
-                                                    <textarea class="form-control " id="ccomment" name="comment" required></textarea>
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-lg-offset-2 col-lg-10">
-                                                    <button class="btn btn-danger" type="submit">Create</button>
-                                                    <button class="btn btn-default" type="button">Cancel</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-
-                     <!--page end-->
+                    <!-- page end-->
                 </section>
             </section>
             <!--main content end-->
@@ -436,49 +370,30 @@
             </footer>
             <!--footer end-->
         </section>
-        
-
 
         <!-- js placed at the end of the document so the pages load faster -->
+
         <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
         <script src="js/respond.min.js" ></script>
-
-        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-
-        <!--custom switch-->
-        <script src="js/bootstrap-switch.js"></script>
-        <!--custom tagsinput-->
-        <script src="js/jquery.tagsinput.js"></script>
-
-        <!--custom checkbox & radio-->
-        <script type="text/javascript" src="js/ga.js"></script>
-
-        <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-
-        <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-        <script src="js/respond.min.js" ></script>
-
 
         <!--right slidebar-->
         <script src="js/slidebars.min.js"></script>
 
+        <!--dynamic table initialization -->
+        <script src="js/dynamic_table_init.js"></script>
+
+
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
 
-        <!--script for this page-->
-        <script src="js/form-validation-script.js"></script>
-        <script src="js/form-component.js"></script>
-
-    </s:form>
     </body>
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->

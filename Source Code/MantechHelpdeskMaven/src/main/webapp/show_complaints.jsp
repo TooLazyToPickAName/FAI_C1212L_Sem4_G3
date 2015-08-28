@@ -300,12 +300,8 @@
                                 <span>Home</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Boxed Page</a></li>
-                                <li><a  href="#">Horizontal Menu</a></li>
-                                <li><a  href="#">Different Color Top bar</a></li>
-                                <li><a  href="#">Mega Menu</a></li>
-                                <li><a  href="#">Language Switch Bar</a></li>
-                                <li><a  href="#" target="_blank">Email Template</a></li>
+                                <li><a  href="#">Introduce</a></li>
+                                <li><a  href="#">Personal Information</a></li>
                             </ul>
                         </li>
 
@@ -315,8 +311,8 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Inbox</a></li>
-                                <li><a  href="#">Inbox Details</a></li>
+                                <li><a  href="#">Create Complaint</a></li>
+                                <li><a  href="#">Show Complaints</a></li>
                             </ul>
                         </li>
 
@@ -326,10 +322,9 @@
                                 <span>Reports</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Morris</a></li>
-                                <li><a  href="#">Chartjs</a></li>
-                                <li><a  href="#">Flot Charts</a></li>
-                                <li><a  href="#">xChart</a></li>
+                                <li><a  href="#">Reports by date</a></li>
+                                <li><a  href="#">Monthly Report</a></li>
+                                <li><a  href="#">Yearly Report</a></li>
                             </ul>
                         </li>
 
