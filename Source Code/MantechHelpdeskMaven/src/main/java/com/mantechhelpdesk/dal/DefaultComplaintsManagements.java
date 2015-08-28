@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.mantechhelpdesk.common.*;
+import com.mantechhelpdesk.entity.Category;
+import com.mantechhelpdesk.entity.Department;
 
 public class DefaultComplaintsManagements implements IComplaintsManagement {
 
@@ -33,7 +35,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
 
         try {
             Statement cmd = conn.createStatement();
-            String query =  "select \n"
+            String query = "select \n"
                     + "	c.*, \n"
                     + "	d.title as departmentName,\n"
                     + "	cg.title as categoryName\n"
@@ -51,6 +53,57 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         } finally {
         }
         return ret;
+    }
+
+    @Override
+    public List<Category> getAllCategory() {
+        List<Category> listCategory = new ArrayList<>();
+        DataConnection db = new DataConnection();
+
+        Connection conn = db.getConnection();
+        try {
+
+            Statement cmd = conn.createStatement();
+            String query = "select * from Category";
+            rs = cmd.executeQuery(query);
+
+            while (rs.next()) {
+                Category c = new Category();
+                c.setId(rs.getInt("id"));
+                c.setTitle(rs.getString("title"));
+                c.setDescription(rs.getString("description"));
+                listCategory.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listCategory;
+    }
+    
+    @Override
+    public List<Department> getAllDepartment(){
+        List<Department> listDepartment = new ArrayList<>();
+        DataConnection db = new DataConnection();
+        
+        Connection conn = db.getConnection();
+        
+        
+        try {
+            Statement cmd= conn.createStatement();
+            String query = "select * from Department";
+            rs = cmd.executeQuery(query);
+            
+            while(rs.next()){
+                Department d = new Department();
+                d.setId(rs.getInt("id"));
+                d.setTitle(rs.getString("title"));
+                d.setDescription(rs.getString("description"));
+                listDepartment.add(d);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listDepartment;
     }
 
     @Override

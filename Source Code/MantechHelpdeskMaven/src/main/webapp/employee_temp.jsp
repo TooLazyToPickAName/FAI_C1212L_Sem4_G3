@@ -1,8 +1,9 @@
 <%-- 
-    Document   : admin_temp
-    Created on : Aug 29, 2015, 12:01:09 AM
+    Document   : employee_temp
+    Created on : Aug 29, 2015, 12:23:18 AM
     Author     : tinblanc
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,7 +18,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="img/favicon.html">
 
-        <title>Administrator</title>
+        <title>Employee</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -302,6 +303,7 @@
                             <ul class="sub">
                                 <li><a  href="#">Introduce</a></li>
                                 <li><a  href="#">Personal Information</a></li>
+                                <li><a  href="#">Change Password</a></li>
                             </ul>
                         </li>
 
@@ -311,22 +313,11 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
+                                <li><a  href="#">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
-                                <li><a  href="#">Manager Complaints</a></li>
                             </ul>
                         </li>
                         
-                        <li class="sub-menu">
-                            <a href="javascript:;" >
-                                <i class=" fa fa-cogs"></i>
-                                <span>Manager Accounts</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a  href="#">Create Account</a></li>
-                                <li><a  href="#">Show Accounts</a></li>
-                            </ul>
-                        </li>
-
                         <li class="sub-menu">
                             <a href="javascript:;" >
                                 <i class=" fa fa-bar-chart-o"></i>
@@ -398,5 +389,6 @@
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
 </html>
+
 
 
