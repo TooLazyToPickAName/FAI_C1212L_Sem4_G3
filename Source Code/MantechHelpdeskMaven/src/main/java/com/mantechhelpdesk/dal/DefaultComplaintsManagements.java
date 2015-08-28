@@ -1,22 +1,16 @@
-
 package com.mantechhelpdesk.dal;
 
 import com.mantechhelpdesk.entity.Complaint;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import com.mantechhelpdesk.common.*;
 
 public class DefaultComplaintsManagements implements IComplaintsManagement {
 
@@ -26,11 +20,10 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
      *
      * @return List complaints
      */
-    
     public static PreparedStatement ps = null;
     public static ResultSet rs = null;
     private boolean check = false;
-    
+
     @Override
     public List<Complaint> getAllComplaints() {
         List<Complaint> ret = new ArrayList<>();
@@ -40,7 +33,14 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
 
         try {
             Statement cmd = conn.createStatement();
-            String query = "SELECT * FROM Complaint";
+            String query =  "select \n"
+                    + "	c.*, \n"
+                    + "	d.title as departmentName,\n"
+                    + "	cg.title as categoryName\n"
+                    + "from complaint c \n"
+                    + "	inner join department d on c.department_id = d.id\n"
+                    + "	inner join category cg on c.category_id = cg.id\n"
+                    + "order by c.date_register desc";
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
@@ -52,25 +52,25 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
-    
+
     @Override
-    public boolean createComplaint(Complaint c){
-        
+    public boolean createComplaint(Complaint c) {
+
         try {
             DataConnection db = new DataConnection();
             Connection conn = db.getConnection();
-            String str="INSERT INTO Complaint(title, category_id , department_id, time_taken, employee_id) VALUES (?, ?, ?, ?, ?)";
-            
+            String str = "INSERT INTO Complaint(title, category_id , department_id, time_taken, employee_id) VALUES (?, ?, ?, ?, ?)";
+
             ps = conn.prepareStatement(str);
             ps.setString(1, c.getTitle());
-            ps.setInt(2, 3); 
+            ps.setInt(2, 3);
             ps.setInt(3, 1);
             ps.setInt(4, 2);
             ps.setInt(5, 3);
-            
+
             int executeUpdate = ps.executeUpdate();
-            if(executeUpdate>0){
-                check=true;
+            if (executeUpdate > 0) {
+                check = true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,9 +78,10 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         return check;
     }
 
-    
-    /***
+    /**
+     * *
      * Get Complaint Obj base on Id
+     *
      * @param id complaint
      * @return Complaint Object
      */
@@ -89,7 +90,15 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
 
-        String query = "SELECT * FROM Complaint WHERE id = ?";
+        String query = "select \n"
+                + "	c.*, \n"
+                + "	d.title as departmentName,\n"
+                + "	cg.title as categoryName\n"
+                + "from complaint c \n"
+                + "	inner join department d on c.department_id = d.id\n"
+                + "	inner join category cg on c.category_id = cg.id\n"
+                + "where c.id = ? \n"
+                + "order by c.date_register desc";
         ResultSet rs = null;
         try {
             PreparedStatement ps = conn.prepareStatement(query);
@@ -116,6 +125,11 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             obj.setEmployeeId(rs.getInt("employee_id"));
             obj.setStatus(rs.getInt("status"));
             obj.setPriority(rs.getInt("priority"));
+            obj.setStatusName(StatusType.getTitle(rs.getInt("status")));
+            obj.setPriorityName(PriorityType.getTitle(rs.getInt("priority")));
+            obj.setDepartmentName(rs.getString("departmentName"));
+            obj.setCategoryName(rs.getString("categoryName"));
+
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
         }

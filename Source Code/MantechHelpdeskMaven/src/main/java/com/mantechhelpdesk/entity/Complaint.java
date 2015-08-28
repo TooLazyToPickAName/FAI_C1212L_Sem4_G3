@@ -22,6 +22,42 @@ public class Complaint {
     private int employeeId;
     private int status;
     private int priority;
+    private String categoryName;
+    private String departmentName;
+    private String statusName;
+    private String priorityName;
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public String getPriorityName() {
+        return priorityName;
+    }
+
+    public void setPriorityName(String priorityName) {
+        this.priorityName = priorityName;
+    }
 
     public Complaint() {
     }
