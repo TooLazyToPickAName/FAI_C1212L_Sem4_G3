@@ -1,9 +1,8 @@
 <%-- 
-    Document   : employee_temp
-    Created on : Aug 29, 2015, 12:23:18 AM
+    Document   : technical_temp
+    Created on : Aug 31, 2015, 2:50:17 PM
     Author     : tinblanc
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -19,7 +18,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="img/favicon.html">
 
-        <title>Employee</title>
+        <title>Technical</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +52,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <a href="index.html" class="logo" >Tech<span>nical</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -304,7 +303,6 @@
                             <ul class="sub">
                                 <li><a  href="#">Introduce</a></li>
                                 <li><a  href="#">Personal Information</a></li>
-                                <li><a  href="#">Change Password</a></li>
                             </ul>
                         </li>
 
@@ -314,11 +312,22 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
+                                <li><a  href="#">Manager Complaints</a></li>
                             </ul>
                         </li>
                         
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-cogs"></i>
+                                <span>Manager Accounts</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Create Account</a></li>
+                                <li><a  href="#">Show Accounts</a></li>
+                            </ul>
+                        </li>
+
                         <li class="sub-menu">
                             <a href="javascript:;" >
                                 <i class=" fa fa-bar-chart-o"></i>

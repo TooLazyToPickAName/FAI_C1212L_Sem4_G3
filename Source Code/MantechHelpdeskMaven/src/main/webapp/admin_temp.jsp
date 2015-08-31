@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/struts-tags" prefix="s" %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -194,7 +195,7 @@
                                             <span class="time">Just now</span>
                                         </span>
                                         <span class="message">
-                                            Hello, this is metrolab
+                                            Hello, this is Helpdesk
                                         </span>
                                     </a>
                                 </li>
@@ -268,7 +269,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
-                                <span class="username">Tin Blanc</span>
+                                <span class="username"><s:property value="username" /></span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -276,7 +277,7 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login.jsp"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->

@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import com.mantechhelpdesk.common.*;
 import com.mantechhelpdesk.entity.Category;
 import com.mantechhelpdesk.entity.Department;
+import com.mantechhelpdesk.entity.User;
 
 public class DefaultComplaintsManagements implements IComplaintsManagement {
 
@@ -168,6 +169,62 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return null;
     }
+    
+    @Override
+    public boolean login(String username,String userpass){
+        DataConnection db= new DataConnection();
+        Connection conn = db.getConnection();
+        boolean status=false;
+        User user=new User();
+        
+        String query="select * from User where username=? and password=?";
+        
+        try {
+            
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, userpass);
+            ResultSet rs = ps.executeQuery();
+            status=rs.next();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return status;
+    }
+    
+    @Override
+    public User getUser(String username,String userpass){
+        DataConnection db= new DataConnection();
+        Connection conn = db.getConnection();
+        User user=new User();
+        
+        String query="select * from User where username=? and password=?";
+        
+        PreparedStatement ps;
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, userpass);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                user.setId(rs.getInt("id"));
+                user.setFullname(rs.getString("fullname"));
+                user.setDateOfBirth(rs.getDate("date_of_birth"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                return user;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return user;
+            
+    }
+    
 
     private Complaint createComplaintObj(ResultSet rs) {
         Complaint obj = new Complaint();
@@ -191,5 +248,8 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return obj;
     }
+    
+    
+    
 
 }

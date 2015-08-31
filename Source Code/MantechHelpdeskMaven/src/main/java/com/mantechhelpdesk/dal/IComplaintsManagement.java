@@ -8,6 +8,7 @@ package com.mantechhelpdesk.dal;
 import com.mantechhelpdesk.entity.Category;
 import com.mantechhelpdesk.entity.Complaint;
 import com.mantechhelpdesk.entity.Department;
+import com.mantechhelpdesk.entity.User;
 import java.util.List;
 
 /**
@@ -20,4 +21,6 @@ public interface IComplaintsManagement {
     boolean createComplaint(Complaint c);
     List<Category> getAllCategory();
     List<Department> getAllDepartment();
+    boolean login(String username,String userpass);
+    User getUser(String username,String userpass);
 }
