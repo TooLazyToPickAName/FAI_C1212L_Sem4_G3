@@ -8,31 +8,32 @@ insert into Department(title, description) values("Internal Systems", "Internal 
 insert into Department(title, description) values("Human Resources", "Human Resources Department");
 
 /*Category*/
-insert into category(title, description) values ("Hardware Failure", "Hardware failure problem"),
-												("Software crashh", "software's problem"),
-												("Software crashh 1", "software's problem"),
-												("Software crashh 2", "software's problem"),
-												("Software crashh 3", "software's problem"),
-												("Other", "something else");
+insert into category(title, description) values ("Hardware Problem", "All problem about hardware"),
+												("Network Problem", "All problem about network"),
+												("Software Problem", "All problem about software"),
+												("Work Environment", "All problem about work environment"),
+												("Staff Complaints", "All problem about staff"),
+                                                ("Office Equipment", "All problem about office equipment"),
+                                                ("Other Problem", "Something else");
 
 
 insert into User(username, password, fullname, department_id, date_of_birth, phone_number, email, role_id) values
-													 ("admin", "admin", "I'm Administrator", null, "1992-08-11", "+841904842392", "admin@helpdesk.com", 0),
-													 ("employee1", "employee1", "I'm Employee 1", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 1), 
-													 ("employee2", "employee2", "I'm Employee 2", 1, "1992-08-11", "+841904842392", "employee2@helpdesk.com", 1), 
-													 ("employee3", "employee3", "I'm Employee 3", 1, "1992-08-11", "+841904842392", "employee1@helpdesk.com", 1),
-													 ("technical1", "technical1", "I'm Technical 1", null, "1992-08-11", "+841904842392", "technical1@helpdesk.com", 2),
-													 ("technical2", "technical2", "I'm Technical 2", null, "1992-08-11", "+841904842392", "technical2@helpdesk.com", 2),
-													 ("technical3", "technical3", "I'm Technical 3", null, "1992-08-11", "+841904842392", "technical3@helpdesk.com", 2);
+													 ("admin", "admin", "I'm Administrator", null, "1990-09-17", "+84969696969", "admin@helpdesk.com", 0),
+													 ("quanva", "12345", "Vo Anh Quan", 1, "1987-03-10", "+841628864563", "quanva_a05273@gpt.aptech.ac.vn", 1), 
+													 ("tanth", "12345", "Tran Huu Tan", 1, "1992-08-11", "+84979797979", "tanth_b05273@fpt.aptech.ac.vn", 1), 
+													 ("phongtq", "12345", "Ta Quang Phong", 1, "1988-03-12", "+84986868686", "phongtq_c05273@fpt.aptech.ac.vn", 1),
+													 ("technical", "12345", "Martin Garrix", null, "1989-09-15", "+84696969696", "martingarrix@helpdesk.com", 2),
+													 ("david_guetta", "12345", "David Guetta", null, "1990-04-19", "+84945454545", "davidguetta@helpdesk.com", 2),
+													 ("sontung_mtp", "12345", "Son Tung MTP", null, "1994-08-01", "+84915151515", "sontungmtp@helpdesk.com", 2);
 /*Complaint*/
 insert into Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority)
-	values (1, "I have a problem with my computer", "this is description",  null, 1, 3, 2, default, default),
-		   (2, "I have a problem with my computer","this is description", null, 1, 3, 2, default, default),
-		   (2, "I have a problem with my computer","this is description",null, 1, 3, 3, default, default),
-		   (3, "I have a problem with my computer","this is description",null, 2, 3, 3, default, default),
-		   (3, "I have a problem with my computer","this is description",null, 2, 3, 4, default, default),
-		   (4, "I have a problem with my computer","this is description",null, 3, 3, 4, default, default),
-		   (4, "I have a problem with my computer","this is description",null, 3, 3, 4, default, default),
+	values (1, "Photocopy Machine", "Photocopy machine does not work",  null, 1, 3, 2, default, default),
+		   (2, "Microsoft Office","MS in my computer can not save documents", null, 1, 3, 2, default, default),
+		   (2, "Air Conditioner","Air Conditioner does not cool",null, 1, 3, 3, default, default),
+		   (3, "Internet Download Manager","IDM waring: IDM register with fake serial number",null, 2, 3, 3, default, default),
+		   (3, "CD Driver","CD Driver does not work",null, 2, 3, 4, default, default),
+		   (4, "Monitor","My monitor can not display",null, 3, 3, 4, default, default),
+		   (4, "Employee1","He always make noise in work time",null, 3, 3, 4, default, default),
 		   (4, "I have a problem with my computer","this is description",null, 4, 3, 4, default, default),
 		   (4, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
 		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
