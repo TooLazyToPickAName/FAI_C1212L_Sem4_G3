@@ -186,7 +186,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                     + "	inner join department d on c.department_id = d.id\n"
                     + "	inner join category cg on c.category_id = cg.id\n"
                     + "where c.status = 0 \n"
-                    + "order by c.date_register desc";
+                    + "order by c.priority asc";
             ResultSet rs = cmd.executeQuery(query);
             while (rs.next()) {
                 ret.add(this.createComplaintObj(rs));
@@ -259,6 +259,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             obj.setId(rs.getInt("id"));
             obj.setTitle(rs.getString("title"));
             obj.setCategoryId(rs.getInt("category_id"));
+            obj.setDescription(rs.getString("description"));
             obj.setDateRegister(rs.getDate("date_register"));
             obj.setDateClose(rs.getDate("date_close"));
             obj.setTimeTaken(rs.getInt("time_taken"));

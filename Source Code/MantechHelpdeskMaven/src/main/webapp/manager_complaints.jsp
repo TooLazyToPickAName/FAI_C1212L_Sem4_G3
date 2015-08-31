@@ -465,6 +465,9 @@
 
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
+        
+        <!--My Script -->
+        <script src="js/myscript.js"></script>
 
     </body>
 

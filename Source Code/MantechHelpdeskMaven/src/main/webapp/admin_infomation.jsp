@@ -1,13 +1,11 @@
 <%-- 
-    Document   : index_admin
-    Created on : Aug 31, 2015, 9:33:53 PM
+    Document   : admin_temp
+    Created on : Aug 29, 2015, 12:01:09 AM
     Author     : tinblanc
 --%>
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="/struts-tags" prefix="s" %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,14 +24,13 @@
         <link href="css/bootstrap-reset.css" rel="stylesheet">
         <!--external css-->
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 
         <!--dynamic table-->
         <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
         <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
         <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
-
+        <!--right slidebar-->
+        <link href="css/slidebars.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet" />
@@ -54,7 +51,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
+                <a href="index.html" class="logo" >Help<span>Desk</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -197,7 +194,7 @@
                                             <span class="time">Just now</span>
                                         </span>
                                         <span class="message">
-                                            Hello, this is Helpdesk
+                                            Hello, this is metrolab
                                         </span>
                                     </a>
                                 </li>
@@ -271,7 +268,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
-                                <span class="username"><s:property value="username" /></span>
+                                <span class="username">Tin Blanc</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -279,7 +276,7 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->
@@ -353,158 +350,52 @@
             <!--sidebar end-->
             <!--main content start-->
             <section id="main-content">
-                <section class="wrapper site-min-height">
+                <section class="wrapper">
                     <!-- page start-->
-                    <div class="row state-overview">
-                        <div class="col-lg-3 col-sm-6">
-                            <section class="panel">
-                                <a href="showPendingComplaints">
-                                <div class="symbol orangle">
-                                    <i class="fa fa-envelope-o"></i>
-                                </div>
-                                </a>
-                                <div class="value">
-                                    <h1 class="count">
-                                        0
-                                    </h1>
-                                    <p>Pedding</p>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <section class="panel">
-                                <a href="#">
-                                <div class="symbol red">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                </a>
-                                <div class="value">
-                                    <h1 class=" count2">
-                                        0
-                                    </h1>
-                                    <p>Processing</p>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <section class="panel">
-                                <a href="#">
-                                <div class="symbol blue">
-                                    <i class="fa fa-cog"></i>
-                                </div>
-                                </a>
-                                <div class="value">
-                                    <h1 class=" count3">
-                                        0
-                                    </h1>
-                                    <p>Rejected</p>
-                                </div>
-                            </section>
-                        </div>
-                        
-                        <div class="col-lg-3 col-sm-6">
-                            <section class="panel">
-                                <a href="#">
-                                <div class="symbol green">
-                                    <i class="fa fa-check"></i>
-                                </div>
-                                <a href="#">
-                                <div class="value">
-                                    <h1 class=" count4">
-                                        0
-                                    </h1>
-                                    <p>Closed</p>
-                                </div>
-                            </section>
-                        </div>
-                        
-                        
-                    </div>    
                     <div class="row">
-                        <div class="col-lg-8">
-                      <!--custom chart start-->
-                      <div class="border-head">
-                          <h3>New Complaints</h3>
-                      </div>
-                      <div class="custom-bar-chart">
-                          <ul class="y-axis">
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                          </ul>
-                          <div class="bar">
-                              <div class="title">Mon</div>
-                              <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">Tue</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">Wed</div>
-                              <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">Thu</div>
-                              <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">Fri</div>
-                              <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">Sat</div>
-                              <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">Sun</div>
-                              <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                          </div>
-                          
-                      </div>
-                      <!--custom chart end-->
-                  </div>
-                        <div class="col-lg-4">
-                      <!--new earning start-->
-                      <div class="panel terques-chart">
-                          <div class="panel-body chart-texture">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>Monthly</span>
-                                      <strong>57 | 15%</strong>
-                                  </div>
-                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">Complaints</span>
-                              
-                          </div>
-                      </div>
-                      <!--new earning end-->
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Personal Information
+                                </header>
+                                <div class="panel-body">
+                                    <div class=" form">
+                                        <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get" action="#">
+                                            <div class="form-group ">
+                                                <label for="cname" class="control-label col-lg-2">Full Name</label>
+                                                <div class="col-lg-10">
+                                                <label for="cname" class="control-label col-lg-2">Administrator</label>    
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="cemail" class="control-label col-lg-2">Birthday</label>
+                                                <div class="col-lg-10">
+                                                    <label for="cname" class="control-label col-lg-2">17/09/1992</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="curl" class="control-label col-lg-2">Phone Number</label>
+                                                <div class="col-lg-10">
+                                                    <label for="cname" class="control-label col-lg-2">+84969696969</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="ccomment" class="control-label col-lg-2">Email</label>
+                                                <div class="col-lg-10">
+                                                    <label for="cname" class="control-label col-lg-2">admin@helpdesk.com</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
 
-                      <!--total earning start-->
-                      <div class="panel green-chart">
-                          <div class="panel-body">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>June</span>
-                                      <strong>23 Days | 65%</strong>
-                                  </div>
-                                  <div id="barchart"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">Total</span>
-                              <span class="value">678</span>
-                          </div>
-                      </div>
-                      <!--total earning end-->
-                  </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
+
                     <!-- page end-->
                 </section>
             </section>
@@ -523,55 +414,31 @@
         </section>
 
         <!-- js placed at the end of the document so the pages load faster -->
+
         <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-        <script src="js/jquery.sparkline.js" type="text/javascript"></script>
-        <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
-        <script src="js/owl.carousel.js" ></script>
-        <script src="js/jquery.customSelect.min.js" ></script>
+        <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
         <script src="js/respond.min.js" ></script>
 
+        <!--right slidebar-->
+        <script src="js/slidebars.min.js"></script>
+
+        <!--dynamic table initialization -->
+        <script src="js/dynamic_table_init.js"></script>
 
 
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
 
-        <!--script for this page-->
-        <script src="js/sparkline-chart.js"></script>
-        <script src="js/easy-pie-chart.js"></script>
-        <script src="js/count.js"></script>
-
-
-        <script>
-
-            //owl carousel
-
-            $(document).ready(function () {
-                $("#owl-demo").owlCarousel({
-                    navigation: true,
-                    slideSpeed: 300,
-                    paginationSpeed: 400,
-                    singleItem: true,
-                    autoPlay: true
-
-                });
-            });
-
-            //custom select box
-
-            $(function () {
-                $('select.styled').customSelect();
-            });
-
-        </script>
-
     </body>
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
 </html>
-
 
 
