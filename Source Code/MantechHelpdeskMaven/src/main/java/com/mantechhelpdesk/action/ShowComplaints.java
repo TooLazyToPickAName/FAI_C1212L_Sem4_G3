@@ -35,4 +35,10 @@ public class ShowComplaints {
         return Action.SUCCESS;
     }
     
+    public String getPendingComplaints() throws Exception {
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.complaints = complaintsManagement.getPendingComplaints();
+        return Action.SUCCESS;
+    }
+    
 }

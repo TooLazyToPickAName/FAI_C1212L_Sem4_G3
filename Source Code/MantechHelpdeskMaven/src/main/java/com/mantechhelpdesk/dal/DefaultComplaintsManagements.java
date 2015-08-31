@@ -79,21 +79,20 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return listCategory;
     }
-    
+
     @Override
-    public List<Department> getAllDepartment(){
+    public List<Department> getAllDepartment() {
         List<Department> listDepartment = new ArrayList<>();
         DataConnection db = new DataConnection();
-        
+
         Connection conn = db.getConnection();
-        
-        
+
         try {
-            Statement cmd= conn.createStatement();
+            Statement cmd = conn.createStatement();
             String query = "select * from Department";
             rs = cmd.executeQuery(query);
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 Department d = new Department();
                 d.setId(rs.getInt("id"));
                 d.setTitle(rs.getString("title"));
@@ -169,46 +168,75 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return null;
     }
-    
+
     @Override
-    public boolean login(String username,String userpass){
-        DataConnection db= new DataConnection();
+    public List<Complaint> getPendingComplaints() {
+        DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
-        boolean status=false;
-        User user=new User();
-        
-        String query="select * from User where username=? and password=?";
-        
+        List<Complaint> ret = new ArrayList<>();
+
+        Statement cmd;
         try {
-            
+            cmd = conn.createStatement();
+            String query = "select \n"
+                    + "	c.*, \n"
+                    + "	d.title as departmentName,\n"
+                    + "	cg.title as categoryName\n"
+                    + "from complaint c \n"
+                    + "	inner join department d on c.department_id = d.id\n"
+                    + "	inner join category cg on c.category_id = cg.id\n"
+                    + "where c.status = 0 \n"
+                    + "order by c.date_register desc";
+            ResultSet rs = cmd.executeQuery(query);
+            while (rs.next()) {
+                ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+        }
+        return ret;
+    }
+
+    @Override
+    public boolean login(String username, String userpass) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        boolean status = false;
+        User user = new User();
+
+        String query = "select * from User where username=? and password=?";
+
+        try {
+
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, userpass);
             ResultSet rs = ps.executeQuery();
-            status=rs.next();
-            
+            status = rs.next();
+
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
         }
         return status;
     }
-    
+
     @Override
-    public User getUser(String username,String userpass){
-        DataConnection db= new DataConnection();
+    public User getUser(String username, String userpass) {
+        DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
-        User user=new User();
-        
-        String query="select * from User where username=? and password=?";
-        
+        User user = new User();
+
+        String query = "select * from User where username=? and password=?";
+
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, userpass);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 user.setId(rs.getInt("id"));
                 user.setFullname(rs.getString("fullname"));
                 user.setDateOfBirth(rs.getDate("date_of_birth"));
@@ -220,11 +248,10 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return user;
-            
+
     }
-    
 
     private Complaint createComplaintObj(ResultSet rs) {
         Complaint obj = new Complaint();
@@ -248,8 +275,5 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return obj;
     }
-    
-    
-    
 
 }
