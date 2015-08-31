@@ -43,313 +43,308 @@
     </head>
 
     <body>
-        <s:form action="createComplaint">           
-            <section id="container" class="">
-                <!--header start-->
-                <header class="header white-bg">
-                    <div class="sidebar-toggle-box">
-                        <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
-                    </div>
-                    <!--logo start-->
-                    <a href="index.html" class="logo" >Help<span>Desk</span></a>
-                    <!--logo end-->
-                    <div class="nav notify-row" id="top_menu">
-                        <!--notification start--> 
-                        <ul class="nav top-menu">
-                            <!--settings start--> 
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <i class="fa fa-tasks"></i>
-                                    <span class="badge bg-success">6</span>
-                                </a>
-                                <ul class="dropdown-menu extended tasks-bar">
-                                    <div class="notify-arrow notify-arrow-green"></div>
-                                    <li>
-                                        <p class="green">You have 6 pending tasks</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="task-info">
-                                                <div class="desc">Dashboard v1.3</div>
-                                                <div class="percent">40%</div>
+        <section id="container" class="">
+            <!--header start-->
+            <header class="header white-bg">
+                <div class="sidebar-toggle-box">
+                    <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
+                </div>
+                <!--logo start-->
+                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--notification start--> 
+                    <ul class="nav top-menu">
+                        <!--settings start--> 
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="fa fa-tasks"></i>
+                                <span class="badge bg-success">6</span>
+                            </a>
+                            <ul class="dropdown-menu extended tasks-bar">
+                                <div class="notify-arrow notify-arrow-green"></div>
+                                <li>
+                                    <p class="green">You have 6 pending tasks</p>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">Dashboard v1.3</div>
+                                            <div class="percent">40%</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                <span class="sr-only">40% Complete (success)</span>
                                             </div>
-                                            <div class="progress progress-striped">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                    <span class="sr-only">40% Complete (success)</span>
-                                                </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">Database Update</div>
+                                            <div class="percent">60%</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                <span class="sr-only">60% Complete (warning)</span>
                                             </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="task-info">
-                                                <div class="desc">Database Update</div>
-                                                <div class="percent">60%</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">Iphone Development</div>
+                                            <div class="percent">87%</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 87%">
+                                                <span class="sr-only">87% Complete</span>
                                             </div>
-                                            <div class="progress progress-striped">
-                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                    <span class="sr-only">60% Complete (warning)</span>
-                                                </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">Mobile App</div>
+                                            <div class="percent">33%</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
+                                                <span class="sr-only">33% Complete (danger)</span>
                                             </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="task-info">
-                                                <div class="desc">Iphone Development</div>
-                                                <div class="percent">87%</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">Dashboard v1.3</div>
+                                            <div class="percent">45%</div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                <span class="sr-only">45% Complete</span>
                                             </div>
-                                            <div class="progress progress-striped">
-                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 87%">
-                                                    <span class="sr-only">87% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="task-info">
-                                                <div class="desc">Mobile App</div>
-                                                <div class="percent">33%</div>
-                                            </div>
-                                            <div class="progress progress-striped">
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
-                                                    <span class="sr-only">33% Complete (danger)</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="task-info">
-                                                <div class="desc">Dashboard v1.3</div>
-                                                <div class="percent">45%</div>
-                                            </div>
-                                            <div class="progress progress-striped active">
-                                                <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                    <span class="sr-only">45% Complete</span>
-                                                </div>
-                                            </div>
+                                        </div>
 
-                                        </a>
-                                    </li>
-                                    <li class="external">
-                                        <a href="#">See All Tasks</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--settings end--> 
-                            <!--inbox dropdown start-->
-                            <li id="header_inbox_bar" class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="badge bg-important">5</span>
-                                </a>
-                                <ul class="dropdown-menu extended inbox">
-                                    <div class="notify-arrow notify-arrow-red"></div>
-                                    <li>
-                                        <p class="red">You have 5 new messages</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img alt="avatar" src="img/avatar-mini.jpg"></span>
-                                            <span class="subject">
-                                                <span class="from">Jonathan Smith</span>
-                                                <span class="time">Just now</span>
-                                            </span>
-                                            <span class="message">
-                                                Hello, this is an example msg.
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img alt="avatar" src="img/avatar-mini2.jpg"></span>
-                                            <span class="subject">
-                                                <span class="from">Jhon Doe</span>
-                                                <span class="time">10 mins</span>
-                                            </span>
-                                            <span class="message">
-                                                Hi, Jhon Doe Bhai how are you ?
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img alt="avatar" src="img/avatar-mini3.jpg"></span>
-                                            <span class="subject">
-                                                <span class="from">Jason Stathum</span>
-                                                <span class="time">3 hrs</span>
-                                            </span>
-                                            <span class="message">
-                                                This is awesome dashboard.
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="photo"><img alt="avatar" src="img/avatar-mini4.jpg"></span>
-                                            <span class="subject">
-                                                <span class="from">Jondi Rose</span>
-                                                <span class="time">Just now</span>
-                                            </span>
-                                            <span class="message">
-                                                Hello, this is metrolab
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all messages</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--inbox dropdown end--> 
-                            <!--notification dropdown start-->
-                            <li id="header_notification_bar" class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    </a>
+                                </li>
+                                <li class="external">
+                                    <a href="#">See All Tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--settings end--> 
+                        <!--inbox dropdown start-->
+                        <li id="header_inbox_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="badge bg-important">5</span>
+                            </a>
+                            <ul class="dropdown-menu extended inbox">
+                                <div class="notify-arrow notify-arrow-red"></div>
+                                <li>
+                                    <p class="red">You have 5 new messages</p>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="photo"><img alt="avatar" src="img/avatar-mini.jpg"></span>
+                                        <span class="subject">
+                                            <span class="from">Jonathan Smith</span>
+                                            <span class="time">Just now</span>
+                                        </span>
+                                        <span class="message">
+                                            Hello, this is an example msg.
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="photo"><img alt="avatar" src="img/avatar-mini2.jpg"></span>
+                                        <span class="subject">
+                                            <span class="from">Jhon Doe</span>
+                                            <span class="time">10 mins</span>
+                                        </span>
+                                        <span class="message">
+                                            Hi, Jhon Doe Bhai how are you ?
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="photo"><img alt="avatar" src="img/avatar-mini3.jpg"></span>
+                                        <span class="subject">
+                                            <span class="from">Jason Stathum</span>
+                                            <span class="time">3 hrs</span>
+                                        </span>
+                                        <span class="message">
+                                            This is awesome dashboard.
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="photo"><img alt="avatar" src="img/avatar-mini4.jpg"></span>
+                                        <span class="subject">
+                                            <span class="from">Jondi Rose</span>
+                                            <span class="time">Just now</span>
+                                        </span>
+                                        <span class="message">
+                                            Hello, this is metrolab
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">See all messages</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--inbox dropdown end--> 
+                        <!--notification dropdown start-->
+                        <li id="header_notification_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="badge bg-warning">7</span>
-                                </a>
-                                <ul class="dropdown-menu extended notification">
-                                    <div class="notify-arrow notify-arrow-yellow"></div>
-                                    <li>
-                                        <p class="yellow">You have 7 new notifications</p>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                            Server #3 overloaded.
-                                            <span class="small italic">34 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                                            Server #10 not respoding.
-                                            <span class="small italic">1 Hours</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                            Database overloaded 24%.
-                                            <span class="small italic">4 hrs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-success"><i class="fa fa-plus"></i></span>
-                                            New user registered.
-                                            <span class="small italic">Just now</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="label label-info"><i class="fa fa-bullhorn"></i></span>
-                                            Application error.
-                                            <span class="small italic">10 mins</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">See all notifications</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--notification dropdown end--> 
-                        </ul>
-                    </div>
-                    <div class="top-nav ">
-                        <ul class="nav pull-right top-menu">
-                            <li>
-                                <input type="text" class="form-control search" placeholder="Search">
-                            </li>
-                            <!--user login dropdown start-->
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <img alt="" src="img/avatar1_small.jpg">
-                                    <span class="username">Tin Blanc</span>
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu extended logout">
-                                    <div class="log-arrow-up"></div>
-                                    <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                    <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
-                                </ul>
-                            </li>
-                            <!--user login dropdown end--> 
-                            <li class="sb-toggle-right">
-                                <i class="fa  fa-align-right"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </header>
-                <!--header end-->
-                <!--sidebar start-->
-                <aside>
-                    <div id="sidebar"  class="nav-collapse ">
-                        <!--sidebar menu start-->
-                        <ul class="sidebar-menu" id="nav-accordion">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="badge bg-warning">7</span>
+                            </a>
+                            <ul class="dropdown-menu extended notification">
+                                <div class="notify-arrow notify-arrow-yellow"></div>
+                                <li>
+                                    <p class="yellow">You have 7 new notifications</p>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        Server #3 overloaded.
+                                        <span class="small italic">34 mins</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-warning"><i class="fa fa-bell"></i></span>
+                                        Server #10 not respoding.
+                                        <span class="small italic">1 Hours</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        Database overloaded 24%.
+                                        <span class="small italic">4 hrs</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-success"><i class="fa fa-plus"></i></span>
+                                        New user registered.
+                                        <span class="small italic">Just now</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="label label-info"><i class="fa fa-bullhorn"></i></span>
+                                        Application error.
+                                        <span class="small italic">10 mins</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">See all notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--notification dropdown end--> 
+                    </ul>
+                </div>
+                <div class="top-nav ">
+                    <ul class="nav pull-right top-menu">
+                        <li>
+                            <input type="text" class="form-control search" placeholder="Search">
+                        </li>
+                        <!--user login dropdown start-->
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <img alt="" src="img/avatar1_small.jpg">
+                                <span class="username">Tin Blanc</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <div class="log-arrow-up"></div>
+                                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+                        <!--user login dropdown end--> 
+                        <li class="sb-toggle-right">
+                            <i class="fa  fa-align-right"></i>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!--header end-->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse ">
+                    <!--sidebar menu start-->
+                    <ul class="sidebar-menu" id="nav-accordion">
 
 
-                            <li class="sub-menu">
-                                <a href="javascript:;" >
-                                    <i class="fa fa-laptop"></i>
-                                    <span>Home</span>
-                                </a>
-                                <ul class="sub">
-                                    <li><a  href="#">Introduce</a></li>
-                                    <li><a  href="#">Personal Information</a></li>
-                                </ul>
-                            </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class="fa fa-laptop"></i>
+                                <span>Home</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Introduce</a></li>
+                                <li><a  href="#">Personal Information</a></li>
+                            </ul>
+                        </li>
 
-                            <li class="sub-menu">
-                                <a href="javascript:;" >
-                                    <i class=" fa fa-envelope"></i>
-                                    <span>Complaint</span>
-                                </a>
-                                <ul class="sub">
-                                    <li><a  href="#">Create Complaint</a></li>
-                                    <li><a  href="#">Show Complaints</a></li>
-                                </ul>
-                            </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-envelope"></i>
+                                <span>Complaint</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Create Complaint</a></li>
+                                <li><a  href="#">Show Complaints</a></li>
+                            </ul>
+                        </li>
 
 
 
 
 
-                            <!--multi level menu end-->
+                        <!--multi level menu end-->
 
-                        </ul>
-                        <!--sidebar menu end-->
-                    </div>
-                </aside>
-                <!--sidebar end-->
-                <!--main content start-->
-                <section id="main-content">
-                    <section class="wrapper">
-                        <!--page start-->
+                    </ul>
+                    <!--sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                    <!--page start-->
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <section class="panel">
-                                    <header class="panel-heading">
-                                        Create Complaint
-                                    </header>
-                                    <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Create Complaint
+                                </header>
+                                <div class="panel-body">
+                                    <s:form action="createComplaint"> 
                                         <div class=" form">
                                             <form class="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
-
-
-
-
                                                 <div class="form-group ">
-                                                    <label for="cname" class="control-label col-lg-2">Title</label>
+                                                    <label for="txtTitle" class="control-label col-lg-2">Title</label>
                                                     <div class="col-lg-10">
-                                                        <input class=" form-control" id="cname" name="complaint.title" minlength="2" type="text" required />
-
+                                                        <input class="form-control" id="txtTitle" name="complaint.title" minlength="10" type="text" required />
                                                     </div>
 
                                                 </div>
@@ -360,19 +355,26 @@
                                                         <c:forEach items="${requestScope.categories}" var="c">
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="optionsRadios" value="${c.id}" checked="">
+                                                                    <input type="radio" name="rdCategories" value="${c.id}" checked="">
                                                                     ${c.title}
                                                                 </label>
                                                             </div> 
                                                         </c:forEach>
                                                     </div>
+                                                    <s:textfield id="hidCategory" name="complaint.categoryId" cssStyle="display:none"></s:textfield>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="txtDepartmentName" class="control-label col-lg-2">Department</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" id="txtDepartmentName" value="Department Name" disabled="disabled" />
+                                                    </div>
+                                                </div>
 
                                                 <div class="form-group ">
-                                                    <label for="ccomment" class="control-label col-lg-2">Description</label>
+                                                    <label for="txtDescription" class="control-label col-lg-2">Description</label>
                                                     <div class="col-lg-10">
-                                                        <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                                                        <textarea class="form-control " id="txtDescription" name="complaint.description" required></textarea>
                                                     </div>
 
                                                 </div>
@@ -385,71 +387,71 @@
                                                 </div>
                                             </form>
                                         </div>
-
-                                    </div>
-                                </section>
-                            </div>
+                                    </s:form>
+                                </div>
+                            </section>
                         </div>
-
-                        <!--page end-->
-                    </section>
-                </section>
-                <!--main content end-->
-
-                <!--footer start-->
-                <footer class="site-footer">
-                    <div class="text-center">
-                        2015 &copy; Helpdesk by Group3.
-                        <a href="#" class="go-top">
-                            <i class="fa fa-angle-up"></i>
-                        </a>
                     </div>
-                </footer>
-                <!--footer end-->
+
+                    <!--page end-->
+                </section>
             </section>
+            <!--main content end-->
+
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2015 &copy; Helpdesk by Group3.
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </section>
 
 
 
-            <!-- js placed at the end of the document so the pages load faster -->
-            <script src="js/jquery.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-            <script src="js/jquery.scrollTo.min.js"></script>
-            <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-            <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-            <script src="js/respond.min.js" ></script>
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script src="js/respond.min.js" ></script>
 
-            <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 
-            <!--custom switch-->
-            <script src="js/bootstrap-switch.js"></script>
-            <!--custom tagsinput-->
-            <script src="js/jquery.tagsinput.js"></script>
+        <!--custom switch-->
+        <script src="js/bootstrap-switch.js"></script>
+        <!--custom tagsinput-->
+        <script src="js/jquery.tagsinput.js"></script>
 
-            <!--custom checkbox & radio-->
-            <script type="text/javascript" src="js/ga.js"></script>
+        <!--custom checkbox & radio-->
+        <script type="text/javascript" src="js/ga.js"></script>
 
-            <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-            <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 
-            <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-            <script src="js/respond.min.js" ></script>
+        <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+        <script src="js/respond.min.js" ></script>
 
 
-            <!--right slidebar-->
-            <script src="js/slidebars.min.js"></script>
+        <!--right slidebar-->
+        <script src="js/slidebars.min.js"></script>
 
-            <!--common script for all pages-->
-            <script src="js/common-scripts.js"></script>
+        <!--common script for all pages-->
+        <script src="js/common-scripts.js"></script>
 
-            <!--script for this page-->
-            <script src="js/form-validation-script.js"></script>
-            <script src="js/form-component.js"></script>
+        <!--script for this page-->
+        <script src="js/form-validation-script.js"></script>
+        <script src="js/form-component.js"></script>
 
-        </s:form>
+        <script src="js/myscript.js"></script>
     </body>
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->

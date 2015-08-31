@@ -24,7 +24,6 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
      */
     public static PreparedStatement ps = null;
     public static ResultSet rs = null;
-    private boolean check = false;
 
     @Override
     public List<Complaint> getAllComplaints() {
@@ -42,7 +41,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                     + "from complaint c \n"
                     + "	inner join department d on c.department_id = d.id\n"
                     + "	inner join category cg on c.category_id = cg.id\n"
-                    + "order by c.date_register desc";
+                    + "order by c.id desc";
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
@@ -108,18 +107,22 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
 
     @Override
     public boolean createComplaint(Complaint c) {
-
+        boolean check = false;
         try {
             DataConnection db = new DataConnection();
             Connection conn = db.getConnection();
-            String str = "INSERT INTO Complaint(title, category_id , department_id, time_taken, employee_id) VALUES (?, ?, ?, ?, ?)";
+            String str = "INSERT INTO Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             ps = conn.prepareStatement(str);
-            ps.setString(1, c.getTitle());
-            ps.setInt(2, 3);
-            ps.setInt(3, 1);
-            ps.setInt(4, 2);
-            ps.setInt(5, 3);
+            ps.setInt(1, c.getCategoryId());
+            ps.setString(2, c.getTitle());
+            ps.setString(3, c.getDescription());
+            ps.setDate(4, null);
+            ps.setInt(5, c.getDepartmentId());
+            ps.setInt(6, c.getTimeTaken());
+            ps.setInt(7, c.getEmployeeId());
+            ps.setInt(8, c.getStatus());
+            ps.setInt(9, c.getPriority());
 
             int executeUpdate = ps.executeUpdate();
             if (executeUpdate > 0) {

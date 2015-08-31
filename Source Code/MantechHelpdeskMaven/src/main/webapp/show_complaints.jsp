@@ -311,7 +311,7 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="showCreateComplaint">Create Complaint</a></li>
+                                <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
                             </ul>
                         </li>
@@ -373,9 +373,7 @@
                                                         <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
                                                         <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
                                                     </tr>
-                                                </c:forEach>    
-
-
+                                                </c:forEach>
                                             </tbody>
                                         </table>
 
