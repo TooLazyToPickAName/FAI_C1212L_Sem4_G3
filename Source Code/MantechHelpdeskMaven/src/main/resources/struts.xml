@@ -30,16 +30,13 @@
             <result name="success">create_complaint.jsp</result>
         </action>
         
-<!--        <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint">
-            <result name="success">show_complaints.jsp</result>
-        </action>-->
         
         <action name="login">
             <result>login.jsp</result>
         </action>
         
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
-            <result name="admin">admin_temp.jsp</result>
+            <result name="admin">index_admin.jsp</result>
             <result name="technical">technical_temp.jsp</result>
             <result name="employee">employee_temp.jsp</result>
             <result name="error">error.jsp</result>
@@ -52,6 +49,10 @@
         <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint" method="createComplaint">
             <result name="success" type="redirectAction">showComplaints</result>
             <result name="error"></result>
+        </action>
+        
+        <action name="showPendingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getPendingComplaints">
+            <result name="success">manager_complaints.jsp</result>
         </action>
         <!-- End Create Complaint -->
     </package>

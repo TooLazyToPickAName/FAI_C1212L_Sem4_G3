@@ -23,4 +23,5 @@ public interface IComplaintsManagement {
     List<Department> getAllDepartment();
     boolean login(String username,String userpass);
     User getUser(String username,String userpass);
+    List<Complaint> getPendingComplaints();
 }

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : employee_temp
-    Created on : Aug 29, 2015, 12:23:18 AM
+    Document   : manager_complaints
+    Created on : Aug 31, 2015, 11:36:38 PM
     Author     : tinblanc
 --%>
 
@@ -19,7 +19,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="img/favicon.html">
 
-        <title>Employee</title>
+        <title>Administrator</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -196,7 +196,7 @@
                                             <span class="time">Just now</span>
                                         </span>
                                         <span class="message">
-                                            Hello, this is metrolab
+                                            Hello, this is Helpdesk
                                         </span>
                                     </a>
                                 </li>
@@ -304,7 +304,6 @@
                             <ul class="sub">
                                 <li><a  href="#">Introduce</a></li>
                                 <li><a  href="#">Personal Information</a></li>
-                                <li><a  href="#">Change Password</a></li>
                             </ul>
                         </li>
 
@@ -314,11 +313,22 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
+                                <li><a  href="#">Manager Complaints</a></li>
                             </ul>
                         </li>
-                        
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-cogs"></i>
+                                <span>Manager Accounts</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Create Account</a></li>
+                                <li><a  href="#">Show Accounts</a></li>
+                            </ul>
+                        </li>
+
                         <li class="sub-menu">
                             <a href="javascript:;" >
                                 <i class=" fa fa-bar-chart-o"></i>
@@ -344,8 +354,46 @@
             <section id="main-content">
                 <section class="wrapper site-min-height">
                     <!-- page start-->
-                        
-                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    Pending Complaints
+                                </header>
+                                <table class="table table-striped table-advance table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th> ID</th>
+                                            <th class="hidden-phone"> Title </th>
+                                            <th> Descrition</th>
+                                            <th class="hidden-phone"> Category </th>
+                                            <th><i class=" fa fa-edit"></i> Status</th>
+                                            <th> Priority </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${requestScope.complaints}" var="c" >
+                                            <tr>
+                                                <td>${c.id}</td>
+                                                <td>${c.title}</td>
+                                                <td>${c.description}</td>
+                                                <td>${c.categoryName}</td>
+                                                <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
+                                                <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
+                                                
+                                                <td>
+                                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-xs"><i class="fa fa-cogs"></i></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+
                     <!-- page end-->
                 </section>
             </section>
@@ -363,6 +411,38 @@
             <!--footer end-->
         </section>
 
+        <form>
+            <!--Modal--> 
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Assign & Set Priority Pending Complaint</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Technical:</p>
+                            <select class="form-control input-sm m-bot15">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                            <p>Priority:</p>
+                            <select class="form-control input-sm m-bot15">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success" type="button">Submit</button>
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--modal-->
+        </form>
         <!-- js placed at the end of the document so the pages load faster -->
 
         <script src="js/jquery.js"></script>

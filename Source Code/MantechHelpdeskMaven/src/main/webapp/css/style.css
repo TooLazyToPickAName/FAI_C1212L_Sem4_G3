@@ -788,6 +788,14 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     background: #57c8f2;
 }
 
+.state-overview .orangle {
+    background: #F89947;
+}
+
+.state-overview .green {
+    background: #6ED06E;
+}
+
 /*main chart*/
 
 .border-head h3 {
@@ -813,8 +821,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .custom-bar-chart .bar {
     height: 100%;
     position: relative;
-    width: 4.3%;
-    margin: 0px 2%;
+    width: 6.2%;
+    margin: 0px 4%;
     float: left;
     text-align: center;
     -webkit-border-radius: 5px 5px 0 0;
