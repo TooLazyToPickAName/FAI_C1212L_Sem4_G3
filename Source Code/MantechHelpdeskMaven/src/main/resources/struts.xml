@@ -8,13 +8,17 @@
     <package name="default" extends="struts-default">
         <result-types>
             <result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"></result-type>
         </result-types>
         <interceptors>
             <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"></interceptor>
         </interceptors>
-        <default-action-ref name="showComplaints" />
+        <default-action-ref name="login" />
         <action name="showComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
             <result name="success">show_complaints.jsp</result>
+        </action>
+        <action name="login">
+            <result>login.jsp</result>
         </action>
         <action name="index" class="com.mantechhelpdesk.action.ShowComplaints">
             <result name="success">login.jsp</result>
@@ -28,14 +32,6 @@
         <!-- Create Complaint -->
         <action name="displayCreateComplaintForm" class="com.mantechhelpdesk.action.CreateComplaint" method="displayForm">
             <result name="success">create_complaint.jsp</result>
-        </action>
-        
-<!--        <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint">
-            <result name="success">show_complaints.jsp</result>
-        </action>-->
-        
-        <action name="login">
-            <result>login.jsp</result>
         </action>
         
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
