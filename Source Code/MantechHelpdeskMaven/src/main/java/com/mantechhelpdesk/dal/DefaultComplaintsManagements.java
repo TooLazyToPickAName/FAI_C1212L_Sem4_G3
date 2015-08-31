@@ -222,22 +222,22 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
     }
 
     @Override
-    public User getUser(String username, String userpass) {
+    public User getUser(String username) {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
         User user = new User();
 
-        String query = "select * from User where username=? and password=?";
+        String query = "select * from User where username=?";
 
         PreparedStatement ps;
         try {
             ps = conn.prepareStatement(query);
             ps.setString(1, username);
-            ps.setString(2, userpass);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 user.setId(rs.getInt("id"));
+                user.setUsername(username);
                 user.setFullname(rs.getString("fullname"));
                 user.setDateOfBirth(rs.getDate("date_of_birth"));
                 user.setPhoneNumber(rs.getString("phone_number"));

@@ -32,7 +32,7 @@ create table Department(
 
 create table User(
 	id integer auto_increment not null primary key,
-	username varchar(50) not null,
+	username varchar(50) not null unique,
 	password varchar(100) not null,
 	fullname varchar(50) not null,
 	department_id integer,

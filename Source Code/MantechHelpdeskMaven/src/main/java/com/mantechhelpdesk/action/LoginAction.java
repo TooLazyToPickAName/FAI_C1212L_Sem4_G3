@@ -5,8 +5,11 @@
  */
 package com.mantechhelpdesk.action;
 
+import com.mantechhelpdesk.common.RoleType;
 import com.mantechhelpdesk.dal.DefaultComplaintsManagements;
 import com.mantechhelpdesk.dal.IComplaintsManagement;
+import com.mantechhelpdesk.entity.User;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.Map;
@@ -17,10 +20,11 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author tinblanc
  */
-public class LoginAction extends ActionSupport implements SessionAware{
-    
+public class LoginAction extends ActionSupport implements SessionAware {
+
     private String username, userpass;
-    SessionMap<String,String> sessionmap;
+    SessionMap<String, String> sessionmap;
+
     public LoginAction() {
     }
 
@@ -39,40 +43,28 @@ public class LoginAction extends ActionSupport implements SessionAware{
     public void setUserpass(String userpass) {
         this.userpass = userpass;
     }
-    
-    public void setSession(Map map) {  
-    sessionmap=(SessionMap)map;  
-    sessionmap.put("login","true");  
-    }  
-    
-    
+
+    public void setSession(Map map) {
+        sessionmap = (SessionMap) map;
+        sessionmap.put("login", "true");
+    }
+
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
-        IComplaintsManagement complaintsManagement=new DefaultComplaintsManagements();
-        if(complaintsManagement.login(username, userpass)){
-            if(complaintsManagement.getUser(username,userpass)!=null){
-                if(complaintsManagement.getUser(username, userpass).getRoleId()==0){
-                    return "admin";
-                }else if(complaintsManagement.getUser(username, userpass).getRoleId()==1){
-                    return "employee";
-                }else if(complaintsManagement.getUser(username, userpass).getRoleId()==2){
-                    return "technical";
-                }
-                session.put("login","true");
-            }else{
-                return "error";
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        User user = null;
+        if (complaintsManagement.login(username, userpass)) {
+            user = complaintsManagement.getUser(username);
+            if (user != null) {
+                session.put("user", user);
+                return RoleType.getTitle(user.getRoleId());
             }
-        }else{
-            return "error";
         }
-        return "error";
+        return Action.ERROR;
     }
-    
+
 //    public String logout(){
 //        sessionmap.invalidate();
 //        return "success";
 //    }
-
-   
-    
 }

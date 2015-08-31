@@ -34,7 +34,7 @@
             <result name="success">create_complaint.jsp</result>
         </action>
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
-            <result name="admin">index_admin.jsp</result>
+            <result name="administrator" type="tiles">index_admin</result>
             <result name="technical">technical_temp.jsp</result>
             <result name="employee">employee_temp.jsp</result>
             <result name="error">error.jsp</result>
