@@ -279,7 +279,7 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login.jsp"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->
@@ -358,7 +358,7 @@
                     <div class="row state-overview">
                         <div class="col-lg-3 col-sm-6">
                             <section class="panel">
-                                <a href="manager_complaints.jsp">
+                                <a href="showPendingComplaints">
                                 <div class="symbol orangle">
                                     <i class="fa fa-envelope-o"></i>
                                 </div>

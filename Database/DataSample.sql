@@ -28,15 +28,15 @@ insert into User(username, password, fullname, department_id, date_of_birth, pho
 /*Complaint*/
 insert into Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority)
 	values (1, "Photocopy Machine", "Photocopy machine does not work",  null, 1, 3, 2, default, default),
-		   (2, "Microsoft Office","MS in my computer can not save documents", null, 1, 3, 2, default, default),
+		   (2, "Microsoft Office","MS in my computer can not save documents", null, 1, 3, 2, default, 0),
 		   (2, "Air Conditioner","Air Conditioner does not cool",null, 1, 3, 3, default, default),
-		   (3, "Internet Download Manager","IDM waring: IDM register with fake serial number",null, 2, 3, 3, default, default),
+		   (3, "Internet Download Manager","IDM waring: IDM register with fake serial number",null, 2, 3, 3, default, 0),
 		   (3, "CD Driver","CD Driver does not work",null, 2, 3, 4, default, default),
 		   (4, "Monitor","My monitor can not display",null, 3, 3, 4, default, default),
 		   (4, "Employee1","He always make noise in work time",null, 3, 3, 4, default, default),
 		   (4, "I have a problem with my computer","this is description",null, 4, 3, 4, default, default),
-		   (4, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
-		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default),
+		   (4, "I have a problem with my computer","this is description",null, 5, 3, 4, default, 2),
+		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, 2),
 		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default);
 
 insert into ComplaintsTechnicals(complaint_id, technical_id, date_created) 
