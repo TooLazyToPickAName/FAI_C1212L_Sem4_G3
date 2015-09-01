@@ -459,7 +459,6 @@
 
                     <!-- page end-->
                 </section>
-            </section>
             <!--main content end-->
 
             <!--footer start-->

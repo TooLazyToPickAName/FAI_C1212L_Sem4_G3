@@ -14,44 +14,70 @@
             <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"></interceptor>
         </interceptors>
         <default-action-ref name="login" />
-        <action name="showComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
-            <result name="success">show_complaints.jsp</result>
-        </action>
-        <action name="login">
-            <result>login.jsp</result>
-        </action>
-        <action name="index" class="com.mantechhelpdesk.action.ShowComplaints">
-            <result name="success">login.jsp</result>
-        </action>
+        
         <action name="ajaxComplaintDetails" class="com.mantechhelpdesk.action.AjaxComplaintDetails">
             <result type="json">
                 <param name="excludeNullProperties">true</param>
                 <param name="noCache">true</param>
             </result>
         </action>
-        <!-- Create Complaint -->
-        <action name="displayCreateComplaintForm" class="com.mantechhelpdesk.action.CreateComplaint" method="displayForm">
-            <result name="success">create_complaint.jsp</result>
+        <!--login/logout-->
+        <action name="login">
+            <result>login.jsp</result>
         </action>
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
             <result name="administrator" type="tiles">index_admin</result>
             <result name="technical">technical_temp.jsp</result>
-            <result name="employee">employee_temp.jsp</result>
+            <result name="employee" type="tiles">index_employee</result>
             <result name="error">error.jsp</result>
         </action>
         
         <action name="logout" class="com.mantechhelpdesk.action.LoginAction" method="logout">
             <result name="success">login.jsp</result>
         </action>   
+        <!--login/logout end-->
+       
+        <!-- ================= ADMIN ===================-->
+        <!--Admin information -->
+        <action name="showAdminInformation">
+            <result type="tiles">show_information_admin</result>
+        </action>
+        
+        <!--Admin Creates Account -->
+        <action name="createAccount">
+            <result type="tiles">create_account_admin</result>
+        </action>
+        
+        <!-- show pending complaints-->
+        <action name="showPendingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getPendingComplaints">
+            <result name="success">manager_complaints.jsp</result>
+        </action>
+        
+        <action name="showAllComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
+            <result name="success">show_complaints.jsp</result>
+        </action>
+        <!-- ================= ADMIN END ===================-->
+        
+        
+        
+        <!-- ================= EMPLOYEE ===================-->
+        
+        <!-- Create Complaint -->
+        <action name="displayCreateComplaintForm" class="com.mantechhelpdesk.action.CreateComplaint" method="displayForm">
+            <result name="success">create_complaint.jsp</result>
+        </action>
         
         <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint" method="createComplaint">
             <result name="success" type="redirectAction">showComplaints</result>
             <result name="error"></result>
         </action>
         
-        <action name="showPendingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getPendingComplaints">
-            <result name="success">manager_complaints.jsp</result>
-        </action>
-        <!-- End Create Complaint -->
+        <!-- ================= EMPLOYEE END ===================-->
+        
+        
+        
+        <!-- ================= TECHNICAL ===================-->
+        
+        <!-- ================= TECHINICAL END ===================-->
     </package>
 </struts>

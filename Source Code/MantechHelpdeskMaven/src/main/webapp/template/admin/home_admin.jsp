@@ -11,7 +11,7 @@
         <div class="row state-overview">
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
-                    <a href="manager_complaints.jsp">
+                    <a href="showPendingComplaints">
                         <div class="symbol orangle">
                             <i class="fa fa-envelope-o"></i>
                         </div>
@@ -61,7 +61,6 @@
                         <div class="symbol green">
                             <i class="fa fa-check"></i>
                         </div>
-                        <a href="#">
                             <div class="value">
                                 <h1 class=" count4">
                                     0

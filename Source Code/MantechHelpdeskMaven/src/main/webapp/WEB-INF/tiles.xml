@@ -5,19 +5,37 @@
  "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">   
   
 <tiles-definitions>  
-     
-    <definition name="index_admin" template="/layout_admin.jsp">   
+    <!-- Administrator-->
+    <definition name="index_admin" template="layout_admin.jsp">   
         <put-attribute name="title" value="Home - Mantech Helpdesk"/>   
-        <put-attribute name="main_content" value="/home_admin.jsp"/>   
+        <put-attribute name="main_content" value="/template/admin/home_admin.jsp"/>   
     </definition>  
      
-    <definition name="show_complaints_admin" template="/layout_admin.jsp">   
+    <definition name="show_complaints_admin" template="layout_admin.jsp">   
         <put-attribute name="title" value="Show Complaints - Mantech Helpdesk"/>   
-        <put-attribute name="main_content" value="/show_complaints_admin.jsp"/>   
-    </definition>   
-     
-    <definition name="create_complaint_employee" template="/layout_employee.jsp">
-        <put-attribute name="title" value="Create Complaint - Mantech Helpdesk"/>   
-        <put-attribute name="main_content" value="/show_complaints_admin.jsp"/> 
+        <put-attribute name="main_content" value="/template/admin/show_complaints_admin.jsp"/>   
     </definition>
+    
+    <definition name="show_information_admin" template="layout_admin.jsp">   
+        <put-attribute name="title" value="Personal Information - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/admin/information_admin.jsp"/>   
+    </definition>
+    
+    <definition name="create_account_admin" template="layout_admin.jsp">   
+        <put-attribute name="title" value="Personal Information - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/admin/create_account_admin.jsp"/>   
+    </definition>
+    <!-- end Administrator-->
+    
+    <!-- Employee-->
+    <definition name="index_employee" template="/template/employee/layout_employee.jsp">   
+        <put-attribute name="title" value="Home - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/employee/home_employee.jsp"/>   
+    </definition>
+    <definition name="create_complaint_employee" template="/template/employee/layout_employee.jsp">
+        <put-attribute name="title" value="Create Complaint - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/employee/create_complaint_employee.jsp"/> 
+    </definition>
+    <!-- end Employee-->
+    
 </tiles-definitions> 
