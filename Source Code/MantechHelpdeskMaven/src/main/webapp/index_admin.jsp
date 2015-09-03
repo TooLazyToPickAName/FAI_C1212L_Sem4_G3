@@ -1,11 +1,13 @@
 <%-- 
-    Document   : admin_temp
-    Created on : Aug 29, 2015, 12:01:09 AM
+    Document   : index_admin
+    Created on : Aug 31, 2015, 9:33:53 PM
     Author     : tinblanc
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/struts-tags" prefix="s" %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,32 +24,15 @@
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-reset.css" rel="stylesheet">
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 
         <!--dynamic table-->
         <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
         <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
-        <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/style-responsive.css" rel="stylesheet" />
-
-        <!--external css-->
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-fileupload/bootstrap-fileupload.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-timepicker/compiled/timepicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker-bs3.css" />
-        <link rel="stylesheet" type="text/css" href="assets/bootstrap-datetimepicker/css/datetimepicker.css" />
-        <link rel="stylesheet" type="text/css" href="assets/jquery-multi-select/css/multi-select.css" />
-
-        <!--right slidebar-->
-        <link href="css/slidebars.css" rel="stylesheet">
-
-        <!--  summernote -->
-        <link href="assets/summernote/dist/summernote.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
@@ -69,7 +54,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -212,7 +197,7 @@
                                             <span class="time">Just now</span>
                                         </span>
                                         <span class="message">
-                                            Hello, this is metrolab
+                                            Hello, this is Helpdesk
                                         </span>
                                     </a>
                                 </li>
@@ -286,7 +271,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
-                                <span class="username">Tin Blanc</span>
+                                <span class="username"><s:property value="username" /></span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -294,7 +279,7 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->
@@ -368,90 +353,160 @@
             <!--sidebar end-->
             <!--main content start-->
             <section id="main-content">
-                <section class="wrapper">
+                <section class="wrapper site-min-height">
                     <!-- page start-->
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div class="row state-overview">
+                        <div class="col-lg-3 col-sm-6">
                             <section class="panel">
-                                <header class="panel-heading">
-                                    <b>Create Account</b>
-
-                                </header>
-                                <div class="panel-body">
-                                    <div class=" form">
-                                        <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get" action="#">
-                                            <div class="form-group ">
-                                                <label for="cname" class="control-label col-md-3">User Name</label>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="" id="f-name" class="form-control">    
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="cemail" class="control-label col-md-3">Password</label>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="" id="f-name" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="curl" class="control-label col-md-3">Full Name</label>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="" id="f-name" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="ccomment" class="control-label col-md-3">Department</label>
-                                                <div class="col-lg-4">
-                                                    <select class="form-control m-bot-none">
-                                                        <option>Education</option>
-                                                        <option>Management Services</option>
-                                                        <option>Learning Services</option>
-                                                        <option>Internal Systems</option>
-                                                        <option>Human Resources</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">Birthday</label>
-                                                <div class="col-lg-3 col-xs-11">
-
-                                                    <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="12-02-2012"  class="input-append date dpYears">
-                                                        <input type="text" readonly="" value="12-02-2012" size="16" class="form-control">
-                                                        <span class="input-group-btn add-on">
-                                                            <button class="btn btn-danger" type="button"><i class="fa fa-calendar"></i></button>
-                                                        </span>
-                                                    </div>
-                                                    <span class="help-block">Select date</span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="curl" class="control-label col-md-3">Phone Number</label>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="" id="f-name" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="curl" class="control-label col-md-3">Email</label>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="" id="f-name" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-lg-offset-3 col-md-3">
-                                                    <button class="btn btn-success " type="submit">Submit</button>
-                                                    <button class="btn btn-danger" type="reset">Reset</button>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                    </form>
+                                <a href="showPendingComplaints">
+                                <div class="symbol orangle">
+                                    <i class="fa fa-envelope-o"></i>
                                 </div>
-
+                                </a>
+                                <div class="value">
+                                    <h1 class="count">
+                                        0
+                                    </h1>
+                                    <p>Pedding</p>
+                                </div>
+                            </section>
                         </div>
-                </section>
-                </div>
-                </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <section class="panel">
+                                <a href="#">
+                                <div class="symbol red">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                </a>
+                                <div class="value">
+                                    <h1 class=" count2">
+                                        0
+                                    </h1>
+                                    <p>Processing</p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <section class="panel">
+                                <a href="#">
+                                <div class="symbol blue">
+                                    <i class="fa fa-cog"></i>
+                                </div>
+                                </a>
+                                <div class="value">
+                                    <h1 class=" count3">
+                                        0
+                                    </h1>
+                                    <p>Rejected</p>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div class="col-lg-3 col-sm-6">
+                            <section class="panel">
+                                <a href="#">
+                                <div class="symbol green">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                </a>
+                                <div class="value">
+                                    <h1 class=" count4">
+                                        0
+                                    </h1>
+                                    <p>Closed</p>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-8">
+                      <!--custom chart start-->
+                      <div class="border-head">
+                          <h3>New Complaints</h3>
+                      </div>
+                      <div class="custom-bar-chart">
+                          <ul class="y-axis">
+                              <li><span>100</span></li>
+                              <li><span>80</span></li>
+                              <li><span>60</span></li>
+                              <li><span>40</span></li>
+                              <li><span>20</span></li>
+                              <li><span>0</span></li>
+                          </ul>
+                          <div class="bar">
+                              <div class="title">Mon</div>
+                              <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">Tue</div>
+                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">Wed</div>
+                              <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">Thu</div>
+                              <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">Fri</div>
+                              <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">Sat</div>
+                              <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">Sun</div>
+                              <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
+                          </div>
+                          
+                      </div>
+                      <!--custom chart end-->
+                  </div>
+                        <div class="col-lg-4">
+                      <!--new earning start-->
+                      <div class="panel terques-chart">
+                          <div class="panel-body chart-texture">
+                              <div class="chart">
+                                  <div class="heading">
+                                      <span>Monthly</span>
+                                      <strong>57 | 15%</strong>
+                                  </div>
+                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
+                              </div>
+                          </div>
+                          <div class="chart-tittle">
+                              <span class="title">Complaints</span>
+                              
+                          </div>
+                      </div>
+                      <!--new earning end-->
 
-                <!-- page end-->
+                      <!--total earning start-->
+                      <div class="panel green-chart">
+                          <div class="panel-body">
+                              <div class="chart">
+                                  <div class="heading">
+                                      <span>June</span>
+                                      <strong>23 Days | 65%</strong>
+                                  </div>
+                                  <div id="barchart"></div>
+                              </div>
+                          </div>
+                          <div class="chart-tittle">
+                              <span class="title">Total</span>
+                              <span class="value">678</span>
+                          </div>
+                      </div>
+                      <!--total earning end-->
+                  </div>
+                    </div>
+                    <!-- page end-->
+                </section>
             </section>
             <!--main content end-->
 
@@ -468,79 +523,55 @@
         </section>
 
         <!-- js placed at the end of the document so the pages load faster -->
-
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-        <script src="js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-        <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
-        <script src="js/respond.min.js" ></script>
-
-        <!--right slidebar-->
-        <script src="js/slidebars.min.js"></script>
-
-        <!--dynamic table initialization -->
-        <script src="js/dynamic_table_init.js"></script>
-
-
-        <!--common script for all pages-->
-        <script src="js/common-scripts.js"></script>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="js/jquery.sparkline.js" type="text/javascript"></script>
+        <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="js/owl.carousel.js" ></script>
+        <script src="js/jquery.customSelect.min.js" ></script>
         <script src="js/respond.min.js" ></script>
 
-        <!--this page plugins-->
 
-        <script type="text/javascript" src="assets/fuelux/js/spinner.min.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/moment.min.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-        <script type="text/javascript" src="assets/jquery-multi-select/js/jquery.multi-select.js"></script>
-        <script type="text/javascript" src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
-
-
-        <!--summernote-->
-        <script src="assets/summernote/dist/summernote.min.js"></script>
-
-        <!--right slidebar-->
-        <script src="js/slidebars.min.js"></script>
 
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
-        <!--this page  script only-->
-        <script src="js/advanced-form-components.js"></script>
+
+        <!--script for this page-->
+        <script src="js/sparkline-chart.js"></script>
+        <script src="js/easy-pie-chart.js"></script>
+        <script src="js/count.js"></script>
+
 
         <script>
 
-            jQuery(document).ready(function () {
+            //owl carousel
 
-                $('.summernote').summernote({
-                    height: 200, // set editor height
+            $(document).ready(function () {
+                $("#owl-demo").owlCarousel({
+                    navigation: true,
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    singleItem: true,
+                    autoPlay: true
 
-                    minHeight: null, // set minimum height of editor
-                    maxHeight: null, // set maximum height of editor
-
-                    focus: true                 // set focus to editable area after initializing summernote
                 });
             });
 
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
         </script>
+
     </body>
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
 </html>
+
 
 

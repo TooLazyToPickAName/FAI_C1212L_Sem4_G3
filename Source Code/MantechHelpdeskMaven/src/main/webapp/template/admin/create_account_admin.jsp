@@ -17,27 +17,34 @@
                     </header>
                     <div class="panel-body">
                         <div class=" form">
-                            <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get" action="#">
+                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="#">
                                 <div class="form-group ">
-                                    <label for="cname" class="control-label col-md-3">User Name</label>
+                                    <label for="username"  class="control-label col-md-3">User Name</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control">    
+                                        <input class="form-control " id="username" name="username" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="cemail" class="control-label col-md-3">Password</label>
+                                    <label for="password" class="control-label col-lg-3">Password</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control">
+                                        <input class="form-control " id="password" name="password" type="password" />
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="curl" class="control-label col-md-3">Full Name</label>
+                                    <label for="confirm_password" class="control-label col-lg-3">Confirm Password</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control">
+                                        <input class="form-control " id="confirm_password" name="confirm_password" type="password" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="cname" class="control-label col-md-3">Full Name</label>
+                                    <div class="col-lg-4">
+                                        <input class=" form-control" id="cname" name="name" minlength="2" type="text" required/>
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="ccomment" class="control-label col-md-3">Department</label>
+                                    <label for="department" class="control-label col-md-3">Department</label>
                                     <div class="col-lg-4">
                                         <select class="form-control m-bot-none">
                                             <option>Education</option>
@@ -60,23 +67,25 @@
                                         </div>
                                         <span class="help-block">Select date</span>
                                     </div>
+
+
                                 </div>
                                 <div class="form-group">
-                                    <label for="curl" class="control-label col-md-3">Phone Number</label>
+                                    <label for="phone" class="control-label col-md-3">Phone Number</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control">
+                                        <input type="text" placeholder="" id="f-name" class="form-control" minlength="2" required >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="curl" class="control-label col-md-3">Email</label>
+                                    <label for="email" class="control-label col-md-3">Email</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control">
+                                        <input class="form-control " id="cemail" type="email" name="email" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-offset-3 col-md-3">
-                                        <button class="btn btn-success " type="submit">Submit</button>
-                                        <button class="btn btn-danger" type="reset">Reset</button>
+                                        <button class="btn btn-danger " type="submit">Submit</button>
+                                        <button class="btn btn-default" type="reset">Reset</button>
                                     </div>
                                 </div>
 
