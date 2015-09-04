@@ -26,10 +26,18 @@
             <result>login.jsp</result>
         </action>
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
-            <result name="administrator" type="tiles">index_admin</result>
+            <result name="administrator" type="redirectAction">indexAdmin</result>
             <result name="technical">technical_temp.jsp</result>
-            <result name="employee" type="tiles">index_employee</result>
-            <result name="error">error.jsp</result>
+            <result name="employee" type="redirectAction">indexEmployee</result>
+            <result name="error" type="redirectAction">login</result>
+        </action>
+        
+        <action name="indexAdmin">
+            <result type="tiles">index_admin</result>
+        </action>
+        
+        <action name="indexEmployee">
+            <result type="tiles">index_employee</result>
         </action>
         
         <action name="logout" class="com.mantechhelpdesk.action.LoginAction" method="logout">
@@ -50,16 +58,18 @@
         
         <!-- show pending complaints-->
         <action name="showPendingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getPendingComplaints">
-            <result name="success" type="tiles">show_complaints_admin</result>
+            <result name="success" >template/admin/show_pending_complaints.jsp</result>
         </action>
         
-        <action name="showAllComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
+        <action name="showAllComplaints" class="com.mantechhelpdesk.action.ShowComplaints" >
             <result name="success">show_complaints.jsp</result>
         </action>
         
         <action name="index_admin">
             <result>index_admin.jsp</result>
         </action>
+        
+        
         <!-- ================= ADMIN END ===================-->
         
         

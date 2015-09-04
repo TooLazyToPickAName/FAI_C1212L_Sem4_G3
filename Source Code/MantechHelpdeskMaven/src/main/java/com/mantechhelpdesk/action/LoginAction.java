@@ -61,7 +61,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 return roleName;
             }
         }
-        return Action.ERROR;
+        return ERROR;
     }
 
 //    public String logout(){

@@ -5,7 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/struts-tags" prefix="s" %> 
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %> 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,30 +19,30 @@
         <title>
             <tiles:getAsString name="title"></tiles:getAsString>
             </title>
+            
 
             <!--index admin-->
             <!-- Bootstrap core CSS -->
-            <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-reset.css" rel="stylesheet">
-        <!--external css-->
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link href="css/bootstrap-reset.css" rel="stylesheet">
+            <!--external css-->
+            <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+            <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+            <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 
-        <!--dynamic table-->
-        <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
-        <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
-        <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+            <!--dynamic table-->
+            <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+            <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+            <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 
-        <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/style-responsive.css" rel="stylesheet" />
+            <!-- Custom styles for this template -->
+            <link href="css/style.css" rel="stylesheet">
+            <link href="css/style-responsive.css" rel="stylesheet" />
             <!--index admin end-->
 
 
 
-             <!--Bootstrap core CSS--> 
+            <!--Bootstrap core CSS--> 
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/bootstrap-reset.css" rel="stylesheet">
 
@@ -49,10 +52,10 @@
             <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
             <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 
-              <!--summernote--> 
+            <!--summernote--> 
             <link href="assets/summernote/dist/summernote.css" rel="stylesheet">
 
-             <!--Custom styles for this template--> 
+            <!--Custom styles for this template--> 
             <link href="css/style.css" rel="stylesheet">
             <link href="css/style-responsive.css" rel="stylesheet" />
 
@@ -70,7 +73,7 @@
             <link rel="stylesheet" type="text/css" href="assets/bootstrap-datetimepicker/css/datetimepicker.css" />
             <link rel="stylesheet" type="text/css" href="assets/jquery-multi-select/css/multi-select.css" />
 
-            
+
 
 
 

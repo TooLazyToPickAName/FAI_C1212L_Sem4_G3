@@ -53,7 +53,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
+                <a href="#" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -270,7 +270,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
-                                <span class="username"><s:property value="username" /></span>
+                                <span class="username">${sessionScope.user.fullname}</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -278,7 +278,7 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login.jsp"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
                         <!-- user login dropdown end -->
@@ -302,7 +302,7 @@
                                 <span>Home</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Introduce</a></li>
+                                <li><a  href="showAdminInformation">Introduce</a></li>
                                 <li><a  href="#">Personal Information</a></li>
                             </ul>
                         </li>
@@ -314,7 +314,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a  href="#">Show Complaints</a></li>
-                                <li><a  href="#">Manager Complaints</a></li>
+                                <li><a  href="showPendingComplaints">Manager Complaints</a></li>
                             </ul>
                         </li>
 
@@ -324,7 +324,7 @@
                                 <span>Manager Accounts</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Create Account</a></li>
+                                <li><a  href="createAccount">Create Account</a></li>
                                 <li><a  href="#">Show Accounts</a></li>
                             </ul>
                         </li>
@@ -381,7 +381,7 @@
                                                 <td>${c.categoryName}</td>
                                                 <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
                                                 <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
-                                                
+
                                                 <td>
                                                     <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-xs"><i class="fa fa-cogs"></i></a>
                                                 </td>
@@ -465,7 +465,7 @@
 
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
-        
+
         <!--My Script -->
         <script src="js/myscript.js"></script>
 

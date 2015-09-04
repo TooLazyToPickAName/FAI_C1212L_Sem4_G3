@@ -17,7 +17,7 @@
                     <span>Home</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">Introduce</a></li>
+                    <li><a  href="showAdminInformation">Introduce</a></li>
                     <li><a  href="#">Personal Information</a></li>
                 </ul>
             </li>
@@ -29,7 +29,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="#">Show Complaints</a></li>
-                    <li><a  href="#">Manager Complaints</a></li>
+                    <li><a  href="showPendingComplaints">Manager Complaints</a></li>
                 </ul>
             </li>
 
@@ -39,7 +39,7 @@
                     <span>Manager Accounts</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">Create Account</a></li>
+                    <li><a  href="createAccount">Create Account</a></li>
                     <li><a  href="#">Show Accounts</a></li>
                 </ul>
             </li>

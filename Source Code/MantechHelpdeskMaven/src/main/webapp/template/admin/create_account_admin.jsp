@@ -6,7 +6,7 @@
 
 <!--main content start-->
 <section id="main-content">
-    <section class="wrapper">
+    <section class="wrapper site-min-height">
         <!-- page start-->
         <div class="row">
             <div class="col-lg-12">
@@ -27,13 +27,7 @@
                                 <div class="form-group ">
                                     <label for="password" class="control-label col-lg-3">Password</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="password" name="password" type="password" />
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <label for="confirm_password" class="control-label col-lg-3">Confirm Password</label>
-                                    <div class="col-lg-4">
-                                        <input class="form-control " id="confirm_password" name="confirm_password" type="password" />
+                                        <input class="form-control " id="password" name="password" type="text" value="123456" disabled="true" />
                                     </div>
                                 </div>
 

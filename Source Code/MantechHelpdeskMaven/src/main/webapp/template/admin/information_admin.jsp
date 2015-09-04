@@ -6,7 +6,7 @@
 
 <!--main content start-->
 <section id="main-content">
-    <section class="wrapper">
+    <section class="wrapper site-min-height">
         <!-- page start-->
         <div class="row">
             <div class="col-lg-12">
