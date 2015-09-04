@@ -54,7 +54,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Admin<span>istrator</span></a>
+                <a href="#" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->

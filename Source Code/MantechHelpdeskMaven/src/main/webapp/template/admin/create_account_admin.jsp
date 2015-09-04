@@ -98,3 +98,57 @@
     <!-- page end-->
 </section>
 <!--main content end-->
+
+<!-- Create Account-->
+<!--common script for all pages-->
+<script src="js/common-scripts.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script src="js/respond.min.js" ></script>
+
+<!--this page plugins-->
+
+<script type="text/javascript" src="assets/fuelux/js/spinner.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="assets/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="assets/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+
+
+
+<!--right slidebar-->
+<script src="js/slidebars.min.js"></script>
+
+
+<!--this page  script only-->
+<script src="js/advanced-form-components.js"></script>
+
+<!--script for this page-->
+<script src="js/form-validation-script.js"></script>
+
+<script>
+
+    jQuery(document).ready(function () {
+
+        $('.summernote').summernote({
+            height: 200, // set editor height
+
+            minHeight: null, // set minimum height of editor
+            maxHeight: null, // set maximum height of editor
+
+            focus: true                 // set focus to editable area after initializing summernote
+        });
+    });
+
+</script>

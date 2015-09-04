@@ -50,11 +50,15 @@
         
         <!-- show pending complaints-->
         <action name="showPendingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getPendingComplaints">
-            <result name="success">manager_complaints.jsp</result>
+            <result name="success" type="tiles">show_complaints_admin</result>
         </action>
         
         <action name="showAllComplaints" class="com.mantechhelpdesk.action.ShowComplaints">
             <result name="success">show_complaints.jsp</result>
+        </action>
+        
+        <action name="index_admin">
+            <result>index_admin.jsp</result>
         </action>
         <!-- ================= ADMIN END ===================-->
         
