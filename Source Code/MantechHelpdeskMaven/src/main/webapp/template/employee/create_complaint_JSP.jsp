@@ -50,12 +50,12 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="index.html" class="logo" >Help<span>Desk</span></a>
+                <a href="#" class="logo" >Help<span>Desk</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
-                    <!--notification start--> 
+                    <!--  notification start -->
                     <ul class="nav top-menu">
-                        <!--settings start--> 
+                        <!-- settings start -->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-tasks"></i>
@@ -137,8 +137,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--settings end--> 
-                        <!--inbox dropdown start-->
+                        <!-- settings end -->
+                        <!-- inbox dropdown start-->
                         <li id="header_inbox_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="fa fa-envelope-o"></i>
@@ -193,7 +193,7 @@
                                             <span class="time">Just now</span>
                                         </span>
                                         <span class="message">
-                                            Hello, this is metrolab
+                                            Hello, this is Helpdesk
                                         </span>
                                     </a>
                                 </li>
@@ -202,8 +202,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--inbox dropdown end--> 
-                        <!--notification dropdown start-->
+                        <!-- inbox dropdown end -->
+                        <!-- notification dropdown start-->
                         <li id="header_notification_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
@@ -255,7 +255,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!--notification dropdown end--> 
+                        <!-- notification dropdown end -->
                     </ul>
                 </div>
                 <div class="top-nav ">
@@ -263,11 +263,11 @@
                         <li>
                             <input type="text" class="form-control search" placeholder="Search">
                         </li>
-                        <!--user login dropdown start-->
+                        <!-- user login dropdown start-->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="" src="img/avatar1_small.jpg">
-                                <span class="username">Tin Blanc</span>
+                                <span class="username">${sessionScope.user.fullname}</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -275,10 +275,10 @@
                                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                                <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
                             </ul>
                         </li>
-                        <!--user login dropdown end--> 
+                        <!-- user login dropdown end -->
                         <li class="sb-toggle-right">
                             <i class="fa  fa-align-right"></i>
                         </li>
@@ -289,7 +289,7 @@
             <!--sidebar start-->
             <aside>
                 <div id="sidebar"  class="nav-collapse ">
-                    <!--sidebar menu start-->
+                    <!-- sidebar menu start-->
                     <ul class="sidebar-menu" id="nav-accordion">
 
 
@@ -301,6 +301,7 @@
                             <ul class="sub">
                                 <li><a  href="#">Introduce</a></li>
                                 <li><a  href="#">Personal Information</a></li>
+                                <li><a  href="#">Change Password</a></li>
                             </ul>
                         </li>
 
@@ -310,25 +311,35 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Create Complaint</a></li>
+                                <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
                                 <li><a  href="#">Show Complaints</a></li>
                             </ul>
                         </li>
 
-
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="#">Reports by date</a></li>
+                                <li><a  href="#">Monthly Report</a></li>
+                                <li><a  href="#">Yearly Report</a></li>
+                            </ul>
+                        </li>
 
 
 
                         <!--multi level menu end-->
 
                     </ul>
-                    <!--sidebar menu end-->
+                    <!-- sidebar menu end-->
                 </div>
             </aside>
             <!--sidebar end-->
             <!--main content start-->
             <section id="main-content">
-                <section class="wrapper">
+                <section class="wrapper site-min-height">
                     <!--page start-->
 
                     <div class="row">
@@ -338,9 +349,8 @@
                                     Create Complaint
                                 </header>
                                 <div class="panel-body">
-                                    <s:form action="createComplaint"> 
                                         <div class=" form">
-                                            <form class="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
+                                            <s:form cssClass="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
                                                 <div class="form-group ">
                                                     <label for="txtTitle" class="control-label col-lg-2">Title</label>
                                                     <div class="col-lg-10">
@@ -362,12 +372,12 @@
                                                         </c:forEach>
                                                     </div>
                                                     <s:textfield id="hidCategory" name="complaint.categoryId" cssStyle="display:none"></s:textfield>
-                                                </div>
+                                                    </div>
 
-                                                <div class="form-group">
-                                                    <label for="txtDepartmentName" class="control-label col-lg-2">Department</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" id="txtDepartmentName" value="Department Name" disabled="disabled" />
+                                                    <div class="form-group">
+                                                        <label for="txtDepartmentName" class="control-label col-lg-2">Department</label>
+                                                        <div class="col-lg-10">
+                                                            <label  id="txtDepartmentName" class="control-label col-lg-4 " style="font-weight: 400 " >${sessionScope.user.departmentName}</label>
                                                     </div>
                                                 </div>
 
@@ -385,76 +395,77 @@
                                                         <button class="btn btn-default" type="button">Cancel</button>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </s:form>
                                         </div>
-                                    </s:form>
                                 </div>
-                            </section>
+
+                                
+                                </section>
+                            </div>
                         </div>
-                    </div>
 
-                    <!--page end-->
+                        <!--page end-->
+                    </section>
                 </section>
+                <!--main content end-->
+
+                <!--footer start-->
+                <footer class="site-footer">
+                    <div class="text-center">
+                        2015 &copy; Helpdesk by Group3.
+                        <a href="#" class="go-top">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+                    </div>
+                </footer>
+                <!--footer end-->
             </section>
-            <!--main content end-->
-
-            <!--footer start-->
-            <footer class="site-footer">
-                <div class="text-center">
-                    2015 &copy; Helpdesk by Group3.
-                    <a href="#" class="go-top">
-                        <i class="fa fa-angle-up"></i>
-                    </a>
-                </div>
-            </footer>
-            <!--footer end-->
-        </section>
 
 
 
-        <!-- js placed at the end of the document so the pages load faster -->
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-        <script src="js/respond.min.js" ></script>
+            <!-- js placed at the end of the document so the pages load faster -->
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+            <script src="js/jquery.scrollTo.min.js"></script>
+            <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+            <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+            <script src="js/respond.min.js" ></script>
 
-        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+            <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 
-        <!--custom switch-->
-        <script src="js/bootstrap-switch.js"></script>
-        <!--custom tagsinput-->
-        <script src="js/jquery.tagsinput.js"></script>
+            <!--custom switch-->
+            <script src="js/bootstrap-switch.js"></script>
+            <!--custom tagsinput-->
+            <script src="js/jquery.tagsinput.js"></script>
 
-        <!--custom checkbox & radio-->
-        <script type="text/javascript" src="js/ga.js"></script>
+            <!--custom checkbox & radio-->
+            <script type="text/javascript" src="js/ga.js"></script>
 
-        <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+            <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
+            <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+            <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+            <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 
-        <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-        <script src="js/respond.min.js" ></script>
+            <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+            <script src="js/respond.min.js" ></script>
 
 
-        <!--right slidebar-->
-        <script src="js/slidebars.min.js"></script>
+            <!--right slidebar-->
+            <script src="js/slidebars.min.js"></script>
 
-        <!--common script for all pages-->
-        <script src="js/common-scripts.js"></script>
+            <!--common script for all pages-->
+            <script src="js/common-scripts.js"></script>
 
-        <!--script for this page-->
-        <script src="js/form-validation-script.js"></script>
-        <script src="js/form-component.js"></script>
+            <!--script for this page-->
+            <script src="js/form-validation-script.js"></script>
+            <script src="js/form-component.js"></script>
 
-        <script src="js/myscript.js"></script>
-    </body>
+            <script src="js/myscript.js"></script>
+        </body>
 
-    <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
-</html>
+        <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
+    </html>
 
 

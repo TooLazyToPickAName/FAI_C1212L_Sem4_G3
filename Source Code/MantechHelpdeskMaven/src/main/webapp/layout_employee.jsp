@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/struts-tags" prefix="s" %> 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>  
 <!DOCTYPE html>
 <html>
@@ -42,10 +44,10 @@
           
         </head>
         <body>
-        <%@include file="../header.jsp" %>
-        <%@include file="menu_left_employee.jsp" %>
+        <%@include file="/template/header_employee.jsp" %>
+        <%@include file="/template/employee/menu_left_employee.jsp" %>
         <tiles:insertAttribute name="main_content"></tiles:insertAttribute>
-        <%@include file="../footer.jsp" %>
+        <%@include file="/template/footer.jsp" %>
 
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="js/jquery.js"></script>

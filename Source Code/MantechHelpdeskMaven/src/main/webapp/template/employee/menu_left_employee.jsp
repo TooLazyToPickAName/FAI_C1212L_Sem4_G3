@@ -29,7 +29,7 @@
                     <span>Complaint</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">Create Complaint</a></li>
+                    <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
                     <li><a  href="#">Show Complaints</a></li>
                 </ul>
             </li>

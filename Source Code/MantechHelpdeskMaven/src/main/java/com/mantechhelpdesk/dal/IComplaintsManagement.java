@@ -24,4 +24,6 @@ public interface IComplaintsManagement {
     boolean login(String username,String userpass);
     User getUser(String username);
     List<Complaint> getPendingComplaints();
+    boolean createAccount(User u);
+    User getUserByEmail(String email);
 }
