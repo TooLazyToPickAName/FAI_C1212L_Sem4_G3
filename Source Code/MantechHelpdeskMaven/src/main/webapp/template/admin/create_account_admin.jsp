@@ -3,7 +3,8 @@
     Created on : Sep 1, 2015, 6:30:58 PM
     Author     : windluffy
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper site-min-height">
@@ -17,49 +18,60 @@
                     </header>
                     <div class="panel-body">
                         <div class=" form">
-                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="#">
+                            <s:form cssClass="cmxform form-horizontal tasi-form" id="signupForm" method="Post" action="createAccount">
                                 <div class="form-group ">
                                     <label for="username"  class="control-label col-md-3">User Name</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="username" name="username" type="text" />
+                                        <input class="form-control " id="username" name="user.username" type="text" />
+                                    </div>
+                                    <div id="iconSuccessUsername" class="col-lg-1" style="padding-left: 0px; display: none"><i style="line-height: 1.6; color: #6ED06E; font-size: 1.5em" class="fa fa-check"></i></div>
+                                    <div id="iconFailUsername" class="col-lg-1" style="padding-left: 0px; display: none"><i style="line-height: 1.6; color: red; font-size: 1.5em" class="fa fa-times"></i></div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="role" class="control-label col-md-3">Role</label>
+                                    <div class="col-lg-2">
+                                        <select id="ddlRole" class="form-control m-bot-none"  name="user.roleId" >
+                                            <option value="1">Employee</option>
+                                            <option value="2">Technical</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group " id="divDepartment">
+                                    <label for="department" class="control-label col-md-3">Department</label>
+                                    <div class="col-lg-4">
+                                        <select class="form-control m-bot-none" name="user.departmentId">
+                                            <option value="1">Education</option>
+                                            <option value="2">Management Services</option>
+                                            <option value="3">Learning Services</option>
+                                            <option value="4">Internal Systems</option>
+                                            <option value="5">Human Resources</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="password" class="control-label col-lg-3">Password</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="password" name="password" type="text" value="123456" disabled="true" />
+                                        <input class="form-control " id="password" name="user.password" type="text" value="12345" />
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-md-3">Full Name</label>
                                     <div class="col-lg-4">
-                                        <input class=" form-control" id="cname" name="name" minlength="2" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <label for="department" class="control-label col-md-3">Department</label>
-                                    <div class="col-lg-4">
-                                        <select class="form-control m-bot-none">
-                                            <option>Education</option>
-                                            <option>Management Services</option>
-                                            <option>Learning Services</option>
-                                            <option>Internal Systems</option>
-                                            <option>Human Resources</option>
-                                        </select>
+                                        <input class=" form-control" id="cname" name="user.fullname" type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Birthday</label>
                                     <div class="col-lg-3 col-xs-11">
 
-                                        <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="12-02-2012"  class="input-append date dpYears">
-                                            <input type="text" readonly="" value="12-02-2012" size="16" class="form-control">
+                                        <div data-date-viewmode="years" data-date-format="mm-dd-yyyy" data-date="12-02-1991"  class="input-append date dpYears">
+                                            <input name="dateOfBirth" type="text" value="12-02-1991" size="16" class="form-control">
                                             <span class="input-group-btn add-on">
                                                 <button class="btn btn-danger" type="button"><i class="fa fa-calendar"></i></button>
                                             </span>
                                         </div>
-                                        <span class="help-block">Select date</span>
+                                        <span class="help-block"> (mm-dd-yyyy)</span>
                                     </div>
 
 
@@ -67,13 +79,13 @@
                                 <div class="form-group">
                                     <label for="phone" class="control-label col-md-3">Phone Number</label>
                                     <div class="col-lg-4">
-                                        <input type="text" placeholder="" id="f-name" class="form-control" minlength="2" required >
+                                        <input name="user.phoneNumber" type="text" placeholder="" id="f-name" class="form-control" minlength="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="control-label col-md-3">Email</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="cemail" type="email" name="email" required />
+                                        <input class="form-control " id="cemail" type="email" name="user.email" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -82,9 +94,9 @@
                                         <button class="btn btn-default" type="reset">Reset</button>
                                     </div>
                                 </div>
-
+                            </s:form>
                         </div>
-                        </form>
+
                     </div>
 
             </div>
@@ -93,9 +105,7 @@
 </section>
 <!--main content end-->
 
-<!-- Create Account-->
-<!--common script for all pages-->
-<script src="js/common-scripts.js"></script>
+<!-- js placed at the end of the document so the pages load faster -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
@@ -120,16 +130,16 @@
 <script type="text/javascript" src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
 
 
+<!--summernote-->
+<script src="assets/summernote/dist/summernote.min.js"></script>
 
 <!--right slidebar-->
 <script src="js/slidebars.min.js"></script>
 
-
+<!--common script for all pages-->
+<script src="js/common-scripts.js"></script>
 <!--this page  script only-->
 <script src="js/advanced-form-components.js"></script>
-
-<!--script for this page-->
-<script src="js/form-validation-script.js"></script>
 
 <script>
 
@@ -143,6 +153,47 @@
 
             focus: true                 // set focus to editable area after initializing summernote
         });
+
+        $("select#ddlRole").change(function () {
+            roleId = $("select#ddlRole :selected").val();
+            if (roleId == "1") {
+                $("#divDepartment").show();
+            } else {
+                $("#divDepartment").hide();
+            }
+        });
+
+        $('#username').keyup(function () {
+            var username = $('#username').val();
+            var success = $('#iconSuccessUsername');
+            var fail = $('#iconFailUsername');
+            $.get(
+                "ajaxValidate",
+                {typeValidation: "UsernameExist", value: username},
+                function (data) {
+                    var isValidated = data.isValidated;
+                    if (isValidated) {
+                        success.show();
+                        fail.hide();
+                    } else {
+                        success.hide();
+                        fail.show();
+                    }
+                    if(!username) {
+                        success.hide();
+                        fail.hide();
+                    }
+                    
+                    if(username.length < 5 ) {
+                        success.hide();
+                        fail.show();
+                    }
+                }
+            );
+        });
     });
 
 </script>
+
+<!--script for this page-->
+<script src="js/form-validation-script.js"></script>

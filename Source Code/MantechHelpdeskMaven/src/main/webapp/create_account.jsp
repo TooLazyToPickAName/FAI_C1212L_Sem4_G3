@@ -26,7 +26,7 @@
         <!--dynamic table-->
         <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
         <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+        <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet" />
@@ -494,6 +494,7 @@
         <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
         <script src="js/respond.min.js" ></script>
 
         <!--this page plugins-->
@@ -523,6 +524,7 @@
         <!--this page  script only-->
         <script src="js/advanced-form-components.js"></script>
 
+
         <script>
 
             jQuery(document).ready(function () {
@@ -539,6 +541,7 @@
 
         </script>
     </body>
+    
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
 </html>

@@ -22,7 +22,7 @@
     </definition>
     
     <definition name="create_account_admin" template="layout_admin.jsp">   
-        <put-attribute name="title" value="Personal Information - Mantech Helpdesk"/>   
+        <put-attribute name="title" value="Create Account - Mantech Helpdesk"/>   
         <put-attribute name="main_content" value="/template/admin/create_account_admin.jsp"/>   
     </definition>
     
@@ -30,14 +30,11 @@
     <!-- end Administrator-->
     
     <!-- Employee-->
-    <definition name="index_employee" template="/template/employee/layout_employee.jsp">   
+    <definition name="index_employee" template="layout_employee.jsp">   
         <put-attribute name="title" value="Home - Mantech Helpdesk"/>   
         <put-attribute name="main_content" value="/template/employee/home_employee.jsp"/>   
     </definition>
-    <definition name="create_complaint_employee" template="/template/employee/layout_employee.jsp">
-        <put-attribute name="title" value="Create Complaint - Mantech Helpdesk"/>   
-        <put-attribute name="main_content" value="/template/employee/create_complaint_employee.jsp"/> 
-    </definition>
+   
     <!-- end Employee-->
     
 </tiles-definitions> 

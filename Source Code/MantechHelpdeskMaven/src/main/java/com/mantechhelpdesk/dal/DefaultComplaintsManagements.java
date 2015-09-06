@@ -14,6 +14,9 @@ import com.mantechhelpdesk.common.*;
 import com.mantechhelpdesk.entity.Category;
 import com.mantechhelpdesk.entity.Department;
 import com.mantechhelpdesk.entity.User;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class DefaultComplaintsManagements implements IComplaintsManagement {
 
@@ -134,6 +137,35 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         return check;
     }
 
+    @Override
+    public boolean createAccount(User u) {
+        boolean check = false;
+        try {
+            DataConnection db = new DataConnection();
+            Connection conn = db.getConnection();
+            String str = "INSERT INTO User(username, password, fullname, department_id, date_of_birth, phone_number, email, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            ps = conn.prepareStatement(str);
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPassword());
+            ps.setString(3, u.getFullname());
+            ps.setString(4, u.getDepartmentId() == null ? null : u.getDepartmentId().toString());
+            ps.setDate(5, new Date(u.getDateOfBirth().getTime()));
+            ps.setString(6, u.getPhoneNumber());
+            ps.setString(7, u.getEmail());
+            ps.setInt(8, u.getRoleId());
+
+            int executeUpdate = ps.executeUpdate();
+            if (executeUpdate > 0) {
+                check = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check;
+    }
+
     /**
      * *
      * Get Complaint Obj base on Id
@@ -193,7 +225,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
         }
         return ret;
     }
@@ -225,9 +257,14 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
     public User getUser(String username) {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
-        User user = new User();
+        User user = null;
 
-        String query = "select * from User where username=?";
+        String query = "select \n"
+                + "	u.*,\n"
+                + "    d.title as departmentName\n"
+                + "from user u \n"
+                + "	left join Department d on u.department_id = d.id\n"
+                + "where u.username = ?";
 
         PreparedStatement ps;
         try {
@@ -236,6 +273,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                user = new User();
                 user.setId(rs.getInt("id"));
                 user.setUsername(username);
                 user.setFullname(rs.getString("fullname"));
@@ -243,6 +281,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setPhoneNumber(rs.getString("phone_number"));
                 user.setEmail(rs.getString("email"));
                 user.setRoleId(rs.getInt("role_id"));
+                user.setDepartmentName(rs.getString("departmentName"));
                 return user;
             }
         } catch (SQLException ex) {
@@ -275,6 +314,44 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
         }
         return obj;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        User user = null;
+
+        String query = "select \n"
+                + "	u.*,\n"
+                + "    d.title as departmentName\n"
+                + "from user u \n"
+                + "	left join Department d on u.department_id = d.id\n"
+                + "where u.email = ?";
+
+        PreparedStatement ps;
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setFullname(rs.getString("fullname"));
+                user.setDateOfBirth(rs.getDate("date_of_birth"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                user.setDepartmentName(rs.getString("departmentName"));
+                return user;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return user;
     }
 
 }

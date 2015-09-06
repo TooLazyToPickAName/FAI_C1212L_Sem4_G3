@@ -300,8 +300,8 @@
                                 <span>Home</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="showAdminInformation">Introduce</a></li>
-                                <li><a  href="#">Personal Information</a></li>
+                                <li><a  href="indexAdmin">Introduce</a></li>
+                                <li><a  href="showAdminInformation">Personal Information</a></li>
                             </ul>
                         </li>
 
@@ -322,7 +322,7 @@
                                 <span>Manager Accounts</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="createAccount">Create Account</a></li>
+                                <li><a  href="displayCreateAccountForm">Create Account</a></li>
                                 <li><a  href="#">Show Accounts</a></li>
                             </ul>
                         </li>

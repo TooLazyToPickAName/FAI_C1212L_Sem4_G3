@@ -1,15 +1,17 @@
 <%-- 
-    Document   : header
-    Created on : Sep 1, 2015, 1:12:06 AM
-    Author     : windluffy
+    Document   : header_employee
+    Created on : Sep 5, 2015, 3:49:39 AM
+    Author     : tinblanc
 --%>
+
+
 <!--header start-->
 <header class="header white-bg">
     <div class="sidebar-toggle-box">
         <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="#" class="logo" >Admin<span>istrator</span></a>
+    <a href="#" class="logo" >Help<span>Desk</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

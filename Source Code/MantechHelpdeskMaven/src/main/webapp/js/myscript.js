@@ -46,6 +46,7 @@ $(document).ready(function () {
         }
     });
 
+    $('#hidCategory').val($('input[name=rdCategories]:checked').val());
     $('input[name=rdCategories]').on("change", function () {
         $('#hidCategory').val($('input[name=rdCategories]:checked').val());
         console.log($('#hidCategory').val());

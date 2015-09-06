@@ -5,7 +5,7 @@
  */
 package com.mantechhelpdesk.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -15,10 +15,29 @@ public class User {
 
     private int id;
     private String username, password, fullname;
-    private int departmentId;
+    private Integer departmentId;
     private Date dateOfBirth;
     private String phoneNumber, email;
     private int roleId;
+    private String departmentName;
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
 
     public int getId() {
         return id;
@@ -52,21 +71,15 @@ public class User {
         this.fullname = fullname;
     }
 
-    public int getDepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(int departmentId) {
+    public void setDepartmentId(Integer departmentId) {
         this.departmentId = departmentId;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+    
 
     public String getPhoneNumber() {
         return phoneNumber;
