@@ -40,20 +40,20 @@ insert into Complaint(category_id, title, description, date_close, department_id
 		   (5, "I have a problem with my computer","this is description",null, 5, 3, 4, default, default);
 
 insert into ComplaintsTechnicals(complaint_id, technical_id, date_created) 
-values (1, 1, default), 		    
-	   (2, 1, default),
-	   (3, 1, default),
-	   (4, 1, default),
-	   (4, 2, default),
-	   (5, 1, default),
-	   (5, 3, default),
-	   (6, 1, default),
-	   (6, 2, default),
-	   (7, 1, default),
-	   (7, 2, default),
-	   (7, 3, default),
-	   (8, 1, default),
-	   (9, 1, default),
-	   (10, 1, default),
-	   (11, 1, default);
+values (1, 5, default), 		    
+	   (2, 5, default),
+	   (3, 5, default),
+	   (4, 5, default),
+	   (4, 6, default),
+	   (5, 5, default),
+	   (5, 7, default),
+	   (6, 5, default),
+	   (6, 6, default),
+	   (7, 5, default),
+	   (7, 6, default),
+	   (7, 7, default),
+	   (8, 5, default),
+	   (9, 5, default),
+	   (10, 5, default),
+	   (11, 5, default);
 

@@ -21,6 +21,13 @@
                 <param name="noCache">true</param>
             </result>
         </action>
+        
+        <action name="ajaxStatusTechnicals" class="com.mantechhelpdesk.action.AjaxStatusTechnicals">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
         <!--login/logout-->
         <action name="login">
             <result>login.jsp</result>

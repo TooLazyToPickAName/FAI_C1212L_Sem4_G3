@@ -32,9 +32,6 @@ $(document).ready(function () {
             case "pending":
                 $(this).addClass("label label-success");
                 break;
-            case "assigned":
-                $(this).addClass("label label-warning");
-                break;
             case "progressing":
                 $(this).addClass("label label-danger");
                 break;

@@ -12,7 +12,7 @@ create table Complaint(
 	department_id integer not null,
 	time_taken integer,
 	employee_id integer not null,
-	status int default 0 not null, -- 0 :pending, 1: assigned, 2: progressing, 3: rejected, 4: closed
+	status int default 0 not null, -- 0 :pending, 1: progressing, 2: rejected, 3: closed
 	priority int default 1 not null -- 0 :High, 1: Normal, 2: Low
 );
 
