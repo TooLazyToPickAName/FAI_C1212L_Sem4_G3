@@ -243,13 +243,13 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
         int affectedRow = -1;
 
         try {
-            String query = "UPDATE Complaint SET status = ?, notes =  WHERE id = ?";
+            String query = "UPDATE Complaint SET status = ?, notes = ? WHERE id = ?";
 
             ps = conn.prepareStatement(query);
             ps = conn.prepareStatement(query);
             ps.setInt(1, StatusType.REJECTED);
             ps.setString(2, notes);
-            ps.setInt(2, complaintId);
+            ps.setInt(3, complaintId);
 
             affectedRow = ps.executeUpdate();
 

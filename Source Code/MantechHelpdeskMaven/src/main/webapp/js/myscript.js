@@ -119,24 +119,28 @@ $(document).ready(function () {
         technicalId = "";
     });
 
-    $('#btnConfirm, #modalConfirmReject').on('click', function () {
+    $('#btnConfirm').on('click', function () {
         TechnicalActions.closeComplaint(complaintId, technicalId, function () {
             toastr.success('You closed successfully.', 'Successfully!');
+            reloadPage();
         }, function () {
             toastr.error('', 'Error!');
+            reloadPage();
         });
         $(this).modal("hide");
-        reloadPage();
+        
     });
 
     $('#btnReject').on('click', function () {
+        notes = $("#txtNotes").val();
         TechnicalActions.rejectComplaint(complaintId, technicalId, notes, function () {
             toastr.success('You rejected successfully.', 'Successfully!');
+            reloadPage();
         }, function () {
-            toastr.success('', 'Error!');
+            toastr.error('', 'Error!');
+            reloadPage();
         });
         $(this).modal("hide");
-        reloadPage();
     });
 });
 
@@ -152,7 +156,6 @@ var reloadPage = function (timeMiliseconds, callback) {
     if (callback) {
         callback();
     }
-    ;
 };
 
 //Assign technicals
