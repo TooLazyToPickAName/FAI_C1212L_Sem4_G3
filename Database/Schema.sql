@@ -12,6 +12,7 @@ create table Complaint(
 	department_id integer not null,
 	time_taken integer,
 	employee_id integer not null,
+	notes varchar(500),
 	status int default 0 not null, -- 0 :pending, 1: progressing, 2: rejected, 3: closed
 	priority int default 1 not null -- 0 :High, 1: Normal, 2: Low
 );
@@ -39,6 +40,7 @@ create table User(
 	date_of_birth date,
 	phone_number varchar(20),
 	email varchar(200),
+	img_avatar varchar(200),
 	role_id integer not null
 );
 
