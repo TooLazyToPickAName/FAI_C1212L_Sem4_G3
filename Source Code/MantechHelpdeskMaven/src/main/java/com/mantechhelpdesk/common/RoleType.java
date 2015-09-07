@@ -6,8 +6,8 @@ package com.mantechhelpdesk.common;
  */
 public class RoleType {
     public static final int ADMINISTRATOR = 0;
-    public static final int EMPLOYEE = 1;
-    public static final int TECHNICAL = 2;
+    public static final int EMPLOYEE = 2;
+    public static final int TECHNICAL = 1;
     
     public static String getTitle(int roleId) {
         switch(roleId) {

@@ -421,7 +421,8 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                     + "	u.*,\n"
                     + "    d.title as departmentName\n"
                     + "from user u \n"
-                    + "	left join Department d on u.department_id = d.id\n";
+                    + "	left join Department d on u.department_id = d.id\n"
+                    + " order by u.role_id asc";
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {

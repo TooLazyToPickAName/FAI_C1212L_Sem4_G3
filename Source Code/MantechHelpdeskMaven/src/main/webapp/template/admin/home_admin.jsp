@@ -4,6 +4,8 @@
     Author     : windluffy
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper site-min-height">
@@ -71,7 +73,67 @@
             </div>
 
 
-        </div>    
+        </div>
+
+        <!-- Show Account start-->
+        <section class="panel">
+            <header class="panel-heading">
+                Editable Table
+            </header>
+            <div class="panel-body">
+                <div class="adv-table editable-table ">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            <a class="btn green" href="displayCreateAccountForm">
+                                Add New <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="space15"></div>
+                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Full Name</th>
+                                <th>Date Of Birth</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Edit/Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${requestScope.listUser}" var="c" >
+                            <tr class="">
+                                <td>${c.username}</td>
+                                <td>${c.fullname}</td>
+                                <td>${c.dateOfBirth}</td>
+                                <td class="center">${c.email}</td>
+                            <c:choose> 
+                                <c:when test="${c.roleId == 0}">
+                                    <td><span class="label label-danger">${c.roleName}</span></td>
+                                </c:when>
+                                <c:when test="${c.roleId == 1}">
+                                    <td><span class="label label-default">${c.roleName}</span></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><span class="label label-info">${c.roleName}</span></td>
+                                </c:otherwise>
+                            </c:choose>
+
+                            <td>
+                                <a class="btn btn-primary btn-xs"  href="#"><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-trash-o "></i></a>
+                            </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Show Account end-->
+
         <div class="row">
             <div class="col-lg-8">
                 <!--custom chart start-->

@@ -77,7 +77,7 @@
        
         <!-- ================= ADMIN ===================-->
         
-        <action name="indexAdmin">
+        <action name="indexAdmin" class="com.mantechhelpdesk.action.ManagerAccountAction" method="showAccount" >
             <result type="tiles">index_admin</result>
         </action>
         <!--Admin information -->
