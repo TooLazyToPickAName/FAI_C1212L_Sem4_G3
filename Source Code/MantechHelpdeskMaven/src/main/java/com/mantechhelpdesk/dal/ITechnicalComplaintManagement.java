@@ -19,4 +19,6 @@ public interface ITechnicalComplaintManagement {
     public List<Technical> getAllTechnicalComplaints();
     public List<Technical> searchTechnicals(String keyword);
     public boolean assignAndSaveTechnicalsJob(List<Technical> technicals, Complaint complaint);
+    public boolean closeComplaint(int complaintId);
+    public boolean rejectComplaint(int complaintId, String notes);
 }

@@ -26,8 +26,6 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
      *
      * @return List complaints
      */
-    
-
     @Override
     public List<Complaint> getAllComplaints() {
         List<Complaint> ret = new ArrayList<>();
@@ -56,10 +54,9 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
-    
-    
+
     @Override
-    public List<Complaint> getAllComplaintsByEmployeeId(int employeeId){
+    public List<Complaint> getAllComplaintsByEmployeeId(int employeeId) {
         List<Complaint> ret = new ArrayList<>();
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
@@ -143,9 +140,9 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         try {
             DataConnection db = new DataConnection();
             Connection conn = db.getConnection();
-            
+
             String str = "INSERT INTO Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
+
             PreparedStatement ps = conn.prepareStatement(str);
             ps.setInt(1, c.getCategoryId());
             ps.setString(2, c.getTitle());
@@ -155,7 +152,8 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             ps.setInt(6, c.getTimeTaken());
             ps.setInt(7, c.getEmployeeId());
             ps.setInt(8, c.getStatus());
-            ps.setInt(9, c.getPriority());
+            //ps.setInt(9, c.getPriority());
+            ps.setInt(9, PriorityType.NORMAL);
 
             int executeUpdate = ps.executeUpdate();
             if (executeUpdate > 0) {
@@ -259,9 +257,9 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
-    
+
     @Override
-    public List<Complaint> getProcessingComplaints(){
+    public List<Complaint> getProcessingComplaints() {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
         List<Complaint> ret = new ArrayList<>();
@@ -287,7 +285,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         } finally {
         }
         return ret;
-    }    
+    }
 
     @Override
     public boolean login(String username, String userpass) {
@@ -312,21 +310,20 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         return status;
     }
 
-    
     @Override
-    public List<User> getAllUser(){
-        List<User> listUser=new ArrayList<>();
-        DataConnection db= new DataConnection();
+    public List<User> getAllUser() {
+        List<User> listUser = new ArrayList<>();
+        DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
-        User user=null;
-        
+        User user = null;
+
         try {
             Statement cmd = conn.createStatement();
             String query = "select \n"
-                + "	u.*,\n"
-                + "    d.title as departmentName\n"
-                + "from user u \n"
-                + "	left join Department d on u.department_id = d.id\n";
+                    + "	u.*,\n"
+                    + "    d.title as departmentName\n"
+                    + "from user u \n"
+                    + "	left join Department d on u.department_id = d.id\n";
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
@@ -341,7 +338,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setRoleId(rs.getInt("role_id"));
                 user.setRoleName(RoleType.getTitle(user.getRoleId()));
                 user.setDepartmentName(rs.getString("departmentName"));
-                
+
                 listUser.add(user);
             }
         } catch (SQLException ex) {
@@ -350,7 +347,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return listUser;
     }
-    
+
     @Override
     public User getUserByUsername(String username) {
         DataConnection db = new DataConnection();

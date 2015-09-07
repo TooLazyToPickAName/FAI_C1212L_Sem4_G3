@@ -179,7 +179,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
             StringBuilder valsQuery = new StringBuilder();
             for (int i = 0; i < technicals.size(); i++) {
                 String passedStr = valQuery.replace("#1", complaint.getId() + "").replace("#2", technicals.get(i).getId() + "");
-                
+
                 valsQuery.append(passedStr);
                 if (i != technicals.size() - 1) {
                     valsQuery.append(",");
@@ -187,7 +187,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
             }
             query += valsQuery.toString();
             ps = conn.prepareStatement(query);
-            
+
             affectedRow = ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -208,6 +208,61 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
         boolean bSaveComplaint = this.saveComplaint(complaint);
         boolean bSaveAssignTechnicalsJob = technicals.size() > 0 ? this.assignTechnicalJob(technicals, complaint) : true;
         return bSaveAssignTechnicalsJob && bSaveComplaint;
+    }
+
+    @Override
+    public boolean closeComplaint(int complaintId) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        int affectedRow = -1;
+
+        try {
+            String query = "UPDATE Complaint SET status = ? WHERE id = ?";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, StatusType.CLOSED);
+            ps.setInt(2, complaintId);
+            affectedRow = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DefaultTechnicalComplaintManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return affectedRow > 0;
+    }
+
+    @Override
+    public boolean rejectComplaint(int complaintId, String notes) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        int affectedRow = -1;
+
+        try {
+            String query = "UPDATE Complaint SET status = ?, notes =  WHERE id = ?";
+
+            ps = conn.prepareStatement(query);
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, StatusType.REJECTED);
+            ps.setString(2, notes);
+            ps.setInt(2, complaintId);
+
+            affectedRow = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DefaultTechnicalComplaintManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return affectedRow > 0;
     }
 
 }

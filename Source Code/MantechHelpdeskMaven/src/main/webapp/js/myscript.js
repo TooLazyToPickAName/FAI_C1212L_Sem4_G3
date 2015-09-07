@@ -87,7 +87,7 @@ $(document).ready(function () {
 
 
 
-///Toastr!!!!!!!!!!!!!
+    //Toastr!!!!!!!!!!!!!
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -103,9 +103,57 @@ $(document).ready(function () {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     };
+
+    //Technical Action
+    var technicalId = "";
+    var complaintId = "";
+    var notes = "";
+
+    $('#modalConfirmClose, #modalConfirmReject').on('show.bs.modal', function (e) {
+        complaintId = $(e.relatedTarget).data('complaintid');
+        technicalId = $(e.relatedTarget).data('technicalid');
+    });
+
+    $('#modalConfirmClose').on('hidden.bs.modal', function (e) {
+        complaintId = "";
+        technicalId = "";
+    });
+
+    $('#btnConfirm, #modalConfirmReject').on('click', function () {
+        TechnicalActions.closeComplaint(complaintId, technicalId, function () {
+            toastr.success('You closed successfully.', 'Successfully!');
+        }, function () {
+            toastr.error('', 'Error!');
+        });
+        $(this).modal("hide");
+        reloadPage();
+    });
+
+    $('#btnReject').on('click', function () {
+        TechnicalActions.rejectComplaint(complaintId, technicalId, notes, function () {
+            toastr.success('You rejected successfully.', 'Successfully!');
+        }, function () {
+            toastr.success('', 'Error!');
+        });
+        $(this).modal("hide");
+        reloadPage();
+    });
 });
 
 //not need document ready
+
+var reloadPage = function (timeMiliseconds, callback) {
+    if (!timeMiliseconds) {
+        timeMiliseconds = 500;
+    }
+    setTimeout(function () {
+        location.reload();
+    }, timeMiliseconds);
+    if (callback) {
+        callback();
+    }
+    ;
+};
 
 //Assign technicals
 
@@ -174,7 +222,7 @@ var TechnicalsViewModel = function () {
             toastr.success('You assigned successfully.', 'Successfully!');
             setTimeout(function () {
                 location.reload();
-            }, 1000);
+            }, 500);
         }, function () {
             toastr.error('', 'Error!');
         });
@@ -226,4 +274,35 @@ var initSelectHandler = function () {
         $("a.technical-item").removeClass("item-active");
         $(this).addClass("item-active");
     });
+};
+
+var TechnicalActions = {
+    closeComplaint: function (complaintId, technicalId, success, fail) {
+        var params = {'complaintId': complaintId, 'technicalId': technicalId};
+        $.get(
+                "ajaxCloseComplaint",
+                params,
+                function (data) {
+                    if (data.isSaveSuccess) {
+                        success();
+                    } else {
+                        fail();
+                    }
+                }
+        );
+    },
+    rejectComplaint: function (complaintId, technicalId, notes, success, fail) {
+        var params = {'complaintId': complaintId, 'technicalId': technicalId, 'notes': notes};
+        $.get(
+                "ajaxRejectComplaint",
+                params,
+                function (data) {
+                    if (data.isSaveSuccess) {
+                        success();
+                    } else {
+                        fail();
+                    }
+                }
+        );
+    }
 };

@@ -35,7 +35,21 @@
                                             <td>${c.title}</td>
                                             <td class="hidden-phone">${c.categoryName}</td>
                                             <td class="hidden-phone">${c.dateRegister}</td>
-                                            <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
+                                            <!--<td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>-->
+                                            <c:choose>
+                                                <c:when test="${c.status == 0}">
+                                                    <td><span class="label label-warning">${c.statusName}</span></td>
+                                                    </c:when>
+                                                    <c:when test="${c.status == 1}">
+                                                    <td><span class="label label-danger">${c.statusName}</span></td>
+                                                    </c:when>
+                                                    <c:when test="${c.status== 2}">
+                                                    <td><span class="label label-primary">${c.statusName}</span></td>
+                                                    </c:when>
+                                                    <c:when test="${c.status== 3}">
+                                                    <td><span class="label label-success">${c.statusName}</span></td>
+                                                </c:when>
+                                            </c:choose>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

@@ -37,20 +37,33 @@
                                     <td><a href="#">${c.title}</a></td>
                                     <td class="hidden-phone">${c.description}</td>
                                     <td>${c.categoryName}</td>
-                                    <td><span class="label label-danger">${c.statusName}</span></td>
-                                    
+                                    <c:choose>
+                                        <c:when test="${c.status == 0}">
+                                            <td><span class="label label-warning">${c.statusName}</span></td>
+                                            </c:when>
+                                            <c:when test="${c.status == 1}">
+                                            <td><span class="label label-danger">${c.statusName}</span></td>
+                                            </c:when>
+                                            <c:when test="${c.status== 2}">
+                                            <td><span class="label label-primary">${c.statusName}</span></td>
+                                            </c:when>
+                                            <c:when test="${c.status== 3}">
+                                            <td><span class="label label-success">${c.statusName}</span></td>
+                                            </c:when>
+                                        </c:choose>
+
                                     <c:choose>
                                         <c:when test="${c.priority==0}">
                                             <td><span class="label label-danger">${c.priorityName}</span></td>
-                                        </c:when>
-                                        <c:when test="${c.priority==1}">
+                                            </c:when>
+                                            <c:when test="${c.priority==1}">
                                             <td><span class="label label-warning">${c.priorityName}</span></td>
-                                        </c:when>
-                                        <c:when test="${c.priority==2}">
+                                            </c:when>
+                                            <c:when test="${c.priority==2}">
                                             <td><span class="label label-success">${c.priorityName}</span></td>
-                                        </c:when>
-                                    </c:choose>
-                                    
+                                            </c:when>
+                                        </c:choose>
+
                                 </tr>
                             </c:forEach>
                         </tbody>
