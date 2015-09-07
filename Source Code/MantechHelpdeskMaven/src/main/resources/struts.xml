@@ -102,6 +102,9 @@
             <result type="tiles">change_password_admin</result>
         </action>
         
+        <action name="showTechnical" class="com.mantechhelpdesk.action.ManagerAccountAction" method="showAllTechnical">
+            <result name="success" type="tiles">show_technical</result>
+        </action>
         
         <!-- ================= ADMIN END ===================-->
         
@@ -126,8 +129,8 @@
             <result name="success" type="tiles">index_employee</result>
         </action>
         
-        <action name="indexEmployee" class="com.mantechhelpdesk.action.ShowComplaints" method="getComplaintsByEmployeeId">
-            <result name="success" type="tiles">index_employee</result>
+        <action name="indexEmployee">
+            <result type="tiles">show_information_employee</result>
         </action>
         
         

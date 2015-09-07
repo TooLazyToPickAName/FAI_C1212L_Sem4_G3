@@ -29,4 +29,5 @@ public interface IComplaintsManagement {
     List<Complaint> getAllComplaintsByEmployeeId(int employeeId);
     List<User> getAllUser();
     List<Complaint> getProcessingComplaints();
+    List<User> getAllTechnical();
 }

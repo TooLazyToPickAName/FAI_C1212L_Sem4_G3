@@ -46,6 +46,11 @@
         <put-attribute name="main_content" value="/template/change_password.jsp"/>   
     </definition>
     
+    <definition name="show_technical" template="layout_admin.jsp">   
+        <put-attribute name="title" value="Show Technical - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/admin/show_technical.jsp"/>   
+    </definition>
+    
     
     <!-- end Administrator-->
     

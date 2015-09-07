@@ -57,6 +57,45 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         return ret;
     }
     
+    @Override
+    public List<User> getAllTechnical(){
+        List<User> listUser=new ArrayList<>();
+        DataConnection db= new DataConnection();
+        Connection conn = db.getConnection();
+        User user=null;
+        
+        try {
+            Statement cmd = conn.createStatement();
+            String query = "select \n"
+                + "	u.*,\n"
+                + "    d.title as departmentName\n"
+                + "from user u \n"
+                + "	left join Department d on u.department_id = d.id\n"
+                + "where u.role_id = 2"    ;
+            ResultSet rs = cmd.executeQuery(query);
+
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setFullname(rs.getString("fullname"));
+                user.setDateOfBirth(rs.getDate("date_of_birth"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setDepartmentId(rs.getInt("department_id"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                user.setRoleName(RoleType.getTitle(user.getRoleId()));
+                user.setDepartmentName(rs.getString("departmentName"));
+                user.setImgAvatar(rs.getString("img_avatar"));
+                
+                listUser.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return listUser;
+    }
     
     @Override
     public List<Complaint> getAllComplaintsByEmployeeId(int employeeId){
@@ -381,6 +420,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setEmail(rs.getString("email"));
                 user.setRoleId(rs.getInt("role_id"));
                 user.setDepartmentName(rs.getString("departmentName"));
+                user.setImgAvatar(rs.getString("img_avatar"));
                 return user;
             }
         } catch (SQLException ex) {
