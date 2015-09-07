@@ -98,6 +98,14 @@
             <result name="success" type="tiles">show_processing_complaints_admin</result>
         </action>
         
+        <action name="showRejectedComplaintsAdmin" class="com.mantechhelpdesk.action.ShowComplaints" method="getRejectedComplaints">
+            <result name="success" type="tiles">show_rejected_complaints_admin</result>
+        </action>
+        
+        <action name="showClosedComplaintsAdmin" class="com.mantechhelpdesk.action.ShowComplaints" method="getClosedComplaints">
+            <result name="success" type="tiles">show_closed_complaints_admin</result>
+        </action>
+        
         <action name="changePasswordAdmin" >
             <result type="tiles">change_password_admin</result>
         </action>

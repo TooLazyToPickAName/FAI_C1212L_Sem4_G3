@@ -26,7 +26,7 @@
             </div>
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
-                    <a href="#">
+                    <a href="showProcessingComplaintsAdmin">
                         <div class="symbol red">
                             <i class="fa fa-clock-o"></i>
                         </div>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
-                    <a href="#">
+                    <a href="showRejectedComplaintsAdmin">
                         <div class="symbol blue">
                             <i class="fa fa-cog"></i>
                         </div>
@@ -57,7 +57,7 @@
 
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
-                    <a href="#">
+                    <a href="showClosedComplaintsAdmin">
                         <div class="symbol green">
                             <i class="fa fa-check"></i>
                         </div>

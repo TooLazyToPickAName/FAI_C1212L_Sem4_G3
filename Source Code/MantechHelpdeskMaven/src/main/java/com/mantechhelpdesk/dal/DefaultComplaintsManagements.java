@@ -326,7 +326,65 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         } finally {
         }
         return ret;
-    }    
+    }  
+    
+    @Override
+    public List<Complaint> getRejectedComplaints(){
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        List<Complaint> ret = new ArrayList<>();
+
+        Statement cmd;
+        try {
+            cmd = conn.createStatement();
+            String query = "select \n"
+                    + "	c.*, \n"
+                    + "	d.title as departmentName,\n"
+                    + "	cg.title as categoryName\n"
+                    + "from complaint c \n"
+                    + "	inner join department d on c.department_id = d.id\n"
+                    + "	inner join category cg on c.category_id = cg.id\n"
+                    + "where c.status = 2 \n"
+                    + "order by c.priority asc";
+            ResultSet rs = cmd.executeQuery(query);
+            while (rs.next()) {
+                ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return ret;
+    }
+    
+    @Override
+    public List<Complaint> getClosedComplaints(){
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        List<Complaint> ret = new ArrayList<>();
+
+        Statement cmd;
+        try {
+            cmd = conn.createStatement();
+            String query = "select \n"
+                    + "	c.*, \n"
+                    + "	d.title as departmentName,\n"
+                    + "	cg.title as categoryName\n"
+                    + "from complaint c \n"
+                    + "	inner join department d on c.department_id = d.id\n"
+                    + "	inner join category cg on c.category_id = cg.id\n"
+                    + "where c.status = 3 \n"
+                    + "order by c.priority asc";
+            ResultSet rs = cmd.executeQuery(query);
+            while (rs.next()) {
+                ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return ret;
+    }
 
     @Override
     public boolean login(String username, String userpass) {

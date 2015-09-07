@@ -36,6 +36,16 @@
         <put-attribute name="main_content" value="/template/admin/show_processing_complaints_admin.jsp"/>   
     </definition>
     
+    <definition name="show_rejected_complaints_admin" template="layout_admin.jsp">   
+        <put-attribute name="title" value="Personal Information - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/admin/show_rejected_complaints_admin.jsp"/>   
+    </definition>
+    
+    <definition name="show_closed_complaints_admin" template="layout_admin.jsp">   
+        <put-attribute name="title" value="Personal Information - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/admin/show_closed_complaints_admin.jsp"/>   
+    </definition>
+    
     <definition name="show_accounts" template="layout_admin.jsp">   
         <put-attribute name="title" value="Show Accounts - Mantech Helpdesk"/>   
         <put-attribute name="main_content" value="/template/admin/show_accounts.jsp"/>   
