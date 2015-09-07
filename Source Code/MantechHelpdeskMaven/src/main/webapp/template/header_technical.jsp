@@ -1,6 +1,6 @@
 <%-- 
-    Document   : header_employee
-    Created on : Sep 5, 2015, 3:49:39 AM
+    Document   : header_technical
+    Created on : Sep 7, 2015, 2:29:10 AM
     Author     : tinblanc
 --%>
 
@@ -11,7 +11,7 @@
         <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="indexAdmin" class="logo" >Admin<span>istrator</span></a>
+    <a href="#" class="logo" >Tech<span>nical</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -247,3 +247,4 @@
     </div>
 </header>
 <!--header end-->
+

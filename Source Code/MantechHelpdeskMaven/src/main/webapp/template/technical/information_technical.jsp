@@ -1,8 +1,9 @@
 <%-- 
-    Document   : information_admin
-    Created on : Sep 1, 2015, 6:18:41 PM
-    Author     : windluffy
+    Document   : information_technical
+    Created on : Sep 7, 2015, 3:13:56 AM
+    Author     : tinblanc
 --%>
+
 
 <!--main content start-->
 <section id="main-content">

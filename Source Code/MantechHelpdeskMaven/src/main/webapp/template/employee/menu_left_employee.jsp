@@ -17,8 +17,8 @@
                     <span>Home</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">Introduce</a></li>
-                    <li><a  href="#">Personal Information</a></li>
+                    <li><a  href="indexEmployee">Introduce</a></li>
+                    <li><a  href="showEmployeeInformation">Personal Information</a></li>
                     <li><a  href="#">Change Password</a></li>
                 </ul>
             </li>
@@ -30,11 +30,11 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
-                    <li><a  href="#">Show Complaints</a></li>
+                    <li><a  href="showAllComplaintsByEmployeeId">Show Complaints</a></li>
                 </ul>
             </li>
 
-            <li class="sub-menu">
+<!--            <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class=" fa fa-bar-chart-o"></i>
                     <span>Reports</span>
@@ -44,7 +44,7 @@
                     <li><a  href="#">Monthly Report</a></li>
                     <li><a  href="#">Yearly Report</a></li>
                 </ul>
-            </li>
+            </li>-->
 
 
 

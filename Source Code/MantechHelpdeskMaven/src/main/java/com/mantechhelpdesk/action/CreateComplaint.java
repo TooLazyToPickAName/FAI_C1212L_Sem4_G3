@@ -10,8 +10,11 @@ import com.mantechhelpdesk.dal.IComplaintsManagement;
 import com.mantechhelpdesk.entity.Category;
 import com.mantechhelpdesk.entity.Complaint;
 import com.mantechhelpdesk.entity.Department;
+import com.mantechhelpdesk.entity.User;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -21,7 +24,8 @@ public class CreateComplaint {
     private List<Category> categories;
     private List<Department> departments;
     private Complaint complaint;
-
+    
+    
     public List<Category> getCategories() {
         return categories;
     }
@@ -62,10 +66,17 @@ public class CreateComplaint {
         this.departments = complaintsManagement.getAllDepartment();
     }
     
+    public void getSessionComplaint(){
+        Map session = ActionContext.getContext().getSession();
+        User user=null;
+        user=(User) session.get("user");        
+        complaint.setDepartmentId(user.getDepartmentId());
+        complaint.setEmployeeId(user.getId());
+    }
+    
     public String createComplaint() {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
-        complaint.setDepartmentId(2);
-        complaint.setEmployeeId(2);
+        getSessionComplaint();
         if (complaintsManagement.createComplaint(complaint)) {
             return Action.SUCCESS;
         }

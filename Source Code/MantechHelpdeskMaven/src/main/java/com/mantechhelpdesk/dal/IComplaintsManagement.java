@@ -22,8 +22,11 @@ public interface IComplaintsManagement {
     List<Category> getAllCategory();
     List<Department> getAllDepartment();
     boolean login(String username,String userpass);
-    User getUser(String username);
+    User getUserByUsername(String username);
     List<Complaint> getPendingComplaints();
     boolean createAccount(User u);
     User getUserByEmail(String email);
+    List<Complaint> getAllComplaintsByEmployeeId(int employeeId);
+    List<User> getAllUser();
+    List<Complaint> getProcessingComplaints();
 }

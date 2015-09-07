@@ -19,6 +19,7 @@
                 <ul class="sub">
                     <li><a  href="indexAdmin">Introduce</a></li>
                     <li><a  href="showAdminInformation">Personal Information</a></li>
+                    <li><a  href="changePasswordAdmin">Change Password</a></li>
                 </ul>
             </li>
 
@@ -28,8 +29,10 @@
                     <span>Complaint</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">Show Complaints</a></li>
+                    <li><a  href="showAllComplaints">Show Complaints</a></li>
+                    <li><a  href="showProcessingComplaintsAdmin">Processing Complaints</a></li>
                     <li><a  href="showPendingComplaints">Manager Complaints</a></li>
+                    
                 </ul>
             </li>
 
@@ -40,7 +43,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="displayCreateAccountForm">Create Account</a></li>
-                    <li><a  href="#">Show Accounts</a></li>
+                    <li><a  href="showAccounts">Show Accounts</a></li>
                 </ul>
             </li>
 

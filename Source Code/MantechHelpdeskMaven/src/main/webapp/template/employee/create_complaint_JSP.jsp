@@ -300,7 +300,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a  href="#">Introduce</a></li>
-                                <li><a  href="#">Personal Information</a></li>
+                                <li><a  href="showEmployeeInformation">Personal Information</a></li>
                                 <li><a  href="#">Change Password</a></li>
                             </ul>
                         </li>
@@ -316,17 +316,17 @@
                             </ul>
                         </li>
 
-                        <li class="sub-menu">
-                            <a href="javascript:;" >
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Reports</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a  href="#">Reports by date</a></li>
-                                <li><a  href="#">Monthly Report</a></li>
-                                <li><a  href="#">Yearly Report</a></li>
-                            </ul>
-                        </li>
+                        <!--            <li class="sub-menu">
+                                        <a href="javascript:;" >
+                                            <i class=" fa fa-bar-chart-o"></i>
+                                            <span>Reports</span>
+                                        </a>
+                                        <ul class="sub">
+                                            <li><a  href="#">Reports by date</a></li>
+                                            <li><a  href="#">Monthly Report</a></li>
+                                            <li><a  href="#">Yearly Report</a></li>
+                                        </ul>
+                                    </li>-->
 
 
 
@@ -349,123 +349,123 @@
                                     Create Complaint
                                 </header>
                                 <div class="panel-body">
-                                        <div class=" form">
-                                            <s:form cssClass="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
-                                                <div class="form-group ">
-                                                    <label for="txtTitle" class="control-label col-lg-2">Title</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" id="txtTitle" name="complaint.title" minlength="10" type="text" required />
-                                                    </div>
-
+                                    <div class=" form">
+                                        <s:form cssClass="cmxform form-horizontal tasi-form" id="commentForm" method="Post" action="createComplaint">
+                                            <div class="form-group ">
+                                                <label for="txtTitle" class="control-label col-lg-2">Title</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="txtTitle" name="complaint.title" minlength="10" maxlength="200" type="text" required />
                                                 </div>
 
-                                                <div class="form-group ">
-                                                    <label for="category" class="control-label col-lg-2">Category</label>
-                                                    <div class="col-lg-10">
-                                                        <c:forEach items="${requestScope.categories}" var="c">
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="rdCategories" value="${c.id}" checked="">
-                                                                    ${c.title}
-                                                                </label>
-                                                            </div> 
-                                                        </c:forEach>
-                                                    </div>
-                                                    <s:textfield id="hidCategory" name="complaint.categoryId" cssStyle="display:none"></s:textfield>
-                                                    </div>
+                                            </div>
 
-                                                    <div class="form-group">
-                                                        <label for="txtDepartmentName" class="control-label col-lg-2">Department</label>
-                                                        <div class="col-lg-10">
-                                                            <label  id="txtDepartmentName" class="control-label col-lg-4 " style="font-weight: 400 " >${sessionScope.user.departmentName}</label>
-                                                    </div>
+                                            <div class="form-group ">
+                                                <label for="category" class="control-label col-lg-2">Category</label>
+                                                <div class="col-lg-10">
+                                                    <c:forEach items="${requestScope.categories}" var="c">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="rdCategories" value="${c.id}" checked="">
+                                                                ${c.title}
+                                                            </label>
+                                                        </div> 
+                                                    </c:forEach>
                                                 </div>
-
-                                                <div class="form-group ">
-                                                    <label for="txtDescription" class="control-label col-lg-2">Description</label>
-                                                    <div class="col-lg-10">
-                                                        <textarea class="form-control " id="txtDescription" name="complaint.description" required></textarea>
-                                                    </div>
-
+                                                <s:textfield id="hidCategory" name="complaint.categoryId" cssStyle="display:none"></s:textfield>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="col-lg-offset-2 col-lg-10">
-                                                        <button class="btn btn-danger" type="submit">Create</button>
-                                                        <button class="btn btn-default" type="button">Cancel</button>
-                                                    </div>
+                                                    <label for="txtDepartmentName" class="control-label col-lg-2">Department</label>
+                                                    <div class="col-lg-10">
+                                                        <label  id="txtDepartmentName" class="control-label col-lg-4 " style="font-weight: 400 " >${sessionScope.user.departmentName}</label>
                                                 </div>
-                                            </s:form>
-                                        </div>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="txtDescription" class="control-label col-lg-2">Description</label>
+                                                <div class="col-lg-10">
+                                                    <textarea class="form-control " id="txtDescription" name="complaint.description" maxlength="500" required></textarea>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button class="btn btn-danger" type="submit">Create</button>
+                                                    <button class="btn btn-default" type="button">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </s:form>
+                                    </div>
                                 </div>
 
-                                
-                                </section>
-                            </div>
+
+                            </section>
                         </div>
-
-                        <!--page end-->
-                    </section>
-                </section>
-                <!--main content end-->
-
-                <!--footer start-->
-                <footer class="site-footer">
-                    <div class="text-center">
-                        2015 &copy; Helpdesk by Group3.
-                        <a href="#" class="go-top">
-                            <i class="fa fa-angle-up"></i>
-                        </a>
                     </div>
-                </footer>
-                <!--footer end-->
+
+                    <!--page end-->
+                </section>
             </section>
+            <!--main content end-->
+
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2015 &copy; Helpdesk by Group3.
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </section>
 
 
 
-            <!-- js placed at the end of the document so the pages load faster -->
-            <script src="js/jquery.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-            <script src="js/jquery.scrollTo.min.js"></script>
-            <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-            <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-            <script src="js/respond.min.js" ></script>
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script src="js/respond.min.js" ></script>
 
-            <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 
-            <!--custom switch-->
-            <script src="js/bootstrap-switch.js"></script>
-            <!--custom tagsinput-->
-            <script src="js/jquery.tagsinput.js"></script>
+        <!--custom switch-->
+        <script src="js/bootstrap-switch.js"></script>
+        <!--custom tagsinput-->
+        <script src="js/jquery.tagsinput.js"></script>
 
-            <!--custom checkbox & radio-->
-            <script type="text/javascript" src="js/ga.js"></script>
+        <!--custom checkbox & radio-->
+        <script type="text/javascript" src="js/ga.js"></script>
 
-            <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-            <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-            <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 
-            <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-            <script src="js/respond.min.js" ></script>
+        <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+        <script src="js/respond.min.js" ></script>
 
 
-            <!--right slidebar-->
-            <script src="js/slidebars.min.js"></script>
+        <!--right slidebar-->
+        <script src="js/slidebars.min.js"></script>
 
-            <!--common script for all pages-->
-            <script src="js/common-scripts.js"></script>
+        <!--common script for all pages-->
+        <script src="js/common-scripts.js"></script>
 
-            <!--script for this page-->
-            <script src="js/form-validation-script.js"></script>
-            <script src="js/form-component.js"></script>
+        <!--script for this page-->
+        <script src="js/form-validation-script.js"></script>
+        <script src="js/form-component.js"></script>
 
-            <script src="js/myscript.js"></script>
-        </body>
+        <script src="js/myscript.js"></script>
+    </body>
 
-        <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
-    </html>
+    <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->
+</html>
 
 

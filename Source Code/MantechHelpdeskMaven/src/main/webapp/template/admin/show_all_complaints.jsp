@@ -1,20 +1,20 @@
 <%-- 
-    Document   : home_employee
-    Created on : Sep 1, 2015, 3:47:22 AM
-    Author     : windluffy
+    Document   : show_all_complaints
+    Created on : Sep 6, 2015, 11:20:54 PM
+    Author     : tinblanc
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--main content start-->
 <section id="main-content">
-    <section class="wrapper site-min-height">
+    <section class="wrapper">
         <!-- page start-->
 
         <div class="row">
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Show History Complaints
+                        Show Complaints
                     </header>
                     <div class="panel-body">
                         <div class="adv-table">
@@ -24,20 +24,20 @@
                                         <th>ID</th>
                                         <th>Title</th>
                                         <th class="hidden-phone">Category</th>
-                                        <th class="hidden-phone">Date Register</th>
-                                        <th class="center hidden-phone">Status</th>
+                                        <th class="hidden-phone">Status</th>
+                                        <th class="hidden-phone">Priority</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${requestScope.complaints}" var="c" >
-                                        <tr class="gradeX">
-                                            <td>${c.id}</td>
-                                            <td>${c.title}</td>
-                                            <td class="hidden-phone">${c.categoryName}</td>
-                                            <td class="hidden-phone">${c.dateRegister}</td>
-                                            <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
-                                        </tr>
-                                    </c:forEach>
+                                <c:forEach items="${requestScope.complaints}" var="c" >
+                                    <tr class="gradeX">
+                                        <td>${c.id}</td>
+                                        <td>${c.title}</td>
+                                        <td class="hidden-phone">${c.categoryName}</td>
+                                        <td class="center hidden-phone"><span class="statusComplaint">${c.statusName}</span></td>
+                                        <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
 

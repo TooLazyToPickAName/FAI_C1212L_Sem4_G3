@@ -12,15 +12,18 @@ var Script = function () {
                 "user\.username": {
                     required: true,
                     minlength: 5,
+                    maxlength: 50,
                     checkExistUsername: true
                 },
                 "user\.password": {
                     required: true,
-                    minlength: 5
+                    minlength: 5,
+                    maxlength:100
                 },
                 "user\.fullname": {
                     required: true,
-                    minlength: 2
+                    minlength: 2,
+                    maxlength:50
                 },
                 "confirm_password": {
                     required: true,
@@ -30,6 +33,7 @@ var Script = function () {
                 "user\.email": {
                     required: true,
                     email: true,
+                    maxlength:200,
                     checkExistEmail: true
                 },
                 topic: {

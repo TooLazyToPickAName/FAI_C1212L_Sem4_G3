@@ -11,7 +11,7 @@
         <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="#" class="logo" >Help<span>Desk</span></a>
+    <a href="indexEmployee" class="logo" >Help<span>Desk</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

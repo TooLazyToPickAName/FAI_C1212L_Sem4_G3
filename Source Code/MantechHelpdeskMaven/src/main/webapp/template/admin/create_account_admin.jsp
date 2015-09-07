@@ -79,7 +79,7 @@
                                 <div class="form-group">
                                     <label for="phone" class="control-label col-md-3">Phone Number</label>
                                     <div class="col-lg-4">
-                                        <input name="user.phoneNumber" type="text" placeholder="" id="f-name" class="form-control" minlength="2">
+                                        <input name="user.phoneNumber" type="text" placeholder="" id="f-name" class="form-control" minlength="2" maxlength="20">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -184,7 +184,7 @@
                         fail.hide();
                     }
                     
-                    if(username.length < 5 ) {
+                    if(username.length < 5 || username.length > 50 ) {
                         success.hide();
                         fail.show();
                     }

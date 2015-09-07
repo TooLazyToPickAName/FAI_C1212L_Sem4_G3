@@ -54,7 +54,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
         User user = null;
         if (complaintsManagement.login(username, userpass)) {
-            user = complaintsManagement.getUser(username);
+            user = complaintsManagement.getUserByUsername(username);
             if (user != null) {
                 session.put("user", user);
                 String roleName = RoleType.getTitle(user.getRoleId());

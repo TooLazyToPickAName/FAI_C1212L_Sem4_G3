@@ -83,7 +83,7 @@ public class AjaxValidate {
 
     private void processUsernameExist() {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
-        boolean isExisted = complaintsManagement.getUser(value) != null;
+        boolean isExisted = complaintsManagement.getUserByUsername(value) != null;
        
         this.isValidated = !isExisted;
     }

@@ -40,18 +40,14 @@
         </action>
         <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
             <result name="administrator" type="redirectAction">indexAdmin</result>
-            <result name="technical">technical_temp.jsp</result>
+            <result name="technical" type="redirectAction">indexTechnical</result>
             <result name="employee" type="redirectAction">indexEmployee</result>
             <result name="error" type="redirectAction">login</result>
         </action>
         
-        <action name="indexAdmin">
-            <result type="tiles">index_admin</result>
-        </action>
         
-        <action name="indexEmployee">
-            <result type="tiles">index_employee</result>
-        </action>
+        
+        
         
         <action name="logout" class="com.mantechhelpdesk.action.LoginAction" method="logout">
             <result name="success">login.jsp</result>
@@ -59,6 +55,10 @@
         <!--login/logout end-->
        
         <!-- ================= ADMIN ===================-->
+        
+        <action name="indexAdmin">
+            <result type="tiles">index_admin</result>
+        </action>
         <!--Admin information -->
         <action name="showAdminInformation">
             <result type="tiles">show_information_admin</result>
@@ -80,11 +80,19 @@
         </action>
         
         <action name="showAllComplaints" class="com.mantechhelpdesk.action.ShowComplaints" >
-            <result name="success">show_complaints.jsp</result>
+            <result name="success" type="tiles">show_all_complaints_admin</result>
         </action>
         
-        <action name="index_admin">
-            <result>index_admin.jsp</result>
+        <action name="showAccounts" class="com.mantechhelpdesk.action.ManagerAccountAction" method="showAccount" >
+            <result name="success" type="tiles">show_accounts</result>
+        </action>
+        
+        <action name="showProcessingComplaintsAdmin" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaints">
+            <result name="success" type="tiles">show_processing_complaints_admin</result>
+        </action>
+        
+        <action name="changePasswordAdmin" >
+            <result type="tiles">change_password_admin</result>
         </action>
         
         
@@ -100,10 +108,20 @@
         </action>
         
         <action name="createComplaint" class="com.mantechhelpdesk.action.CreateComplaint" method="createComplaint">
-            <result name="success" type="redirectAction">showComplaints</result>
-            <result name="error"></result>
+            <result name="success" type="redirectAction">showAllComplaintsByEmployeeId</result>
         </action>
         
+        <action name="showEmployeeInformation">
+            <result type="tiles">show_information_employee</result>
+        </action>
+        
+        <action name="showAllComplaintsByEmployeeId" class="com.mantechhelpdesk.action.ShowComplaints" method="getComplaintsByEmployeeId">
+            <result name="success" type="tiles">index_employee</result>
+        </action>
+        
+        <action name="indexEmployee" class="com.mantechhelpdesk.action.ShowComplaints" method="getComplaintsByEmployeeId">
+            <result name="success" type="tiles">index_employee</result>
+        </action>
         
         
         <!-- ================= EMPLOYEE END ===================-->
@@ -111,7 +129,17 @@
         
         
         <!-- ================= TECHNICAL ===================-->
+        <action name="showProcessingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaints">
+            <result name="success" type="tiles">index_technical</result>
+        </action>
         
+        <action name="showTechnicalInformation">
+            <result type="tiles">show_information_technical</result>
+        </action>
+        
+        <action name="indexTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaints">
+            <result name="success" type="tiles">index_technical</result>
+        </action>
         <!-- ================= TECHINICAL END ===================-->
     </package>
 </struts>

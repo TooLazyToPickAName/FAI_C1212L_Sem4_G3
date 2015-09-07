@@ -20,6 +20,15 @@ public class User {
     private String phoneNumber, email;
     private int roleId;
     private String departmentName;
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
 
     public String getDepartmentName() {
         return departmentName;

@@ -26,8 +26,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
      *
      * @return List complaints
      */
-    public static PreparedStatement ps = null;
-    public static ResultSet rs = null;
+    
 
     @Override
     public List<Complaint> getAllComplaints() {
@@ -57,6 +56,36 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
+    
+    
+    @Override
+    public List<Complaint> getAllComplaintsByEmployeeId(int employeeId){
+        List<Complaint> ret = new ArrayList<>();
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+
+        String query = "select \n"
+                + "	c.*, \n"
+                + "	d.title as departmentName,\n"
+                + "	cg.title as categoryName\n"
+                + "from complaint c \n"
+                + "	inner join department d on c.department_id = d.id\n"
+                + "	inner join category cg on c.category_id = cg.id\n"
+                + "where c.employee_id = ? \n"
+                + "order by c.date_register desc";
+        ResultSet rs = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, employeeId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ret;
+    }
 
     @Override
     public List<Category> getAllCategory() {
@@ -68,7 +97,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
 
             Statement cmd = conn.createStatement();
             String query = "select * from Category";
-            rs = cmd.executeQuery(query);
+            ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
                 Category c = new Category();
@@ -93,7 +122,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         try {
             Statement cmd = conn.createStatement();
             String query = "select * from Department";
-            rs = cmd.executeQuery(query);
+            ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
                 Department d = new Department();
@@ -114,9 +143,10 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         try {
             DataConnection db = new DataConnection();
             Connection conn = db.getConnection();
+            
             String str = "INSERT INTO Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-            ps = conn.prepareStatement(str);
+            
+            PreparedStatement ps = conn.prepareStatement(str);
             ps.setInt(1, c.getCategoryId());
             ps.setString(2, c.getTitle());
             ps.setString(3, c.getDescription());
@@ -145,7 +175,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             Connection conn = db.getConnection();
             String str = "INSERT INTO User(username, password, fullname, department_id, date_of_birth, phone_number, email, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            ps = conn.prepareStatement(str);
+            PreparedStatement ps = conn.prepareStatement(str);
             ps.setString(1, u.getUsername());
             ps.setString(2, u.getPassword());
             ps.setString(3, u.getFullname());
@@ -229,6 +259,35 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
+    
+    @Override
+    public List<Complaint> getProcessingComplaints(){
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        List<Complaint> ret = new ArrayList<>();
+
+        Statement cmd;
+        try {
+            cmd = conn.createStatement();
+            String query = "select \n"
+                    + "	c.*, \n"
+                    + "	d.title as departmentName,\n"
+                    + "	cg.title as categoryName\n"
+                    + "from complaint c \n"
+                    + "	inner join department d on c.department_id = d.id\n"
+                    + "	inner join category cg on c.category_id = cg.id\n"
+                    + "where c.status = 1 \n"
+                    + "order by c.priority asc";
+            ResultSet rs = cmd.executeQuery(query);
+            while (rs.next()) {
+                ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return ret;
+    }    
 
     @Override
     public boolean login(String username, String userpass) {
@@ -253,8 +312,47 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         return status;
     }
 
+    
     @Override
-    public User getUser(String username) {
+    public List<User> getAllUser(){
+        List<User> listUser=new ArrayList<>();
+        DataConnection db= new DataConnection();
+        Connection conn = db.getConnection();
+        User user=null;
+        
+        try {
+            Statement cmd = conn.createStatement();
+            String query = "select \n"
+                + "	u.*,\n"
+                + "    d.title as departmentName\n"
+                + "from user u \n"
+                + "	left join Department d on u.department_id = d.id\n";
+            ResultSet rs = cmd.executeQuery(query);
+
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setFullname(rs.getString("fullname"));
+                user.setDateOfBirth(rs.getDate("date_of_birth"));
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setDepartmentId(rs.getInt("department_id"));
+                user.setEmail(rs.getString("email"));
+                user.setRoleId(rs.getInt("role_id"));
+                user.setRoleName(RoleType.getTitle(user.getRoleId()));
+                user.setDepartmentName(rs.getString("departmentName"));
+                
+                listUser.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return listUser;
+    }
+    
+    @Override
+    public User getUserByUsername(String username) {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
         User user = null;
@@ -279,6 +377,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setFullname(rs.getString("fullname"));
                 user.setDateOfBirth(rs.getDate("date_of_birth"));
                 user.setPhoneNumber(rs.getString("phone_number"));
+                user.setDepartmentId(rs.getInt("department_id"));
                 user.setEmail(rs.getString("email"));
                 user.setRoleId(rs.getInt("role_id"));
                 user.setDepartmentName(rs.getString("departmentName"));

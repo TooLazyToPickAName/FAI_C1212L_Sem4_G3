@@ -26,6 +26,15 @@ public class ManagerAccountAction extends ActionSupport {
 
     private User user;
     private String dateOfBirth;
+    private List<User> listUser;
+
+    public List<User> getListUser() {
+        return listUser;
+    }
+
+    public void setListUser(List<User> listUser) {
+        this.listUser = listUser;
+    }
 
     public String getDateOfBirth() {
         return dateOfBirth;
@@ -75,6 +84,12 @@ public class ManagerAccountAction extends ActionSupport {
     public String displayForm() {
         this.user = new User();
         return SUCCESS;
+    }
+    
+    public String showAccount() throws Exception{
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.listUser=complaintsManagement.getAllUser();
+        return Action.SUCCESS;
     }
 
 }

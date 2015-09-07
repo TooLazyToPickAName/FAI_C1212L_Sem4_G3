@@ -15,9 +15,11 @@ function fnFormatDetails(oTable, nTr)
         } else {
             strDateClosed = "Not yet done";
         }
+        sOut += '<tr><td>Description:</td><td>' + obj.description + '</td></tr>';
         sOut += '<tr><td>Date Close:</td><td>' + strDateClosed + '</td></tr>';
         sOut += '<tr><td>Department:</td><td>' + obj.departmentName + '</td></tr>';
         sOut += '<tr><td>Time Taken:</td><td>' + obj.timeTaken + 'h</td></tr>';
+        
         sOut += '</table>';
         
         oTable.fnOpen(nTr, sOut, 'details');

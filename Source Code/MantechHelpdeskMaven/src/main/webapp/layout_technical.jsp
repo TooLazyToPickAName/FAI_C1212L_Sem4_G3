@@ -1,7 +1,7 @@
 <%-- 
-    Document   : layout_employee
-    Created on : Sep 1, 2015, 1:12:06 AM
-    Author     : windluffy
+    Document   : layout_technical
+    Created on : Sep 7, 2015, 2:28:11 AM
+    Author     : tinblanc
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -46,8 +46,8 @@
 
         </head>
         <body>
-        <%@include file="/template/header_employee.jsp" %>
-        <%@include file="/template/employee/menu_left_employee.jsp" %>
+        <%@include file="/template/header_technical.jsp" %>
+        <%@include file="/template/technical/menu_left_technical.jsp" %>
         <tiles:insertAttribute name="main_content"></tiles:insertAttribute>
         <%@include file="/template/footer.jsp" %>
 
