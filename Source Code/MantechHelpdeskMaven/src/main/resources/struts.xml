@@ -55,6 +55,13 @@
                 <param name="noCache">true</param>
             </result>
         </action>
+        
+        <action name="ajaxSummaryComplaintReports" class="com.mantechhelpdesk.action.AjaxSummaryComplaintReports">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
         <!--login/logout-->
         <action name="login">
             <result>login.jsp</result>
