@@ -69,7 +69,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 + "    d.title as departmentName\n"
                 + "from user u \n"
                 + "	left join Department d on u.department_id = d.id\n"
-                + "where u.role_id = 2"    ;
+                + "where u.role_id = "+RoleType.TECHNICAL ;
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {

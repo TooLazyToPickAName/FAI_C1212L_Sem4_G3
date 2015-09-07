@@ -75,7 +75,7 @@
 
         </div>
 
-        <!-- Show Account start-->
+        <!-- show accounts start-->
         <section class="panel">
             <header class="panel-heading">
                 Editable Table
@@ -103,126 +103,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${requestScope.listUser}" var="c" >
-                            <tr class="">
-                                <td>${c.username}</td>
-                                <td>${c.fullname}</td>
-                                <td>${c.dateOfBirth}</td>
-                                <td class="center">${c.email}</td>
-                            <c:choose> 
-                                <c:when test="${c.roleId == 0}">
-                                    <td><span class="label label-danger">${c.roleName}</span></td>
-                                </c:when>
-                                <c:when test="${c.roleId == 1}">
-                                    <td><span class="label label-default">${c.roleName}</span></td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td><span class="label label-info">${c.roleName}</span></td>
-                                </c:otherwise>
-                            </c:choose>
+                            <c:forEach items="${requestScope.listUser}" var="c" >
+                                <tr class="">
+                                    <td>${c.username}</td>
+                                    <td>${c.fullname}</td>
+                                    <td>${c.dateOfBirth}</td>
+                                    <td class="center">${c.email}</td>
+                                    <c:choose> 
+                                        <c:when test="${c.roleId == 0}">
+                                            <td><span class="label label-danger">${c.roleName}</span></td>
+                                            </c:when>
+                                            <c:when test="${c.roleId == 2}">
+                                            <td><span class="label label-default">${c.roleName}</span></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <td><span class="label label-info">${c.roleName}</span></td>
+                                            </c:otherwise>
+                                        </c:choose>
 
-                            <td>
-                                <a class="btn btn-primary btn-xs"  href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-trash-o "></i></a>
-                            </td>
-                            </tr>
-                        </c:forEach>
+                                    <td>
+                                        <a class="btn btn-primary btn-xs"  href="#"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-trash-o "></i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
-        <!-- Show Account end-->
+        <!-- show accounts end-->
 
-        <div class="row">
-            <div class="col-lg-8">
-                <!--custom chart start-->
-                <div class="border-head">
-                    <h3>New Complaints</h3>
-                </div>
-                <div class="custom-bar-chart">
-                    <ul class="y-axis">
-                        <li><span>100</span></li>
-                        <li><span>80</span></li>
-                        <li><span>60</span></li>
-                        <li><span>40</span></li>
-                        <li><span>20</span></li>
-                        <li><span>0</span></li>
-                    </ul>
-                    <div class="bar">
-                        <div class="title">Mon</div>
-                        <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                    </div>
-                    <div class="bar ">
-                        <div class="title">Tue</div>
-                        <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                    </div>
-                    <div class="bar ">
-                        <div class="title">Wed</div>
-                        <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                    </div>
-                    <div class="bar ">
-                        <div class="title">Thu</div>
-                        <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                    </div>
-                    <div class="bar">
-                        <div class="title">Fri</div>
-                        <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                    </div>
-                    <div class="bar ">
-                        <div class="title">Sat</div>
-                        <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                    </div>
-                    <div class="bar">
-                        <div class="title">Sun</div>
-                        <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                    </div>
-
-                </div>
-                <!--custom chart end-->
-            </div>
-            <div class="col-lg-4">
-                <!--new earning start-->
-                <div class="panel terques-chart">
-                    <div class="panel-body chart-texture">
-                        <div class="chart">
-                            <div class="heading">
-                                <span>Monthly</span>
-                                <strong>57 | 15%</strong>
-                            </div>
-                            <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                        </div>
-                    </div>
-                    <div class="chart-tittle">
-                        <span class="title">Complaints</span>
-
-                    </div>
-                </div>
-                <!--new earning end-->
-
-                <!--total earning start-->
-                <div class="panel green-chart">
-                    <div class="panel-body">
-                        <div class="chart">
-                            <div class="heading">
-                                <span>June</span>
-                                <strong>23 Days | 65%</strong>
-                            </div>
-                            <div id="barchart"></div>
-                        </div>
-                    </div>
-                    <div class="chart-tittle">
-                        <span class="title">Total</span>
-                        <span class="value">678</span>
-                    </div>
-                </div>
-                <!--total earning end-->
-            </div>
-        </div>
+        
         <!-- page end-->
     </section>
 </section>
 <!--main content end-->
+
 
 <!--index admin--> 
 <!-- js placed at the end of the document so the pages load faster -->
@@ -239,6 +156,11 @@
 
 
 
+
+<!--right slidebar-->
+<script src="js/slidebars.min.js"></script>
+
+
 <!--common script for all pages-->
 <script src="js/common-scripts.js"></script>
 
@@ -246,6 +168,9 @@
 <script src="js/sparkline-chart.js"></script>
 <script src="js/easy-pie-chart.js"></script>
 <script src="js/count.js"></script>
+
+<!--script for this page only-->
+<script src="js/editable-table.js"></script>
 
 <script>
 
@@ -266,6 +191,10 @@
 
     $(function () {
         $('select.styled').customSelect();
+    });
+
+    jQuery(document).ready(function () {
+        EditableTable.init();
     });
 
 </script>

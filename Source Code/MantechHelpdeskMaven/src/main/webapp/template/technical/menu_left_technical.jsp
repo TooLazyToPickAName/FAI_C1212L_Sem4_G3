@@ -10,14 +10,19 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-
-            <li class="sub-menu">
-                <a href="javascript:;" >
+            <li>
+                <a  href="indexTechnical">
                     <i class="fa fa-laptop"></i>
                     <span>Home</span>
                 </a>
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-user"></i>
+                    <span>Information</span>
+                </a>
                 <ul class="sub">
-                    <li><a  href="indexTechnical">Introduce</a></li>
                     <li><a  href="showTechnicalInformation">Personal Information</a></li>
                     <li><a  href="#">Change Password</a></li>
                 </ul>
