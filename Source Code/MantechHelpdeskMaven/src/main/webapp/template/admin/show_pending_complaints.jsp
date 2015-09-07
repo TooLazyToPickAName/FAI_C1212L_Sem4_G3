@@ -35,6 +35,9 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style-responsive.css" rel="stylesheet" />
 
+        <!--toastr-->
+        <link href="assets/toastr-master/toastr.css" rel="stylesheet" type="text/css" />
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
         <!--[if lt IE 9]>
           <script src="js/html5shiv.js"></script>
@@ -372,7 +375,7 @@
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${requestScope.complaints}" var="c" >
-                                            <tr>
+                                            <tr row-id="${c.id}">
                                                 <td>${c.id}</td>
                                                 <td>${c.title}</td>
                                                 <td>${c.description}</td>
@@ -381,7 +384,7 @@
                                                 <td class="center hidden-phone"><span class="priorityComplaint">${c.priorityName}</span></td>
 
                                                 <td>
-                                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-xs"><i class="fa fa-cogs"></i></a>
+                                                    <a data-toggle="modal" data-priority="${c.priority}" data-complaintid="${c.id}" data-complainttext="${c.id} (${c.title})" href="#myModal" class="btn btn-primary btn-xs"><i class="fa fa-cogs"></i></a>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -419,21 +422,35 @@
                             <h4 class="modal-title">Assign & Set Priority Pending Complaint</h4>
                         </div>
                         <div class="modal-body">
+                            <label id="lblComplaint" for="sumaryComplaintInfo" style="font-weight: 600">Complaint ID: </label>
+                            <span id="spanComplaintID" style="font-weight: 600">1 (I have a problem with my computer)</span>
+                            <p></p>
                             <p>Technical:</p>
-                            <select class="form-control input-sm m-bot15">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
+                            <div id="searchTechnicals">
+                                <ul class="ul-wrapper">
+                                    <ul class="ul-holder" data-bind="foreach: $root.pickedTechnicals ">
+                                        <li class="acfb-data"><span data-bind="text: username"></span> <i class="fa fa-times btnDeleteTechnicals" data-bind="click: $root.deleteTechnical"></i></li>
+                                    </ul>
+                                    <input id="txtSearchTechnical" type="text" placeholder="Search technicals by fullname, email, ..." data-bind="value: $root.keyword, event:{ focus: showFirstResultBox, keyup: searchTheKeyword} " />
+                                </ul>
+                                <div id="searchResult" data-bind="foreach: $root.resultSearchTechnicals ">
+                                    <a href="#" class="technical-item" data-bind="click: $root.pickATechnical">
+                                        <img src="${pageContext.request.contextPath}/img/avatar.png" />
+                                        <span class="technical-fullname" data-bind="text: fullname"></span>
+                                        <span class="technical-username" data-bind="text: username"></span>
+                                        <span class="technical-number-progressing" data-bind="text: numberProgressing + ' progressing'"></span>
+                                    </a>
+                                </div>
+                            </div>
                             <p>Priority:</p>
-                            <select class="form-control input-sm m-bot15">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
+                            <select id="ddlPriority" class="form-control input-sm m-bot15" data-bind="value: priority()">
+                                <option value="2">Low</option>
+                                <option value="1">Normal</option>
+                                <option value="0">High</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success" type="button">Submit</button>
+                            <button class="btn btn-success" type="button" data-bind="click: $root.doSubmit">Submit</button>
                             <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
                         </div>
                     </div>
@@ -464,9 +481,19 @@
         <!--common script for all pages-->
         <script src="js/common-scripts.js"></script>
 
+        <!--KnockoutJs -->
+        <script src="js/knockout-2.2.0.js"></script>
+
         <!--My Script -->
         <script src="js/myscript.js"></script>
 
+        <!--toastr-->
+        <script src="assets/toastr-master/toastr.js"></script>
+
+        <script type="text/javascript">
+            var vmTechnicals = new TechnicalsViewModel()
+            ko.applyBindings(vmTechnicals, document.getElementById("myModal"));
+        </script>
     </body>
 
     <!-- Mirrored from thevectorlab.net/flatlab/dynamic_table.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:46:26 GMT -->

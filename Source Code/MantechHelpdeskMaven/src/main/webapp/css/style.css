@@ -437,7 +437,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     .dropdown-menu.extended  {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
     }
-    }
+}
 
 .dropdown-menu.extended li p {
     background-color: #F1F2F7;
@@ -1410,7 +1410,7 @@ h3.timeline-title {
     .panel-footer.revenue-foot {
         margin-bottom: -4px;
     }
-    }
+}
 
 
 .panel-footer.revenue-foot ul  {
@@ -2215,6 +2215,7 @@ ul.inbox-pagination li {
 .modal-body label {
     font-weight: 400;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }
 
 .heading-inbox h4{
@@ -5211,9 +5212,9 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 
 
 .chat-room .user-head i {
-   float: left;
-   font-size: 40px;
-   margin-right: 10px;
+    float: left;
+    font-size: 40px;
+    margin-right: 10px;
 }
 
 .chat-room .user-head h3 {
@@ -5629,11 +5630,11 @@ a.guest-on i {
 
 
 .p-task .external a {
- color:#40cabe;
+    color:#40cabe;
 }
 
 .p-task .external a:hover {
- color:#FF6C60;
+    color:#FF6C60;
 }
 
 
@@ -5724,7 +5725,7 @@ a.guest-on i {
 
 
 /*.wide-full {*/
-    /*width: 98%;*/
+/*width: 98%;*/
 /*}*/
 
 .mega-menu ul li a {
@@ -6218,4 +6219,112 @@ header.blue-bg .search:focus {
 .note-editor .note-statusbar {
     background: #fff;
     border-radius:4px;
+}
+
+#searchTechnicals {
+
+    width: 100%;
+
+    position: relative;
+}
+
+#searchTechnicals ul.ul-wrapper {
+    /* background: #6C3F2D; */
+    padding: 5px 5px 5px 10px;
+    border-radius: 3px;
+    border: 1px solid #e2e2e4;
+}
+
+#searchTechnicals ul.ul-wrapper input[type=text] {
+    border: none;
+    padding: 2px 5px 2px 5px;
+    width: 250px;
+}
+
+#searchTechnicals ul.ul-holder li {
+    float   : left; 
+    margin  : 0 5px 4px 0; 
+    list-style-type: none; 
+}
+#searchTechnicals ul.ul-holder li.acfb-data {
+    border-radius         : 6px;
+    -moz-border-radius    : 6px;
+    -webkit-border-radius : 6px;
+    border     : 1px solid #CAD8F3;
+    padding    : 1px 5px 2px;
+    background : #DEE7F8;
+}
+.technical-item img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.technical-item {
+    display: block;
+    width: 100%;
+    height: 60px;
+    background-color: #FFF;
+    /* border-bottom: 1px solid yellow; */
+    text-decoration: none;
+    position: relative;
+}
+
+.technical-item span {
+    display: block;
+    margin-left: 70px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 2px;
+    color: #797979;
+}
+
+.item-active{
+    background-color: #0FB6C1;
+    border-color: #3A5795;
+    color: #FFF !important;
+}
+
+span.technical-fullname {
+    font-weight: 500;
+    /* font-size: 14px; */
+}
+
+#searchResult {
+    display: none;
+    border: 1px solid #1c1c1c;
+    border-radius: 3px;
+    position: absolute;
+    width: 100%;
+    /* top: 35px; */
+}
+
+.item-active span {
+    color: #FFF !important;
+}
+
+span.technical-fullname {
+    color: #43609C;
+}
+
+span.technical-number-progressing {
+    font-size: 11px;
+}
+
+.ul-holder {
+    min-width: 0;
+    padding: 0 !important;
+    float: left;
+    border: 0 !important;
+}
+
+i.btnDeleteTechnicals {
+    cursor: pointer;
+}
+
+#lblComplaint, #spanComplaintID{
+    font-weight: 600;
 }

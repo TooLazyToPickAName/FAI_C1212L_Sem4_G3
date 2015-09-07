@@ -5,6 +5,7 @@
  */
 package com.mantechhelpdesk.dal;
 
+import com.mantechhelpdesk.entity.Complaint;
 import com.mantechhelpdesk.entity.Technical;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -17,4 +18,5 @@ import java.util.List;
 public interface ITechnicalComplaintManagement {
     public List<Technical> getAllTechnicalComplaints();
     public List<Technical> searchTechnicals(String keyword);
+    public boolean assignAndSaveTechnicalsJob(List<Technical> technicals, Complaint complaint);
 }
