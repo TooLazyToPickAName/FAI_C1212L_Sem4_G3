@@ -299,7 +299,7 @@
                                 <span>Home</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Introduce</a></li>
+                                <li><a  href="indexEmployee">Introduce</a></li>
                                 <li><a  href="showEmployeeInformation">Personal Information</a></li>
                                 <li><a  href="#">Change Password</a></li>
                             </ul>
@@ -312,7 +312,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
-                                <li><a  href="#">Show Complaints</a></li>
+                                <li><a  href="showAllComplaintsByEmployeeId">Show Complaints</a></li>
                             </ul>
                         </li>
 

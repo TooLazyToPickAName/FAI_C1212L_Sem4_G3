@@ -72,4 +72,16 @@ public class ShowComplaints {
         this.complaints = complaintsManagement.getProcessingComplaints();
         return Action.SUCCESS;
     }
+    
+    public String getRejectedComplaints() throws Exception {
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.complaints = complaintsManagement.getRejectedComplaints();
+        return Action.SUCCESS;
+    }
+    
+    public String getClosedComplaints() throws Exception {
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.complaints = complaintsManagement.getClosedComplaints();
+        return Action.SUCCESS;
+    }
 }

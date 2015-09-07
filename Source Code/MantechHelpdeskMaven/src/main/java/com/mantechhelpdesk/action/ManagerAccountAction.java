@@ -91,5 +91,10 @@ public class ManagerAccountAction extends ActionSupport {
         this.listUser=complaintsManagement.getAllUser();
         return Action.SUCCESS;
     }
-
+    
+    public String showAllTechnical() throws Exception{
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.listUser=complaintsManagement.getAllTechnical();
+        return Action.SUCCESS;
+    }
 }

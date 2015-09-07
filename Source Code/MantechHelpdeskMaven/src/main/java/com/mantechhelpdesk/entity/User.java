@@ -21,6 +21,15 @@ public class User {
     private int roleId;
     private String departmentName;
     private String roleName;
+    private String imgAvatar;
+
+    public String getImgAvatar() {
+        return imgAvatar;
+    }
+
+    public void setImgAvatar(String imgAvatar) {
+        this.imgAvatar = imgAvatar;
+    }
 
     public String getRoleName() {
         return roleName;

@@ -54,7 +54,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="#" class="logo" >Admin<span>istrator</span></a>
+                <a href="indexAdmin" class="logo" >Admin<span>istrator</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -305,6 +305,7 @@
                             <ul class="sub">
                                 <li><a  href="indexAdmin">Introduce</a></li>
                                 <li><a  href="showAdminInformation">Personal Information</a></li>
+                                <li><a  href="changePasswordAdmin">Change Password</a></li>
                             </ul>
                         </li>
 
@@ -314,8 +315,10 @@
                                 <span>Complaint</span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="#">Show Complaints</a></li>
+                                <li><a  href="showAllComplaints">Show Complaints</a></li>
+                                <li><a  href="showProcessingComplaintsAdmin">Processing Complaints</a></li>
                                 <li><a  href="showPendingComplaints">Manager Complaints</a></li>
+
                             </ul>
                         </li>
 
@@ -326,7 +329,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a  href="displayCreateAccountForm">Create Account</a></li>
-                                <li><a  href="#">Show Accounts</a></li>
+                                <li><a  href="showAccounts">Show Accounts</a></li>
                             </ul>
                         </li>
 

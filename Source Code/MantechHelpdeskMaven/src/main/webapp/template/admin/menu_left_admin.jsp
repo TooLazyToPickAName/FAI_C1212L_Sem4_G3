@@ -43,6 +43,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="displayCreateAccountForm">Create Account</a></li>
+                    <li><a  href="showTechnical">Show Technical</a></li>
                     <li><a  href="showAccounts">Show Accounts</a></li>
                 </ul>
             </li>
