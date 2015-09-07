@@ -30,8 +30,8 @@
                                     <label for="role" class="control-label col-md-3">Role</label>
                                     <div class="col-lg-2">
                                         <select id="ddlRole" class="form-control m-bot-none"  name="user.roleId" >
-                                            <option value="1">Employee</option>
-                                            <option value="2">Technical</option>
+                                            <option value="2">Employee</option>
+                                            <option value="1">Technical</option>
                                         </select>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
 
         $("select#ddlRole").change(function () {
             roleId = $("select#ddlRole :selected").val();
-            if (roleId == "1") {
+            if (roleId == "2") {
                 $("#divDepartment").show();
             } else {
                 $("#divDepartment").hide();

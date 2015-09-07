@@ -135,6 +135,10 @@
             <result name="success" type="tiles">show_technical</result>
         </action>
         
+        <action name="showReportsAdmin">
+            <result type="tiles">show_reports_admin</result>
+        </action>
+        
         <!-- ================= ADMIN END ===================-->
         
         

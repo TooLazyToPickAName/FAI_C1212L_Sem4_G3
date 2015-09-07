@@ -18,13 +18,13 @@ insert into category(title, description) values ("Hardware Problem", "All proble
 
 
 insert into User(username, password, fullname, department_id, date_of_birth, phone_number, email, role_id, img_avatar) values
-													 ("admin", "admin", "Nick Carter", null, "1990-09-17", "+84969696969", "admin@helpdesk.com", 0, "upload/user1.png"),
+													 ("admin", "admin", "Tin Blanc", null, "1991-12-13", "+84969696969", "admin@helpdesk.com", 0, "upload/tinblanc.jpg"),
 													 ("quanva", "12345", "Vo Anh Quan", 1, "1987-03-10", "+841628864563", "quanva_a05273@gpt.aptech.ac.vn", 2, "upload/user2.png"), 
 													 ("tanth", "12345", "Tran Huu Tan", 1, "1992-08-11", "+84979797979", "tanth_b05273@fpt.aptech.ac.vn", 2, "upload/user3.png"), 
 													 ("phongtq", "12345", "Ta Quang Phong", 1, "1988-03-12", "+84986868686", "phongtq_c05273@fpt.aptech.ac.vn", 2, "upload/user4.png"),
 													 ("tech_martin", "12345", "Martin Garrix", null, "1989-09-15", "+84696969696", "martingarrix@helpdesk.com", 1, "upload/user5.png"),
 													 ("tech_david", "12345", "David Guetta", null, "1990-04-19", "+84945454545", "davidguetta@helpdesk.com", 1, "upload/user2.png"),
-													 ("tech_juicy", "12345", "Juicy M", null, "1994-08-01", "+84915151515", "sontungmtp@helpdesk.com", 1, "upload/user4.png");
+													 ("tech_juicy", "12345", "Juicy M", null, "1994-08-01", "+84915151515", "sontungmtp@helpdesk.com", 1, "upload/user1.png");
 /*Complaint*/
 insert into Complaint(category_id, title, description, date_close, department_id, time_taken, employee_id, status, priority)
 	values (1, "Photocopy Machine", "Photocopy machine does not work",  null, 1, 3, 2, default, default),

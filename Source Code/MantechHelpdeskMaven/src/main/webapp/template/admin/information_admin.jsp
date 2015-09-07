@@ -13,7 +13,7 @@
                 <section class="panel">
                     <div class="user-heading round">
                         <a href="#">
-                            <img src="img/profile-avatar.jpg" alt="">
+                            <img src="${sessionScope.user.imgAvatar}" alt="">
                         </a>
                         <h1>${sessionScope.user.fullname}</h1>
                         <p>${sessionScope.user.email}</p>

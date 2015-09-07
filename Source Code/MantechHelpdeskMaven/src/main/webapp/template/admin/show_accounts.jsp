@@ -46,14 +46,14 @@
                                     <c:choose> 
                                         <c:when test="${c.roleId == 0}">
                                             <td><span class="label label-danger">${c.roleName}</span></td>
-                                        </c:when>
-                                        <c:when test="${c.roleId == 1}">
+                                            </c:when>
+                                            <c:when test="${c.roleId == 2}">
                                             <td><span class="label label-default">${c.roleName}</span></td>
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
                                             <td><span class="label label-info">${c.roleName}</span></td>
-                                        </c:otherwise>
-                                    </c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
                                     
                                     <td>
                                         <a class="btn btn-primary btn-xs"  href="#"><i class="fa fa-pencil"></i></a>
@@ -97,30 +97,6 @@
 <script>
     jQuery(document).ready(function () {
         EditableTable.init();
-
-        var refreshClass = function () {
-            $('.roleAccount').each(function () {
-                sRole = this.innerHTML;
-                switch (sRole) {
-                    case "administrator":
-                        $(this).addClass("label label-danger");
-                        break;
-                    case "technical":
-                        $(this).addClass("label label-info");
-                        break;
-                    case "employee":
-                        $(this).addClass("label label-default");
-                        break;
-                    default:
-                        break;
-                }
-            });
-        };
-        refreshClass();
-        $(".dataTables_paginate a").on("click", function () {
-            refreshClass();
-        });
-
     });
 </script>
 
