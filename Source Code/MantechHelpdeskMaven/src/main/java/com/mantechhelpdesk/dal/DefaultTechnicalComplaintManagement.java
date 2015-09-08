@@ -5,6 +5,7 @@
  */
 package com.mantechhelpdesk.dal;
 
+import com.mantechhelpdesk.common.RoleType;
 import com.mantechhelpdesk.common.StatusType;
 import com.mantechhelpdesk.entity.Complaint;
 import com.mantechhelpdesk.entity.Technical;
@@ -59,7 +60,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
                     + "		(technical_id)\n"
                     + ") AS core ON core.technical_id = t.id\n"
                     + "WHERE\n"
-                    + "	t.role_id = 2 -- technical's roleId;\n"
+                    + "	t.role_id = " + RoleType.TECHNICAL + " -- technical's roleId;\n"
                     + "ORDER BY numberProgressing ASC";
             rs = cmd.executeQuery(query);
 
@@ -217,7 +218,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
         int affectedRow = -1;
 
         try {
-            String query = "UPDATE Complaint SET status = ? WHERE id = ?";
+            String query = "UPDATE Complaint SET status = ?, date_close = current_timestamp WHERE id = ?";
 
             ps = conn.prepareStatement(query);
             ps.setInt(1, StatusType.CLOSED);
@@ -243,7 +244,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
         int affectedRow = -1;
 
         try {
-            String query = "UPDATE Complaint SET status = ?, notes = ? WHERE id = ?";
+            String query = "UPDATE Complaint SET status = ?, notes = ?, date_close = current_timestamp WHERE id = ?";
 
             ps = conn.prepareStatement(query);
             ps = conn.prepareStatement(query);

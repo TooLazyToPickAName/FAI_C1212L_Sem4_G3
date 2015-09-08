@@ -34,8 +34,8 @@
                     <span>Complaint</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="showProcessingComplaints">Complaints Processing</a></li>
-                    <li><a  href="#">History Complaints</a></li>
+                    <li><a  href="showProcessingComplaintsTechnical">Processing Complaints</a></li>
+                    <li><a  href="showHistoryComplaintsTechnical">History Complaints</a></li>
                 </ul>
             </li>
 

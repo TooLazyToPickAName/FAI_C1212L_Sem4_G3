@@ -10,7 +10,7 @@ function fnFormatDetails(oTable, nTr)
         sOut += '<tr><td>Date Register:</td><td>' + $.datepicker.formatDate("MM/dd yy", new Date(obj.dateRegister)) + '</td></tr>';
         
         var strDateClosed;
-        if(obj.dateClosed) {
+        if(obj.dateClose) {
             strDateClosed = $.datepicker.formatDate("MM/dd yy", new Date(obj.dateClose));
         } else {
             strDateClosed = "Not yet done";
@@ -19,6 +19,7 @@ function fnFormatDetails(oTable, nTr)
         sOut += '<tr><td>Date Close:</td><td>' + strDateClosed + '</td></tr>';
         sOut += '<tr><td>Department:</td><td>' + obj.departmentName + '</td></tr>';
         sOut += '<tr><td>Time Taken:</td><td>' + obj.timeTaken + 'h</td></tr>';
+        sOut += '<tr><td>Notes:</td><td>' + (obj.notes ? obj.notes : "") + '</td></tr>';
         
         sOut += '</table>';
         

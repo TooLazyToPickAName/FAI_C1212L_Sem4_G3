@@ -36,7 +36,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
-                    <li><a  href="showAllComplaintsByEmployeeId">Show Complaints</a></li>
+                    <li><a  href="showAllComplaintsByEmployeeId">History Complaints</a></li>
                 </ul>
             </li>
 

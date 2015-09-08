@@ -50,7 +50,7 @@
                     <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
                 </div>
                 <!--logo start-->
-                <a href="#" class="logo" >Help<span>Desk</span></a>
+                <a href="indexEmployee" class="logo" >Help<span>Desk</span></a>
                 <!--logo end-->
                 <div class="nav notify-row" id="top_menu">
                     <!--  notification start -->
@@ -266,13 +266,13 @@
                         <!-- user login dropdown start-->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" width="30" height="30" src="${sessionScope.user.imgAvatar}">
                                 <span class="username">${sessionScope.user.fullname}</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
                                 <div class="log-arrow-up"></div>
-                                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                <li><a href="showEmployeeInformation"><i class=" fa fa-suitcase"></i>Profile</a></li>
                                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                                 <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
                                 <li><a href="login"><i class="fa fa-key"></i> Log Out</a></li>
@@ -293,13 +293,19 @@
                     <ul class="sidebar-menu" id="nav-accordion">
 
 
-                        <li class="sub-menu">
-                            <a href="javascript:;" >
+                        <li>
+                            <a  href="indexEmployee">
                                 <i class="fa fa-laptop"></i>
                                 <span>Home</span>
                             </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class="fa fa-user"></i>
+                                <span>Information</span>
+                            </a>
                             <ul class="sub">
-                                <li><a  href="indexEmployee">Introduce</a></li>
                                 <li><a  href="showEmployeeInformation">Personal Information</a></li>
                                 <li><a  href="#">Change Password</a></li>
                             </ul>
@@ -312,7 +318,7 @@
                             </a>
                             <ul class="sub">
                                 <li><a  href="displayCreateComplaintForm">Create Complaint</a></li>
-                                <li><a  href="showAllComplaintsByEmployeeId">Show Complaints</a></li>
+                                <li><a  href="showAllComplaintsByEmployeeId">History Complaints</a></li>
                             </ul>
                         </li>
 
@@ -325,8 +331,8 @@
                                             <li><a  href="#">Reports by date</a></li>
                                             <li><a  href="#">Monthly Report</a></li>
                                             <li><a  href="#">Yearly Report</a></li>
-                                        </ul>
-                                    </li>-->
+                                                    </ul>
+                                                </li>-->
 
 
 

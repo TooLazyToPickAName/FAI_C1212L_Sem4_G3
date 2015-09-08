@@ -54,22 +54,22 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
-    
+
     @Override
-    public List<User> getAllTechnical(){
-        List<User> listUser=new ArrayList<>();
-        DataConnection db= new DataConnection();
+    public List<User> getAllTechnical() {
+        List<User> listUser = new ArrayList<>();
+        DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
-        User user=null;
-        
+        User user = null;
+
         try {
             Statement cmd = conn.createStatement();
             String query = "select \n"
-                + "	u.*,\n"
-                + "    d.title as departmentName\n"
-                + "from user u \n"
-                + "	left join Department d on u.department_id = d.id\n"
-                + "where u.role_id = "+RoleType.TECHNICAL ;
+                    + "	u.*,\n"
+                    + "    d.title as departmentName\n"
+                    + "from user u \n"
+                    + "	left join Department d on u.department_id = d.id\n"
+                    + "where u.role_id = " + RoleType.TECHNICAL;
             ResultSet rs = cmd.executeQuery(query);
 
             while (rs.next()) {
@@ -85,7 +85,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setRoleName(RoleType.getTitle(user.getRoleId()));
                 user.setDepartmentName(rs.getString("departmentName"));
                 user.setImgAvatar(rs.getString("img_avatar"));
-                
+
                 listUser.add(user);
             }
         } catch (SQLException ex) {
@@ -94,7 +94,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return listUser;
     }
-    
+
     @Override
     public List<Complaint> getAllComplaintsByEmployeeId(int employeeId) {
         List<Complaint> ret = new ArrayList<>();
@@ -325,10 +325,10 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         } finally {
         }
         return ret;
-    }  
-    
+    }
+
     @Override
-    public List<Complaint> getRejectedComplaints(){
+    public List<Complaint> getRejectedComplaints() {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
         List<Complaint> ret = new ArrayList<>();
@@ -355,9 +355,9 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return ret;
     }
-    
+
     @Override
-    public List<Complaint> getClosedComplaints(){
+    public List<Complaint> getClosedComplaints() {
         DataConnection db = new DataConnection();
         Connection conn = db.getConnection();
         List<Complaint> ret = new ArrayList<>();
@@ -377,6 +377,89 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             ResultSet rs = cmd.executeQuery(query);
             while (rs.next()) {
                 ret.add(this.createComplaintObj(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return ret;
+    }
+
+    @Override
+    public List<Complaint> historyComplaintsTechnical(int technicalId) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        List<Complaint> ret = new ArrayList<>();
+
+        try {
+            String query = "select *,ca.title as categoryName from user t \n"
+                    + "inner join complaintstechnicals ct on t.id = ct.technical_id\n"
+                    + "inner join complaint c on c.id = ct.complaint_id\n"
+                    + "inner join category ca on ca.id = c.category_id\n"
+                    + "where t.role_id = " + RoleType.TECHNICAL + " and t.id = ? and c.status = " + StatusType.CLOSED 
+                    + " or c.status = "+ StatusType.REJECTED;
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, technicalId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Complaint obj=new Complaint();
+                obj.setId(rs.getInt("complaint_id"));
+                obj.setTitle(rs.getString("title"));
+                obj.setCategoryId(rs.getInt("category_id"));
+                obj.setDescription(rs.getString("description"));
+                obj.setDateRegister(rs.getDate("date_register"));
+                obj.setDateClose(rs.getDate("date_close"));
+                obj.setTimeTaken(rs.getInt("time_taken"));
+                obj.setEmployeeId(rs.getInt("employee_id"));
+                obj.setStatus(rs.getInt("status"));
+                obj.setPriority(rs.getInt("priority"));
+                obj.setStatusName(StatusType.getTitle(rs.getInt("status")));
+                obj.setPriorityName(PriorityType.getTitle(rs.getInt("priority")));
+                obj.setNotes(rs.getString("notes"));
+                obj.setCategoryName(rs.getString("categoryName"));
+
+                ret.add(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+        }
+        return ret;
+    }
+
+    @Override
+    public List<Complaint> getProcessingComplaintsTechnical(int technicalId) {
+        DataConnection db = new DataConnection();
+        Connection conn = db.getConnection();
+        List<Complaint> ret = new ArrayList<>();
+
+        try {
+            String query = "select *,ca.title as categoryName from user t \n"
+                    + "inner join complaintstechnicals ct on t.id = ct.technical_id\n"
+                    + "inner join complaint c on c.id = ct.complaint_id\n"
+                    + "inner join category ca on ca.id = c.category_id\n"
+                    + "where t.role_id = " + RoleType.TECHNICAL + " and t.id = ? and c.status = " + StatusType.PROGRESSING;
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, technicalId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Complaint obj=new Complaint();
+                obj.setId(rs.getInt("complaint_id"));
+                obj.setTitle(rs.getString("title"));
+                obj.setCategoryId(rs.getInt("category_id"));
+                obj.setDescription(rs.getString("description"));
+                obj.setDateRegister(rs.getDate("date_register"));
+                obj.setDateClose(rs.getDate("date_close"));
+                obj.setTimeTaken(rs.getInt("time_taken"));
+                obj.setEmployeeId(rs.getInt("employee_id"));
+                obj.setStatus(rs.getInt("status"));
+                obj.setPriority(rs.getInt("priority"));
+                obj.setStatusName(StatusType.getTitle(rs.getInt("status")));
+                obj.setPriorityName(PriorityType.getTitle(rs.getInt("priority")));
+                obj.setNotes(rs.getString("notes"));
+                obj.setCategoryName(rs.getString("categoryName"));
+
+                ret.add(obj);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
@@ -505,6 +588,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             obj.setPriorityName(PriorityType.getTitle(rs.getInt("priority")));
             obj.setDepartmentName(rs.getString("departmentName"));
             obj.setCategoryName(rs.getString("categoryName"));
+            obj.setNotes(rs.getString("notes"));
 
         } catch (SQLException ex) {
             Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);

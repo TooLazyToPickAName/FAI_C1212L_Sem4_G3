@@ -27,6 +27,15 @@ public class Complaint {
     private String departmentName;
     private String statusName;
     private String priorityName;
+    private String notes;
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
     public String getCategoryName() {
         return categoryName;

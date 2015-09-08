@@ -57,7 +57,7 @@
                                     
                                     <td>
                                         <a class="btn btn-info btn-xs"  href="#"><i class="fa fa-pencil"> Edit</i></a>
-                                        <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-trash-o "> Delete</i></a>
+                                        <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-ban "></i> Ban</a>
                                     </td>
                                 </tr>
                             </c:forEach>
