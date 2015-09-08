@@ -218,7 +218,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
         int affectedRow = -1;
 
         try {
-            String query = "UPDATE Complaint SET status = ?, date_close = current_timestamp WHERE id = ?";
+            String query = "UPDATE Complaint SET status = ?, date_close = current_timestamp, notes = 'Success' WHERE id = ?";
 
             ps = conn.prepareStatement(query);
             ps.setInt(1, StatusType.CLOSED);
