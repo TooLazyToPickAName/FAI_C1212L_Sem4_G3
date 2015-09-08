@@ -10,6 +10,7 @@ import com.mantechhelpdesk.dal.DefaultComplaintsManagements;
 import com.mantechhelpdesk.dal.IComplaintsManagement;
 import com.mantechhelpdesk.entity.User;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.Date;
 import java.text.DateFormat;
@@ -17,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -27,6 +29,24 @@ public class ManagerAccountAction extends ActionSupport {
     private User user;
     private String dateOfBirth;
     private List<User> listUser;
+    private String oldPassword;
+    private String newPassword;
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
 
     public List<User> getListUser() {
         return listUser;
@@ -85,16 +105,54 @@ public class ManagerAccountAction extends ActionSupport {
         this.user = new User();
         return SUCCESS;
     }
-    
-    public String showAccount() throws Exception{
+
+    public String showAccount() throws Exception {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
-        this.listUser=complaintsManagement.getAllUser();
+        this.listUser = complaintsManagement.getAllUser();
         return Action.SUCCESS;
     }
-    
-    public String showAllTechnical() throws Exception{
+
+    public String showAllTechnical() throws Exception {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
-        this.listUser=complaintsManagement.getAllTechnical();
+        this.listUser = complaintsManagement.getAllTechnical();
         return Action.SUCCESS;
+    }
+
+    public String getUsername() {
+        Map session = ActionContext.getContext().getSession();
+        User user1 = new User();
+        user1 = (User) session.get("user");
+        return user1.getUsername();
+    }
+
+    public String getPassword() {
+        Map session = ActionContext.getContext().getSession();
+        User user1 = new User();
+        user1 = (User) session.get("user");
+        return user1.getPassword();
+    }
+
+    public boolean checkOldPassword() {
+        Map session = ActionContext.getContext().getSession();
+        User user1 = null;
+        user1 = (User) session.get("user");
+        String currentPassword = user1.getPassword();
+        if (oldPassword.equals(currentPassword)) {
+            return true;
+        }
+        return false;
+    }
+
+    public String changePassword() throws Exception {
+        String username = getUsername();
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        if (checkOldPassword()==true) {
+            if (complaintsManagement.changePassword(username, newPassword)) {
+                return Action.SUCCESS;
+            }
+            return Action.ERROR;
+        }
+
+        return Action.ERROR;
     }
 }

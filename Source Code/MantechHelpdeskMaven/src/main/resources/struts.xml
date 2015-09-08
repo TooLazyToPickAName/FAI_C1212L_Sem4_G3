@@ -152,9 +152,6 @@
             <result name="success" type="tiles">show_closed_complaints_admin</result>
         </action>
         
-        <action name="changePasswordAdmin" >
-            <result type="tiles">change_password_admin</result>
-        </action>
         
         <action name="showTechnical" class="com.mantechhelpdesk.action.ManagerAccountAction" method="showAllTechnical">
             <result name="success" type="tiles">show_technical</result>
@@ -162,6 +159,15 @@
         
         <action name="showReportsAdmin">
             <result type="tiles">show_reports_admin</result>
+        </action>
+        
+        <action name="showFormChangePasswordAdmin" >
+            <result type="tiles">change_password_admin</result>
+        </action>
+        
+        <action name="changePasswordAdmin" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
+            <result name="success" type="tiles">change_password_admin</result>
+            <result name="error">error.jsp</result> 
         </action>
         
         <!-- ================= ADMIN END ===================-->
@@ -191,6 +197,15 @@
             <result type="tiles">show_information_employee</result>
         </action>
         
+        <action name="showFormChangePasswordEmployee" >
+            <result type="tiles">change_password_employee</result>
+        </action>
+        
+        <action name="changePasswordEmployee" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
+            <result name="success" type="tiles">change_password_employee</result>
+            <result name="error">error.jsp</result> 
+        </action>
+        
         
         <!-- ================= EMPLOYEE END ===================-->
         
@@ -213,6 +228,15 @@
         
         <action name="showProcessingComplaintsTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaintsTechnical">
             <result name="success" type="tiles">show_processing_complaints_technical</result>
+        </action>
+        
+        <action name="showFormChangePasswordTecnical" >
+            <result type="tiles">change_password_technical</result>
+        </action>
+        
+        <action name="changePasswordTechnical" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
+            <result name="success" type="tiles">change_password_technical</result>
+            <result name="error">error.jsp</result> 
         </action>
         <!-- ================= TECHINICAL END ===================-->
         
