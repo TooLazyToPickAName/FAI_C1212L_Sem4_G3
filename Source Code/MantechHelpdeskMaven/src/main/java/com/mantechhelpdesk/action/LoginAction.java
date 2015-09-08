@@ -77,6 +77,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
             if (user != null) {
                 this.isLoginSuccess = true;
                 session.put("user", user);
+                session.put("role", RoleType.getTitle(user.getRoleId()));
                 switch (user.getRoleId()) {
                     case RoleType.ADMINISTRATOR:
                         this.urlReturn = "indexAdmin";

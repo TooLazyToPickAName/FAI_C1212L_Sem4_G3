@@ -3,7 +3,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    
+    <constant name="struts.convention.default.parent.package" value="default"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <result-types>
@@ -11,10 +11,39 @@
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"></result-type>
         </result-types>
         <interceptors>
+            <interceptor name="authenticationInterceptor" class="com.mantechhelpdesk.interceptor.AuthenticationInterceptor"></interceptor>
             <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"></interceptor>
+            <interceptor name="rolesInterceptor" class="com.mantechhelpdesk.interceptor.RolesInterceptor"></interceptor>
+            <interceptor-stack name="defaultSecurityStackWithAuthentication">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="authenticationInterceptor">
+                    <param name="excludeActions">login, ajaxLogin</param>
+                </interceptor-ref>
+                <interceptor-ref name="rolesInterceptor">
+                    <param name="roleActions">
+                        *:login, ajaxLogin, ajaxValidate;
+                        administrator: logout, indexAdmin, ajaxComplaintDetails, ajaxStatusTechnicals, ajaxAssignOrSaveTechnicalsJob,
+                        ajaxSummaryComplaintReports, showAdminInformation, displayCreateAccountForm, createAccount, showPendingComplaints,
+                        showAllComplaints, showAccounts, showProcessingComplaintsAdmin, showRejectedComplaintsAdmin, showClosedComplaintsAdmin,
+                        changePasswordAdmin, showTechnical, showReportsAdmin;
+                        
+                        technical: logout, indexTechnical, ajaxComplaintDetails, ajaxCloseComplaint, ajaxRejectComplaint, showTechnicalInformation,
+                        showHistoryComplaintsTechnical, showProcessingComplaintsTechnical;
+                        
+                        employee: logout, indexEmployee, ajaxComplaintDetails, displayCreateComplaintForm, createComplaint, showEmployeeInformation,
+                        showAllComplaintsByEmployeeId
+                    </param>
+                </interceptor-ref>
+            </interceptor-stack>
         </interceptors>
+
+        <default-interceptor-ref name="defaultSecurityStackWithAuthentication" />
         <default-action-ref name="login" />
-        
+        <global-results>
+            <result name="login">login.jsp</result>
+            <result name="authorization_required">403error.jsp</result>
+            <result name="error404">404error.jsp</result>
+        </global-results>
         <action name="ajaxComplaintDetails" class="com.mantechhelpdesk.action.AjaxComplaintDetails">
             <result type="json">
                 <param name="excludeNullProperties">true</param>
@@ -186,5 +215,6 @@
             <result name="success" type="tiles">show_processing_complaints_technical</result>
         </action>
         <!-- ================= TECHINICAL END ===================-->
+        
     </package>
 </struts>
