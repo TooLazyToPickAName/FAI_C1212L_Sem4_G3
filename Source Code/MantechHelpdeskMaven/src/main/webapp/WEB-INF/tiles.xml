@@ -93,6 +93,15 @@
         <put-attribute name="main_content" value="/template/technical/information_technical.jsp"/>   
     </definition>
     
+    <definition name="show_history_complaints_technical" template="layout_technical.jsp">   
+        <put-attribute name="title" value="History - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/technical/show_history_complaints_technical.jsp"/>   
+    </definition>
+    <definition name="show_processing_complaints_technical" template="layout_technical.jsp">   
+        <put-attribute name="title" value="Show Processing Complaints - Mantech Helpdesk"/>   
+        <put-attribute name="main_content" value="/template/technical/show_processing_complaints_technical.jsp"/>   
+    </definition>
+    
     <!--End Technical-->
     
 </tiles-definitions> 

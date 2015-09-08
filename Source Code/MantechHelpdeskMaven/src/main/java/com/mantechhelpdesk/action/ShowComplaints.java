@@ -61,6 +61,19 @@ public class ShowComplaints {
         return user.getId();
     }
     
+    
+    public String getProcessingComplaintsTechnical() throws Exception {
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.complaints = complaintsManagement.getProcessingComplaintsTechnical(getUserId());
+        return Action.SUCCESS;
+    }
+    
+    public String historyComplaintsTechnical() throws Exception {
+        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
+        this.complaints = complaintsManagement.historyComplaintsTechnical(getUserId());
+        return Action.SUCCESS;
+    }
+    
     public String getComplaintsByEmployeeId() throws Exception {
         IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
         this.complaints = complaintsManagement.getAllComplaintsByEmployeeId(getUserId());

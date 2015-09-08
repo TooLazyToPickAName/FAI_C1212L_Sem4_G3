@@ -168,16 +168,22 @@
         
         
         <!-- ================= TECHNICAL ===================-->
-        <action name="showProcessingComplaints" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaints">
-            <result name="success" type="tiles">index_technical</result>
-        </action>
+        
         
         <action name="showTechnicalInformation">
             <result type="tiles">show_information_technical</result>
         </action>
         
-        <action name="indexTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaints">
+        <action name="indexTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaintsTechnical">
             <result name="success" type="tiles">index_technical</result>
+        </action>
+        
+        <action name="showHistoryComplaintsTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="historyComplaintsTechnical">
+            <result name="success" type="tiles">show_history_complaints_technical</result>
+        </action>
+        
+        <action name="showProcessingComplaintsTechnical" class="com.mantechhelpdesk.action.ShowComplaints" method="getProcessingComplaintsTechnical">
+            <result name="success" type="tiles">show_processing_complaints_technical</result>
         </action>
         <!-- ================= TECHINICAL END ===================-->
     </package>

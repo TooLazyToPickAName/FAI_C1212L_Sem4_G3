@@ -87,6 +87,7 @@
                                         <input class="form-control " id="cemail" type="email" name="user.email" required />
                                     </div>
                                 </div>
+
                                 <!--Advanced File Input start-->
                                 <div class="form-group last">
                                     <label class="control-label col-md-3">Image Upload</label>
@@ -102,7 +103,7 @@
                                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
                                                     <input type="file" class="default" />
                                                 </span>
-                                                
+
                                             </div>
                                         </div>
                                         <span class="label label-danger">NOTE!</span>

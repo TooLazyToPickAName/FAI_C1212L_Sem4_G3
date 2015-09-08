@@ -79,7 +79,7 @@
         <!-- show accounts start-->
         <section class="panel">
             <header class="panel-heading">
-                Editable Table
+                Show All Accounts
             </header>
             <div class="panel-body">
                 <div class="adv-table editable-table ">
@@ -93,7 +93,7 @@
                                 <th>Date Of Birth</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Edit/Delete</th>
+                                <th>Edit/Ban</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,7 +117,7 @@
 
                                     <td>
                                         <a class="btn btn-info btn-xs"  href="#"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-trash-o "></i></a>
+                                        <a class="btn btn-danger btn-xs"  href="#"><i class="fa fa-ban "></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

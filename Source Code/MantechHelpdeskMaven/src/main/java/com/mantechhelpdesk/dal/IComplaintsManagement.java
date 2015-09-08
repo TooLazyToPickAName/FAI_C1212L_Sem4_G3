@@ -32,4 +32,6 @@ public interface IComplaintsManagement {
     List<User> getAllTechnical();
     List<Complaint> getRejectedComplaints();
     List<Complaint> getClosedComplaints();
+    List<Complaint> historyComplaintsTechnical(int technicalId);
+    List<Complaint> getProcessingComplaintsTechnical(int technicalId);
 }

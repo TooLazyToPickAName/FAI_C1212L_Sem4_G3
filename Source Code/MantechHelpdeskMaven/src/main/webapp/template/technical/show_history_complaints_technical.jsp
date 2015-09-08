@@ -1,6 +1,6 @@
 <%-- 
-    Document   : show_closed_complaints_admin
-    Created on : Sep 7, 2015, 12:51:04 PM
+    Document   : show_closed_complaints_technical
+    Created on : Sep 8, 2015, 4:54:46 AM
     Author     : tinblanc
 --%>
 
@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Closed Complaints
+                        History Complaints
                     </header>
                     <div class="panel-body">
                         <div class="adv-table">
@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
-                                        <th class="hidden-phone">Category</th>
+                                        <th class="hidden-phone">Date Closed</th>
                                         <th class="hidden-phone">Status</th>
                                         <th class="hidden-phone">Priority</th>
                                     </tr>
@@ -35,7 +35,7 @@
                                         <tr class="gradeX">
                                             <td>${c.id}</td>
                                             <td>${c.title}</td>
-                                            <td class="hidden-phone">${c.categoryName}</td>
+                                            <td class="hidden-phone">${c.dateClose}</td>
                                             <c:choose>
                                                 <c:when test="${c.status == 0}">
                                                     <td><span class="label label-warning">${c.statusName}</span></td>
@@ -102,3 +102,4 @@
 
 <!--My Script -->
 <script src="js/myscript.js"></script>
+
