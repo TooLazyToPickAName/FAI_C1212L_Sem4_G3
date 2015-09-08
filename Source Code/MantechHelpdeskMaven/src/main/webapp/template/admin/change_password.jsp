@@ -17,7 +17,7 @@
                     </header>
                     <div class="panel-body">
                         <div class="form">
-                            <s:form cssClass="cmxform form-horizontal tasi-form" id="signupForm" method="Post" action="changePasswordAdmin">
+                            <s:form cssClass="cmxform form-horizontal tasi-form" id="signupForm">
 
                                 <div class="form-group ">
                                     <label for="old_password" class="control-label col-lg-2">Old Password</label>
@@ -40,7 +40,7 @@
 
                                 <div class="form-group">
                                     <div class="col-lg-offset-2 col-lg-10">
-                                        <button class="btn btn-danger" type="submit">Save</button>
+                                        <button class="btn btn-danger" type="submit" id="btnSave">Save</button>
                                         <button class="btn btn-default" type="button">Cancel</button>
                                     </div>
                                 </div>
@@ -66,21 +66,7 @@
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script src="js/respond.min.js" ></script>
 
-<!--this page plugins-->
-
-<script type="text/javascript" src="assets/fuelux/js/spinner.min.js"></script>
-<script type="text/javascript" src="assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-<script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-<script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-<script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript" src="assets/bootstrap-daterangepicker/moment.min.js"></script>
-<script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-<script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-<script type="text/javascript" src="assets/jquery-multi-select/js/jquery.multi-select.js"></script>
-<script type="text/javascript" src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
-
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 
 <!--summernote-->
 <script src="assets/summernote/dist/summernote.min.js"></script>
@@ -90,5 +76,44 @@
 
 <!--common script for all pages-->
 <script src="js/common-scripts.js"></script>
-<!--this page  script only-->
-<script src="js/advanced-form-components.js"></script>
+
+<!--myscript-->
+<script src="js/myscript.js"></script>
+
+<!--toastr-->
+<script src="assets/toastr-master/toastr.js"></script>
+
+<script type="text/javascript">
+    $.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    $(document).ready(function () {
+        var $form = $("#signupForm");
+        $form.validate({
+            rules: {
+                newPassword: "required",
+                confirm_password: {
+                    equalTo: "#password"
+                }
+            }});
+        $("#btnSave").on("click", function () {
+            var username = "${sessionScope.user.username}";
+            var oldPassword = $("#old_password").val();
+            var newPassword = $("#password").val();
+            var comfirmPassword = $("#confirm_password").val();
+            console.log($form.valid());
+            if ($form.valid()) {
+                changePassword(username, oldPassword, newPassword, function () {
+                    toastr.success("You have changed your passord.", "Successfully!");
+                    $("#old_password").val("");
+                    $("#password").val("");
+                    $("#confirm_password").val("");
+                }, function () {
+                    toastr.error("You type your old passowrd incorrectly.", "Error!");
+                });
+            }
+        });
+
+    });
+</script>

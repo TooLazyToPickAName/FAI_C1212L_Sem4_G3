@@ -233,19 +233,19 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return check;
     }
-    
 
     @Override
-    public boolean changePassword(String username, String password) {
+    public boolean changePassword(String username, String oldPassword, String newPassword) {
         boolean check = false;
         try {
             DataConnection db = new DataConnection();
             Connection conn = db.getConnection();
-            String str = "UPDATE User u SET u.password= ? WHERE u.username= ?;";
+            String str = "UPDATE User u SET u.password = ? WHERE u.username = ? and u.password = ?";
 
             PreparedStatement ps = conn.prepareStatement(str);
-            ps.setString(1, password);
+            ps.setString(1, newPassword);
             ps.setString(2, username);
+            ps.setString(3, oldPassword);
 
             int executeUpdate = ps.executeUpdate();
             if (executeUpdate > 0) {

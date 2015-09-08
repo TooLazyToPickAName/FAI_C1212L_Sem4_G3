@@ -142,17 +142,4 @@ public class ManagerAccountAction extends ActionSupport {
         }
         return false;
     }
-
-    public String changePassword() throws Exception {
-        String username = getUsername();
-        IComplaintsManagement complaintsManagement = new DefaultComplaintsManagements();
-        if (checkOldPassword()==true) {
-            if (complaintsManagement.changePassword(username, newPassword)) {
-                return Action.SUCCESS;
-            }
-            return Action.ERROR;
-        }
-
-        return Action.ERROR;
-    }
 }

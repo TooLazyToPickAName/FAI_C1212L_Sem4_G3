@@ -159,6 +159,21 @@ var reloadPage = function (timeMiliseconds, callback) {
     }
 };
 
+var changePassword = function (username, oldPassword, newPassword, success, fail) {
+    var params = {'username': username, 'oldPassword': oldPassword, 'newPassword': newPassword};
+    $.post(
+            "ajaxChangePassword",
+            params,
+            function (data) {
+                if (data.isSuccess) {
+                    success();
+                } else {
+                    fail();
+                }
+            }
+    );
+};
+
 //Assign technicals
 
 var TechnicalsViewModel = function () {
@@ -170,7 +185,7 @@ var TechnicalsViewModel = function () {
     self.resultSearchTechnicals = ko.observableArray([]);
     self.keyword = ko.observable();
 
-    self.arrPriority = [{priorityName: 'Low', value : '2'}, {priorityName: 'Normal', value : '1'}, {priorityName: 'High', value : '0'}];
+    self.arrPriority = [{priorityName: 'Low', value: '2'}, {priorityName: 'Normal', value: '1'}, {priorityName: 'High', value: '0'}];
     self.deleteTechnical = function (technical) {
         self.pickedTechnicals.remove(technical);
     };
@@ -331,7 +346,7 @@ var SummaryComplaintReportsViewModel = function () {
                     self.PROGRESSING = reports.countProgressing;
                     self.CLOSED = reports.countClosed;
                     self.REJECTED = reports.countRejected;
-                    
+
                     self.display();
                 }
         );

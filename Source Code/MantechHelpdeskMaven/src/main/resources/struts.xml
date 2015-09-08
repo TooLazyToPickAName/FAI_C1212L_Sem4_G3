@@ -25,13 +25,13 @@
                         administrator: logout, indexAdmin, ajaxComplaintDetails, ajaxStatusTechnicals, ajaxAssignOrSaveTechnicalsJob,
                         ajaxSummaryComplaintReports, showAdminInformation, displayCreateAccountForm, createAccount, showPendingComplaints,
                         showAllComplaints, showAccounts, showProcessingComplaintsAdmin, showRejectedComplaintsAdmin, showClosedComplaintsAdmin,
-                        changePasswordAdmin, showTechnical, showReportsAdmin;
+                        changePasswordAdmin, showTechnical, showReportsAdmin, ajaxChangePassword, showFormChangePasswordAdmin;
                         
                         technical: logout, indexTechnical, ajaxComplaintDetails, ajaxCloseComplaint, ajaxRejectComplaint, showTechnicalInformation,
-                        showHistoryComplaintsTechnical, showProcessingComplaintsTechnical;
+                        showHistoryComplaintsTechnical, showProcessingComplaintsTechnical, ajaxChangePassword, showFormChangePasswordTechnical;
                         
                         employee: logout, indexEmployee, ajaxComplaintDetails, displayCreateComplaintForm, createComplaint, showEmployeeInformation,
-                        showAllComplaintsByEmployeeId
+                        showAllComplaintsByEmployeeId, ajaxChangePassword, showFormChangePasswordEmployee
                     </param>
                 </interceptor-ref>
             </interceptor-stack>
@@ -102,6 +102,13 @@
             </result>
         </action>
         
+        <action name="ajaxChangePassword" class="com.mantechhelpdesk.action.AjaxChangePassword">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        
         <action name="logout" class="com.mantechhelpdesk.action.LoginAction" method="logout">
             <result name="success">login.jsp</result>
         </action>   
@@ -165,10 +172,6 @@
             <result type="tiles">change_password_admin</result>
         </action>
         
-        <action name="changePasswordAdmin" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
-            <result name="success" type="tiles">change_password_admin</result>
-            <result name="error">error.jsp</result> 
-        </action>
         
         <!-- ================= ADMIN END ===================-->
         
@@ -201,11 +204,6 @@
             <result type="tiles">change_password_employee</result>
         </action>
         
-        <action name="changePasswordEmployee" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
-            <result name="success" type="tiles">change_password_employee</result>
-            <result name="error">error.jsp</result> 
-        </action>
-        
         
         <!-- ================= EMPLOYEE END ===================-->
         
@@ -234,10 +232,6 @@
             <result type="tiles">change_password_technical</result>
         </action>
         
-        <action name="changePasswordTechnical" class="com.mantechhelpdesk.action.ManagerAccountAction" method="changePassword">
-            <result name="success" type="tiles">change_password_technical</result>
-            <result name="error">error.jsp</result> 
-        </action>
         <!-- ================= TECHINICAL END ===================-->
         
     </package>

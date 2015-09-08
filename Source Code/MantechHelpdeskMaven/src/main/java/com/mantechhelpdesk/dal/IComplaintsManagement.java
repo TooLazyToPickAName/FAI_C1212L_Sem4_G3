@@ -34,5 +34,5 @@ public interface IComplaintsManagement {
     List<Complaint> getClosedComplaints();
     List<Complaint> historyComplaintsTechnical(int technicalId);
     List<Complaint> getProcessingComplaintsTechnical(int technicalId);
-    boolean changePassword(String username, String password);
+    boolean changePassword(String username, String oldPassword, String newPassword);
 }

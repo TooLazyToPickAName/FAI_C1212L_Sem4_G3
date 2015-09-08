@@ -19,7 +19,8 @@
         <title>
             <tiles:getAsString name="title"></tiles:getAsString>
             </title>
-
+            <!--toastr-->
+            <link href="assets/toastr-master/toastr.css" rel="stylesheet" type="text/css" />
 
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
