@@ -66,16 +66,12 @@
         <action name="login">
             <result>login.jsp</result>
         </action>
-        <action name="loginProcess" class="com.mantechhelpdesk.action.LoginAction">
-            <result name="administrator" type="redirectAction">indexAdmin</result>
-            <result name="technical" type="redirectAction">indexTechnical</result>
-            <result name="employee" type="redirectAction">indexEmployee</result>
-            <result name="error" type="redirectAction">login</result>
+        <action name="ajaxLogin" class="com.mantechhelpdesk.action.LoginAction">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
         </action>
-        
-        
-        
-        
         
         <action name="logout" class="com.mantechhelpdesk.action.LoginAction" method="logout">
             <result name="success">login.jsp</result>

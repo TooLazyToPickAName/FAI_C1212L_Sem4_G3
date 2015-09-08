@@ -24,6 +24,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
     private String username, userpass;
     SessionMap<String, String> sessionmap;
+    private boolean isLoginSuccess;
+    private String urlReturn;
+
+    public String getUrlReturn() {
+        return urlReturn;
+    }
+
+    public void setUrlReturn(String urlReturn) {
+        this.urlReturn = urlReturn;
+    }
+
+    public boolean isIsLoginSuccess() {
+        return isLoginSuccess;
+    }
+
+    public void setIsLoginSuccess(boolean isLoginSuccess) {
+        this.isLoginSuccess = isLoginSuccess;
+    }
+
 
     public LoginAction() {
     }
@@ -56,12 +75,26 @@ public class LoginAction extends ActionSupport implements SessionAware {
         if (complaintsManagement.login(username, userpass)) {
             user = complaintsManagement.getUserByUsername(username);
             if (user != null) {
+                this.isLoginSuccess = true;
                 session.put("user", user);
-                String roleName = RoleType.getTitle(user.getRoleId());
-                return roleName;
+                switch (user.getRoleId()) {
+                    case RoleType.ADMINISTRATOR:
+                        this.urlReturn = "indexAdmin";
+                        break;
+                    case RoleType.TECHNICAL:
+                        this.urlReturn = "indexTechnical";
+                        break;
+                    case RoleType.EMPLOYEE:
+                        this.urlReturn = "indexEmployee";
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                this.isLoginSuccess = false;
             }
         }
-        return ERROR;
+        return SUCCESS;
     }
 
 //    public String logout(){
