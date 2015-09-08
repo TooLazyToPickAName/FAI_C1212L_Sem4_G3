@@ -5,6 +5,7 @@
  */
 package com.mantechhelpdesk.dal;
 
+import com.mantechhelpdesk.common.RoleType;
 import com.mantechhelpdesk.common.StatusType;
 import com.mantechhelpdesk.entity.Complaint;
 import com.mantechhelpdesk.entity.Technical;
@@ -59,7 +60,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
                     + "		(technical_id)\n"
                     + ") AS core ON core.technical_id = t.id\n"
                     + "WHERE\n"
-                    + "	t.role_id = 2 -- technical's roleId;\n"
+                    + "	t.role_id = " + RoleType.TECHNICAL + "\n"
                     + "ORDER BY numberProgressing ASC";
             rs = cmd.executeQuery(query);
 
@@ -109,7 +110,7 @@ public class DefaultTechnicalComplaintManagement implements ITechnicalComplaintM
                     + "		(technical_id)\n"
                     + ") AS core ON core.technical_id = t.id\n"
                     + "WHERE\n"
-                    + "	t.role_id = 2 -- technical's roleId;\n"
+                    + "	t.role_id = " + RoleType.TECHNICAL + "\n"
                     + "	AND \n"
                     + "	 (t.id LIKE ?  OR t.username LIKE ? OR t.fullname LIKE ? OR t.phone_number LIKE ? OR t.email LIKE ?)\n"
                     + "ORDER BY numberProgressing ASC";

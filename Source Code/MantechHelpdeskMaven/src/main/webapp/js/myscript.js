@@ -188,10 +188,10 @@ var TechnicalsViewModel = function () {
         return false;
     };
 
-    self.fillResults = function () {
+    self.fillResults = function (keyword) {
         $.get(
                 "ajaxStatusTechnicals",
-                {keyword: self.keyword()},
+                {keyword: keyword},
         function (data) {
             var filtered = data.technicals.filter(function (item) {
                 return !self.checkExistInArray(item, self.pickedTechnicals());
@@ -204,8 +204,8 @@ var TechnicalsViewModel = function () {
     };
 
     self.searchTheKeyword = function (elm) {
-        console.log(elm);
-        self.fillResults();
+        var txtKeyword = $("#txtSearchTechnical").val();
+        self.fillResults(txtKeyword);
     };
 
     self.hideResultBox = function () {
