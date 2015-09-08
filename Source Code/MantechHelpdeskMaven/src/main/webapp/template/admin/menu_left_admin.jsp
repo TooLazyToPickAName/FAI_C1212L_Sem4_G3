@@ -24,7 +24,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="showAdminInformation">Personal Information</a></li>
-                    <li><a  href="changePasswordAdmin">Change Password</a></li>
+                    <li><a  href="showFormChangePasswordAdmin">Change Password</a></li>
                 </ul>
             </li>
 

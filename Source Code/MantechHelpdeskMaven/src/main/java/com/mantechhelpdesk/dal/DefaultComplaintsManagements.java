@@ -233,6 +233,30 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
         }
         return check;
     }
+    
+
+    @Override
+    public boolean changePassword(String username, String password) {
+        boolean check = false;
+        try {
+            DataConnection db = new DataConnection();
+            Connection conn = db.getConnection();
+            String str = "UPDATE User u SET u.password= ? WHERE u.username= ?;";
+
+            PreparedStatement ps = conn.prepareStatement(str);
+            ps.setString(1, password);
+            ps.setString(2, username);
+
+            int executeUpdate = ps.executeUpdate();
+            if (executeUpdate > 0) {
+                check = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DefaultComplaintsManagements.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check;
+    }
 
     /**
      * *
@@ -396,13 +420,13 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                     + "inner join complaintstechnicals ct on t.id = ct.technical_id\n"
                     + "inner join complaint c on c.id = ct.complaint_id\n"
                     + "inner join category ca on ca.id = c.category_id\n"
-                    + "where t.role_id = " + RoleType.TECHNICAL + " and t.id = ? and c.status = " + StatusType.CLOSED 
-                    + " or c.status = "+ StatusType.REJECTED;
+                    + "where t.role_id = " + RoleType.TECHNICAL + " and t.id = ? and c.status = " + StatusType.CLOSED
+                    + " or c.status = " + StatusType.REJECTED;
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, technicalId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Complaint obj=new Complaint();
+                Complaint obj = new Complaint();
                 obj.setId(rs.getInt("complaint_id"));
                 obj.setTitle(rs.getString("title"));
                 obj.setCategoryId(rs.getInt("category_id"));
@@ -443,7 +467,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
             ps.setInt(1, technicalId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Complaint obj=new Complaint();
+                Complaint obj = new Complaint();
                 obj.setId(rs.getInt("complaint_id"));
                 obj.setTitle(rs.getString("title"));
                 obj.setCategoryId(rs.getInt("category_id"));
@@ -561,6 +585,7 @@ public class DefaultComplaintsManagements implements IComplaintsManagement {
                 user.setRoleId(rs.getInt("role_id"));
                 user.setDepartmentName(rs.getString("departmentName"));
                 user.setImgAvatar(rs.getString("img_avatar"));
+                user.setPassword(rs.getString("password"));
                 return user;
             }
         } catch (SQLException ex) {

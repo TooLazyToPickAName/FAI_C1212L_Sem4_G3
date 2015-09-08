@@ -3,7 +3,8 @@
     Created on : Sep 7, 2015, 7:59:57 AM
     Author     : tinblanc
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper site-min-height">
@@ -16,18 +17,18 @@
                     </header>
                     <div class="panel-body">
                         <div class="form">
-                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="Post" action="#">
+                            <s:form cssClass="cmxform form-horizontal tasi-form" id="signupForm" method="Post" action="changePasswordTechnical">
 
                                 <div class="form-group ">
                                     <label for="old_password" class="control-label col-lg-2">Old Password</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="old_password" name="old_password" type="password" minlength="2" maxlength="100" required/>
+                                        <input class="form-control " id="old_password" name="oldPassword" type="password" minlength="2" maxlength="100" required/>
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="password" class="control-label col-lg-2">New Password</label>
                                     <div class="col-lg-4">
-                                        <input class="form-control " id="password" name="password" type="password" minlength="2" maxlength="100" required />
+                                        <input class="form-control " id="password" name="newPassword" type="password" minlength="2" maxlength="100" required />
                                     </div>
                                 </div>
                                 <div class="form-group ">
@@ -43,7 +44,7 @@
                                         <button class="btn btn-default" type="button">Cancel</button>
                                     </div>
                                 </div>
-                            </form>
+                            </s:form>
                         </div>
                     </div>
                 </section>
