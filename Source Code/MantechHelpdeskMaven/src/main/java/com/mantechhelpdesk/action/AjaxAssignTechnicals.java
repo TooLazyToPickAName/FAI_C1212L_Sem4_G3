@@ -78,6 +78,9 @@ public class AjaxAssignTechnicals {
 
     private List<Technical> getTechnicalsFromIds() {
         List<Technical> ret = new ArrayList<>();
+        if (strTechnicalsId == null || strTechnicalsId.trim().length() == 0) {
+            return ret;
+        }
         String[] arrId = this.strTechnicalsId.split(",");
         for (String arrId1 : arrId) {
             Technical t = new Technical();
