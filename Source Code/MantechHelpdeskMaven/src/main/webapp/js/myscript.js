@@ -85,24 +85,25 @@ $(document).ready(function () {
         });
     };
 
-
-
     //Toastr!!!!!!!!!!!!!
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
+    if (!typeof (toastr) === undefined) {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    }
+
 
     //Technical Action
     var technicalId = "";
@@ -128,7 +129,7 @@ $(document).ready(function () {
             reloadPage();
         });
         $(this).modal("hide");
-        
+
     });
 
     $('#btnReject').on('click', function () {
@@ -308,4 +309,38 @@ var TechnicalActions = {
                 }
         );
     }
+};
+
+var SummaryComplaintReportsViewModel = function () {
+    var self = this;
+    self.TOTAL;
+    self.PENDING;
+    self.PROGRESSING;
+    self.CLOSED;
+    self.REJECTED;
+
+    self.init = function () {
+        $.get(
+                "ajaxSummaryComplaintReports",
+                {},
+                function (data) {
+                    var reports = data.summaryReports;
+                    self.TOTAL = reports.total;
+                    self.PENDING = reports.countPending;
+                    self.PROGRESSING = reports.countProgressing;
+                    self.CLOSED = reports.countClosed;
+                    self.REJECTED = reports.countRejected;
+                    
+                    self.display();
+                }
+        );
+    };
+
+    self.init();
+    self.display = function () {
+        countUp(self.PENDING);
+        countUp2(self.PROGRESSING);
+        countUp3(self.REJECTED);
+        countUp4(self.CLOSED);
+    };
 };

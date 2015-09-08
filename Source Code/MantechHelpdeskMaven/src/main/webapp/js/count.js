@@ -19,8 +19,6 @@ function countUp(count)
     }, int_speed);
 }
 
-countUp(30);
-
 function countUp2(count)
 {
     var div_by = 100,
@@ -41,8 +39,6 @@ function countUp2(count)
         }
     }, int_speed);
 }
-
-countUp2(46);
 
 function countUp3(count)
 {
@@ -65,8 +61,6 @@ function countUp3(count)
     }, int_speed);
 }
 
-countUp3(28);
-
 function countUp4(count)
 {
     var div_by = 100,
@@ -87,5 +81,3 @@ function countUp4(count)
         }
     }, int_speed);
 }
-
-countUp4(33);

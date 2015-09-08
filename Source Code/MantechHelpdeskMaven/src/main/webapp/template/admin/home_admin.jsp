@@ -64,12 +64,12 @@
                             <i class="fa fa-check"></i>
                         </div>
                     </a>
-                        <div class="value">
-                            <h1 class=" count4">
-                                0
-                            </h1>
-                            <p>Closed</p>
-                        </div>
+                    <div class="value">
+                        <h1 class=" count4">
+                            0
+                        </h1>
+                        <p>Closed</p>
+                    </div>
                 </section>
             </div>
 
@@ -83,7 +83,7 @@
             </header>
             <div class="panel-body">
                 <div class="adv-table editable-table ">
-                    
+
                     <div class="space15"></div>
                     <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
@@ -128,7 +128,7 @@
         </section>
         <!-- show accounts end-->
 
-        
+
         <!-- page end-->
     </section>
 </section>
@@ -138,6 +138,8 @@
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+
+
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
@@ -159,11 +161,20 @@
 <!--script for this page-->
 <script src="js/count.js"></script>
 
+<!--myscript-->
+<script src="js/myscript.js"></script>
+
+<!--knockout-->
+<script src="js/knockout-2.2.0.js"></script>
+
 <script>
     jQuery(document).ready(function () {
         EditableTable.init();
+        var vmReports = new SummaryComplaintReportsViewModel();
+        vmReports.init();
     });
 </script>
+
 
 
 <!--index admin end-->
