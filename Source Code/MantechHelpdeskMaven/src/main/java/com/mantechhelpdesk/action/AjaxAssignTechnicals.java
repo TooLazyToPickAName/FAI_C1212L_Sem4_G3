@@ -21,7 +21,6 @@ import java.util.List;
  */
 public class AjaxAssignTechnicals {
 
-    private List<Technical> technicals;
     private String strTechnicalsId;
 
     public String getStrTechnicalsId() {
@@ -42,14 +41,6 @@ public class AjaxAssignTechnicals {
 
     public void setIsAssignSuccess(boolean isAssignSuccess) {
         this.isAssignSuccess = isAssignSuccess;
-    }
-
-    public List<Technical> getTechnicals() {
-        return technicals;
-    }
-
-    public void setTechnicals(List<Technical> technicals) {
-        this.technicals = technicals;
     }
 
     public int getComplaintId() {

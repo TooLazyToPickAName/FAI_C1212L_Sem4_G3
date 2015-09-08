@@ -378,7 +378,7 @@
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${requestScope.complaints}" var="c" >
-                                            <tr row-id="${c.id}">
+                                            <tr>
                                                 <td>${c.id}</td>
                                                 <td>${c.title}</td>
                                                 <td>${c.description}</td>
@@ -446,10 +446,8 @@
                                 </div>
                             </div>
                             <p>Priority:</p>
-                            <select id="ddlPriority" class="form-control input-sm m-bot15" data-bind="value: priority()">
-                                <option value="2">Low</option>
-                                <option value="1">Normal</option>
-                                <option value="0">High</option>
+                            <select id="ddlPriority" class="form-control input-sm m-bot15" data-bind="options: arrPriority, optionsText: 'priorityName', optionsValue: 'value', value: priority()">
+                                
                             </select>
                         </div>
                         <div class="modal-footer">

@@ -170,6 +170,7 @@ var TechnicalsViewModel = function () {
     self.resultSearchTechnicals = ko.observableArray([]);
     self.keyword = ko.observable();
 
+    self.arrPriority = [{priorityName: 'Low', value : '2'}, {priorityName: 'Normal', value : '1'}, {priorityName: 'High', value : '0'}];
     self.deleteTechnical = function (technical) {
         self.pickedTechnicals.remove(technical);
     };
@@ -238,7 +239,7 @@ var TechnicalsViewModel = function () {
         params = {
             strTechnicalsId: self.convertToStrTechnicalsId(self.pickedTechnicals()),
             complaintId: self.complaintId(),
-            priority: self.priority()
+            priority: $('#ddlPriority').val()
         };
 
         $.get(
